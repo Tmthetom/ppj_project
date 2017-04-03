@@ -1,0 +1,7 @@
+Jednotkové testy do pøíštì
+-> Pøidám uivatele a vypíšu seznam uivatelù
+-> Uivatel vloí obrázek a udìlám vıpis obrázkù
+-> Uivatel zmìní obrázek a udìlám vıpis updated
+-> Uivatel pøidá komentáø a udìlám vıpis komentáøù
+-> Uivatel zmìní komentáø a udìlám vıpis created
+-> Uivatel vloí like/dislike a udìlám vıpis like/disklike

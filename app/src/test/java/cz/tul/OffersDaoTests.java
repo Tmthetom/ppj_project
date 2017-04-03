@@ -3,7 +3,7 @@ package cz.tul;
 import cz.tul.data.Offer;
 import cz.tul.data.OffersDao;
 import cz.tul.data.User2;
-import cz.tul.data.UsersDao;
+import cz.tul.data.Users2Dao;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,7 +29,7 @@ public class OffersDaoTests {
     private OffersDao offersDao;
 
     @Autowired
-    private UsersDao usersDao;
+    private Users2Dao usersDao;
 
 
     @Test

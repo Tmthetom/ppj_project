@@ -1,7 +1,7 @@
 package cz.tul;
 
 import cz.tul.data.User2;
-import cz.tul.data.UsersDao;
+import cz.tul.data.Users2Dao;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,7 +23,7 @@ import static org.junit.Assert.assertTrue;
 public class UsersDaoTests {
 
     @Autowired
-    private UsersDao usersDao;
+    private Users2Dao usersDao;
 
     @Test
     public void testUsers() {
