@@ -1,7 +1,0 @@
-Drop table [ImageRating]
-Drop table [CommentRating]
-Drop table [ImageTag]
-Drop table [Tag]
-Drop table [Comment]
-Drop table [Image]
-Drop table [User]
