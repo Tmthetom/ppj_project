@@ -5,18 +5,18 @@ public class Offer {
 
     private String text;
 
-    private User user;
+    private User2 user;
 
     public Offer() {
 
     }
 
-    public Offer(User user, String text) {
+    public Offer(User2 user, String text) {
         this.user = user;
         this.text = text;
     }
 
-    public Offer(int id, User user, String text) {
+    public Offer(int id, User2 user, String text) {
         this.id = id;
         this.user = user;
         this.text = text;
@@ -38,11 +38,11 @@ public class Offer {
         this.text = text;
     }
 
-    public User getUser() {
+    public User2 getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(User2 user) {
         this.user = user;
     }
 

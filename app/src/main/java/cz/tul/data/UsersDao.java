@@ -14,7 +14,7 @@ public class UsersDao {
     private NamedParameterJdbcOperations jdbc;
 
     @Transactional
-    public boolean create(User user) {
+    public boolean create(User2 user) {
 
         MapSqlParameterSource params = new MapSqlParameterSource();
 
@@ -33,8 +33,8 @@ public class UsersDao {
                 new MapSqlParameterSource("username", username), Integer.class) > 0;
     }
 
-    public List<User> getAllUsers() {
-        return jdbc.query("select * from users", BeanPropertyRowMapper.newInstance(User.class));
+    public List<User2> getAllUsers() {
+        return jdbc.query("select * from users", BeanPropertyRowMapper.newInstance(User2.class));
     }
 
     public void deleteUsers() {

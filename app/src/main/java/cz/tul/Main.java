@@ -1,7 +1,7 @@
 package cz.tul;
 
 import cz.tul.data.OffersDao;
-import cz.tul.data.User;
+import cz.tul.data.User2;
 import cz.tul.data.UsersDao;
 import cz.tul.provisioning.Provisioner;
 import org.springframework.boot.SpringApplication;
@@ -38,7 +38,7 @@ public class Main {
 
         UsersDao usersDao = ctx.getBean(UsersDao.class);
 
-        List<User> users = usersDao.getAllUsers();
+        List<User2> users = usersDao.getAllUsers();
         System.out.println(users);
 
     }

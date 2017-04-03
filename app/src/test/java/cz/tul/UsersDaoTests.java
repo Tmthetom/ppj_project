@@ -1,6 +1,6 @@
 package cz.tul;
 
-import cz.tul.data.User;
+import cz.tul.data.User2;
 import cz.tul.data.UsersDao;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -30,16 +30,16 @@ public class UsersDaoTests {
 
         usersDao.deleteUsers();
 
-        User user = new User("developer", "Petr", "hellothere",
+        User2 user = new User2("developer", "Petr", "hellothere",
                 "petr@seznam.cz", true, "user");
 
-        assertTrue("User creation should return true", usersDao.create(user));
+        assertTrue("User2 creation should return true", usersDao.create(user));
 
-        List<User> users = usersDao.getAllUsers();
+        List<User2> users = usersDao.getAllUsers();
 
         assertEquals("Number of users should be 1.", 1, users.size());
 
-        assertTrue("User should exist.", usersDao.exists(user.getUsername()));
+        assertTrue("User2 should exist.", usersDao.exists(user.getUsername()));
 
         assertEquals("Created user should be identical to retrieved user",
                 user, users.get(0));
