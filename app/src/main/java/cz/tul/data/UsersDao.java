@@ -14,9 +14,11 @@ public class UsersDao {
     private NamedParameterJdbcOperations jdbc;
 
     @Transactional
-    public boolean create(User2 user) {
+    public boolean create(User user) {
 
         MapSqlParameterSource params = new MapSqlParameterSource();
+
+        params.addValue();
 
         params.addValue("username", user.getUsername());
         params.addValue("password", user.getPassword());
