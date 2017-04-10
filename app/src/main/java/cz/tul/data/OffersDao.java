@@ -24,7 +24,7 @@ public class OffersDao {
         return jdbc
                 .query("select * from offers, users where offers.username=users.username and users.enabled=true",
                         (ResultSet rs, int rowNum) -> {
-                            User2 user = new User2();
+                            User user = new User();
                             user.setAuthority(rs.getString("authority"));
                             user.setEmail(rs.getString("email"));
                             user.setEnabled(true);
@@ -46,7 +46,7 @@ public class OffersDao {
         return jdbc
                 .query("select * from offers join users using (username) where users.enabled=true",
                         (ResultSet rs, int rowNum) -> {
-                            User2 user = new User2();
+                            User user = new User();
                             user.setAuthority(rs.getString("authority"));
                             user.setEmail(rs.getString("email"));
                             user.setEnabled(true);
@@ -107,7 +107,7 @@ public class OffersDao {
 
                     public Offer mapRow(ResultSet rs, int rowNum)
                             throws SQLException {
-                        User2 user = new User2();
+                        User user = new User();
                         user.setAuthority(rs.getString("authority"));
                         user.setEmail(rs.getString("email"));
                         user.setEnabled(true);

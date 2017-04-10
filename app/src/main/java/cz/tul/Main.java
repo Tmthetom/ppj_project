@@ -1,8 +1,8 @@
 package cz.tul;
 
 import cz.tul.data.OffersDao;
-import cz.tul.data.User2;
-import cz.tul.data.Users2Dao;
+import cz.tul.data.User;
+import cz.tul.data.UsersDao;
 import cz.tul.provisioning.Provisioner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,8 +21,8 @@ public class Main {
     }
 
     @Bean
-    public Users2Dao usersDao() {
-        return new Users2Dao();
+    public UsersDao usersDao() {
+        return new UsersDao();
     }
 
     @Profile({"devel", "test"})
@@ -36,9 +36,9 @@ public class Main {
         SpringApplication app = new SpringApplication(Main.class);
         ApplicationContext ctx = app.run(args);
 
-        Users2Dao usersDao = ctx.getBean(Users2Dao.class);
+        UsersDao usersDao = ctx.getBean(UsersDao.class);
 
-        List<User2> users = usersDao.getAllUsers();
+        List<User> users = usersDao.getAllUsers();
         System.out.println(users);
 
     }

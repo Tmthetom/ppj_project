@@ -20,7 +20,9 @@ public class Comment {
         this.updated = updated;
     }
 
-    public int getId_comment() { return id_comment; }
+    public int getId_comment() {
+        return id_comment;
+    }
 
     public void setId_comment(int id_comment) {
         this.id_comment = id_comment;

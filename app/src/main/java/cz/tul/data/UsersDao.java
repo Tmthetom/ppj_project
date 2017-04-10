@@ -18,28 +18,27 @@ public class UsersDao {
 
         MapSqlParameterSource params = new MapSqlParameterSource();
 
-        params.addValue();
+        params.addValue("id_user", user.getId_user());
         params.addValue("username", user.getUsername());
-        params.addValue("password", user.getPassword());
-        params.addValue("email", user.getEmail());
-        params.addValue("name", user.getName());
-        params.addValue("enabled", user.isEnabled());
-        params.addValue("authority", user.getAuthority());
+        params.addValue("registered", user.getRegistered());
 
-        return jdbc.update("insert into users (username, name, password, email, enabled, authority) values (:username, :name, :password, :email, :enabled, :authority)", params) == 1;
+        return jdbc.update("INSERT INTO User (id_user, username, registered) VALUES (:id_user, :username, :registered)", params) == 1;
     }
 
-    public boolean exists(String username) {
-        return jdbc.queryForObject("select count(*) from users where username=:username",
-                new MapSqlParameterSource("username", username), Integer.class) > 0;
+    public boolean exists(int id_user) {
+        return jdbc.queryForObject("SELECT COUNT(*) FROM User WHERE id_user=:id_user",
+                new MapSqlParameterSource("id_user", id_user), Integer.class) > 0;
     }
 
-    public List<User2> getAllUsers() {
-        return jdbc.query("select * from users", BeanPropertyRowMapper.newInstance(User2.class));
+    public List<User> getAllUsers() {
+        return jdbc.query("SELECT * FROM User", BeanPropertyRowMapper.newInstance(User.class));
     }
 
-    public void deleteUsers() {
-        jdbc.getJdbcOperations().execute("DELETE FROM OFFERS");
-        jdbc.getJdbcOperations().execute("DELETE FROM USERS");
+    public void deleteUser() {
+        jdbc.getJdbcOperations().execute("DELETE FROM Image_Rating");
+        jdbc.getJdbcOperations().execute("DELETE FROM Image");
+        jdbc.getJdbcOperations().execute("DELETE FROM Comment_Rating");
+        jdbc.getJdbcOperations().execute("DELETE FROM Comment");
+        jdbc.getJdbcOperations().execute("DELETE FROM User");
     }
 }

@@ -2,8 +2,8 @@ package cz.tul;
 
 import cz.tul.data.Offer;
 import cz.tul.data.OffersDao;
-import cz.tul.data.User2;
-import cz.tul.data.Users2Dao;
+import cz.tul.data.User;
+import cz.tul.data.UsersDao;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,7 +29,7 @@ public class OffersDaoTests {
     private OffersDao offersDao;
 
     @Autowired
-    private Users2Dao usersDao;
+    private UsersDao usersDao;
 
 
     @Test
@@ -37,10 +37,10 @@ public class OffersDaoTests {
 
         //usersDao.deleteUsers();
 
-        User2 user = new User2("developer", "Petr", "hellothere",
+        User user = new User("developer", "Petr", "hellothere",
                 "petr@seznam.cz", true, "user");
 
-        assertTrue("User2 creation should return true", usersDao.create(user));
+        assertTrue("User creation should return true", usersDao.create(user));
 
         Offer offer = new Offer(user, "This is a test offer.");
 
@@ -80,7 +80,7 @@ public class OffersDaoTests {
     @Test
     public void Test4_getOfferById() {
 
-        List<User2> users = usersDao.getAllUsers();
+        List<User> users = usersDao.getAllUsers();
 
         // Test get by ID ///////
         Offer offer2 = new Offer(users.get(0), "This is a test offer.");

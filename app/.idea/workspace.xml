@@ -2,7 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="826e1f63-b0bf-42b2-9eee-d6f95935e908" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/Users2Dao.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/Comment_RatingsDao.java" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/data/Comment_RatingDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/Image_RatingsDao.java" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/data/Image_RatingDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/Image_TagsDao.java" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/data/Image_TagDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/ImagesDao.java" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/data/ImageDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/User2.java" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/data/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out.log" afterPath="$PROJECT_DIR$/out.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cz/tul/Main.java" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/Comment.java" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/data/Comment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/CommentsDao.java" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/data/CommentsDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/Offer.java" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/data/Offer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/OffersDao.java" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/data/OffersDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/TagsDao.java" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/data/TagsDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDao.java" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/cz/tul/OffersDaoTests.java" afterPath="$PROJECT_DIR$/src/test/java/cz/tul/OffersDaoTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/cz/tul/UsersDaoTests.java" afterPath="$PROJECT_DIR$/src/test/java/cz/tul/UsersDaoTests.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,41 +42,39 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/User.java">
+      <file leaf-file-name="ImageDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/ImageDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UsersDao.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="21" column="56" lean-forward="true" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
+            <state relative-caret-position="488">
+              <caret line="53" column="25" lean-forward="false" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
               <folding>
-                <marker date="1491831352995" expanded="true" signature="983:1121" ph="insert into users... " />
-                <marker date="1491831352995" expanded="true" signature="1226:1277" ph="select count... users" />
-                <marker date="1491831352995" expanded="true" signature="1590:1608" ph="DELETE FROM " />
-                <marker date="1491831352995" expanded="true" signature="1654:1671" ph="DELETE FROM " />
+                <element signature="imports" expanded="true" />
+                <marker date="1491837428212" expanded="true" signature="960:1115" ph="INSERT INTO Image... " />
+                <marker date="1491837428212" expanded="true" signature="1217:1268" ph="SELECT COUNT... Image" />
+                <marker date="1491837428212" expanded="true" signature="1977:2119" ph="UPDATE Image... " />
+                <marker date="1491837428212" expanded="true" signature="2215:2236" ph="DELETE FROM " />
+                <marker date="1491837428212" expanded="true" signature="2282:2294" ph="DELETE FROM " />
+                <marker date="1491837428212" expanded="true" signature="2282:2297" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Users2Dao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Users2Dao.java">
+      <file leaf-file-name="CommentsDao.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/CommentsDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="488">
+              <caret line="54" column="33" lean-forward="true" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
               <folding>
-                <marker date="1491231737659" expanded="true" signature="958:1096" ph="insert into users... " />
-                <marker date="1491231737659" expanded="true" signature="1201:1252" ph="select count... users" />
-                <marker date="1491231737659" expanded="true" signature="1565:1583" ph="DELETE FROM " />
-                <marker date="1491231737659" expanded="true" signature="1629:1646" ph="DELETE FROM " />
+                <element signature="imports" expanded="true" />
+                <marker date="1491837438164" expanded="true" signature="998:1173" ph="INSERT INTO Comment... " />
+                <marker date="1491837438164" expanded="true" signature="1004:1083" ph="insert into Comment... " />
+                <marker date="1491837438164" expanded="true" signature="1004:1163" ph="insert into Comment... " />
+                <marker date="1491837438164" expanded="true" signature="1004:1173" ph="insert into Comment... " />
+                <marker date="1491837438164" expanded="true" signature="1277:1334" ph="SELECT COUNT... Comment" />
+                <marker date="1491837438164" expanded="true" signature="2084:2250" ph="UPDATE Comme... " />
+                <marker date="1491837438164" expanded="true" signature="2350:2376" ph="DELETE FROM " />
+                <marker date="1491837438164" expanded="true" signature="2422:2441" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -94,15 +108,18 @@
         <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/Tag.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/Image_Tag.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/Users2Dao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/Comment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/TagsDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/CommentsDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/Comment_RatingsDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/ImagesDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/Image_RatingsDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/Image_TagsDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/UserBACKUP.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/OffersDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/Comment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/TagsDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/ImageDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/CommentsDao.java" />
       </list>
     </option>
   </component>
@@ -136,9 +153,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -280,7 +297,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/ppj2017_projekt-master" />
+    <property name="last_opened_file_path" value="E:/School/4. Ročník/Letní semestr/Pokročilé programování na platformě Java/Ostatní/ppj2017_projekt-master" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -704,12 +721,14 @@
       <option name="presentableId" value="Default" />
       <updated>1491229741000</updated>
       <workItem from="1491229964877" duration="2127000" />
-      <workItem from="1491808370984" duration="6606000" />
+      <workItem from="1491808370984" duration="7036000" />
+      <workItem from="1491832496301" duration="1838000" />
+      <workItem from="1491835073354" duration="2303000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8733000" />
+    <option name="totallyTimeSpent" value="13304000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -723,28 +742,28 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33378747" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11503856" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21786633" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -754,7 +773,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -762,7 +783,79 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/User2.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491836531505" expanded="true" signature="802:892" ph="INSERT INTO User... " />
+            <marker date="1491836531505" expanded="true" signature="808:892" ph="insert into User... " />
+            <marker date="1491836531505" expanded="true" signature="993:1041" ph="SELECT COUNT... User" />
+            <marker date="1491836531505" expanded="true" signature="999:1041" ph="select count... User" />
+            <marker date="1491836531505" expanded="true" signature="1348:1360" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1348:1372" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1418:1435" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1481:1493" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1481:1507" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1553:1572" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1618:1634" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="15" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/OffersDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding>
+            <marker date="1491836790433" expanded="true" signature="2499:2540" ph="update offer... " />
+            <marker date="1491836790433" expanded="true" signature="2760:2821" ph="insert into offers... " />
+            <marker date="1491836790433" expanded="true" signature="3096:3157" ph="insert into offers... " />
+            <marker date="1491836790433" expanded="true" signature="3317:3348" ph="delete from " />
+            <marker date="1491836790433" expanded="true" signature="3549:3648" ph="select * fro... offers" />
+            <marker date="1491836790433" expanded="true" signature="4549:4567" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/UserBACKUP.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDaoBACKUP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <marker date="1491836531505" expanded="true" signature="802:892" ph="INSERT INTO User... " />
+            <marker date="1491836531505" expanded="true" signature="808:892" ph="insert into User... " />
+            <marker date="1491836531505" expanded="true" signature="993:1041" ph="SELECT COUNT... User" />
+            <marker date="1491836531505" expanded="true" signature="999:1041" ph="select count... User" />
+            <marker date="1491836531505" expanded="true" signature="1348:1360" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1348:1372" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1418:1435" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1481:1493" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1481:1507" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1553:1572" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1618:1634" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
@@ -770,37 +863,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Users2Dao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/UserBACKUP.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
           <folding>
-            <marker date="1491231737659" expanded="true" signature="958:1096" ph="insert into users... " />
-            <marker date="1491231737659" expanded="true" signature="1201:1252" ph="select count... users" />
-            <marker date="1491231737659" expanded="true" signature="1565:1583" ph="DELETE FROM " />
-            <marker date="1491231737659" expanded="true" signature="1629:1646" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="802:892" ph="INSERT INTO User... " />
+            <marker date="1491836531505" expanded="true" signature="808:892" ph="insert into User... " />
+            <marker date="1491836531505" expanded="true" signature="993:1041" ph="SELECT COUNT... User" />
+            <marker date="1491836531505" expanded="true" signature="999:1041" ph="select count... User" />
+            <marker date="1491836531505" expanded="true" signature="1348:1360" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1348:1372" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1418:1435" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1481:1493" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1481:1507" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1553:1572" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1618:1634" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDaoBACKUP.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1491831352995" expanded="true" signature="983:1121" ph="insert into users... " />
-            <marker date="1491831352995" expanded="true" signature="1226:1277" ph="select count... users" />
-            <marker date="1491831352995" expanded="true" signature="1590:1608" ph="DELETE FROM " />
-            <marker date="1491831352995" expanded="true" signature="1654:1671" ph="DELETE FROM " />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -809,12 +897,12 @@
         <state relative-caret-position="153">
           <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding>
-            <marker date="1491230441137" expanded="true" signature="2503:2544" ph="update offer... " />
-            <marker date="1491230441137" expanded="true" signature="2764:2825" ph="insert into offers... " />
-            <marker date="1491230441137" expanded="true" signature="3100:3161" ph="insert into offers... " />
-            <marker date="1491230441137" expanded="true" signature="3321:3352" ph="delete from " />
-            <marker date="1491230441137" expanded="true" signature="3553:3652" ph="select * fro... offers" />
-            <marker date="1491230441137" expanded="true" signature="4555:4573" ph="DELETE FROM " />
+            <marker date="1491836790433" expanded="true" signature="2499:2540" ph="update offer... " />
+            <marker date="1491836790433" expanded="true" signature="2760:2821" ph="insert into offers... " />
+            <marker date="1491836790433" expanded="true" signature="3096:3157" ph="insert into offers... " />
+            <marker date="1491836790433" expanded="true" signature="3317:3348" ph="delete from " />
+            <marker date="1491836790433" expanded="true" signature="3549:3648" ph="select * fro... offers" />
+            <marker date="1491836790433" expanded="true" signature="4549:4567" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -824,22 +912,22 @@
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding>
-            <element signature="e#403#404#0" expanded="false" />
-            <element signature="e#428#429#0" expanded="false" />
-            <element signature="e#461#462#0" expanded="false" />
-            <element signature="e#489#490#0" expanded="false" />
-            <element signature="e#520#521#0" expanded="false" />
-            <element signature="e#547#548#0" expanded="false" />
-            <element signature="e#587#588#0" expanded="false" />
-            <element signature="e#619#620#0" expanded="false" />
-            <element signature="e#649#650#0" expanded="false" />
-            <element signature="e#676#677#0" expanded="false" />
-            <element signature="e#715#716#0" expanded="false" />
-            <element signature="e#747#748#0" expanded="false" />
-            <element signature="e#782#783#0" expanded="false" />
-            <element signature="e#823#824#0" expanded="false" />
-            <element signature="e#1759#1760#0" expanded="false" />
-            <element signature="e#1843#1844#0" expanded="false" />
+            <element signature="e#400#401#0" expanded="false" />
+            <element signature="e#425#426#0" expanded="false" />
+            <element signature="e#458#459#0" expanded="false" />
+            <element signature="e#486#487#0" expanded="false" />
+            <element signature="e#517#518#0" expanded="false" />
+            <element signature="e#544#545#0" expanded="false" />
+            <element signature="e#584#585#0" expanded="false" />
+            <element signature="e#616#617#0" expanded="false" />
+            <element signature="e#645#646#0" expanded="false" />
+            <element signature="e#672#673#0" expanded="false" />
+            <element signature="e#710#711#0" expanded="false" />
+            <element signature="e#742#743#0" expanded="false" />
+            <element signature="e#777#778#0" expanded="false" />
+            <element signature="e#818#819#0" expanded="false" />
+            <element signature="e#1754#1755#0" expanded="false" />
+            <element signature="e#1838#1839#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -870,16 +958,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="34" lean-forward="false" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Image.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-          <folding>
-            <element signature="e#579#580#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -920,21 +998,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Tag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="e#96#97#0" expanded="false" />
-            <element signature="e#128#129#0" expanded="false" />
-            <element signature="e#159#160#0" expanded="false" />
-            <element signature="e#186#187#0" expanded="false" />
-            <element signature="e#226#227#0" expanded="false" />
-            <element signature="e#258#259#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Comment_Rating.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -943,140 +1006,169 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Comment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Image_RatingDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Image_TagDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Comment_RatingDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDaoBACKUP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/UserBACKUP.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Offer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding>
-            <element signature="e#403#404#0" expanded="false" />
-            <element signature="e#428#429#0" expanded="false" />
-            <element signature="e#461#462#0" expanded="false" />
-            <element signature="e#489#490#0" expanded="false" />
-            <element signature="e#520#521#0" expanded="false" />
-            <element signature="e#547#548#0" expanded="false" />
-            <element signature="e#587#588#0" expanded="false" />
-            <element signature="e#619#620#0" expanded="false" />
-            <element signature="e#649#650#0" expanded="false" />
-            <element signature="e#676#677#0" expanded="false" />
-            <element signature="e#715#716#0" expanded="false" />
-            <element signature="e#747#748#0" expanded="false" />
-            <element signature="e#782#783#0" expanded="false" />
-            <element signature="e#823#824#0" expanded="false" />
-            <element signature="e#1759#1760#0" expanded="false" />
-            <element signature="e#1843#1844#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/OffersDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="680">
+          <caret line="47" column="55" lean-forward="true" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="55" />
           <folding>
-            <marker date="1491230441137" expanded="true" signature="2503:2544" ph="update offer... " />
-            <marker date="1491230441137" expanded="true" signature="2764:2825" ph="insert into offers... " />
-            <marker date="1491230441137" expanded="true" signature="3100:3161" ph="insert into offers... " />
-            <marker date="1491230441137" expanded="true" signature="3321:3352" ph="delete from " />
-            <marker date="1491230441137" expanded="true" signature="3553:3652" ph="select * fro... offers" />
-            <marker date="1491230441137" expanded="true" signature="4555:4573" ph="DELETE FROM " />
+            <marker date="1491836790433" expanded="true" signature="2499:2540" ph="update offer... " />
+            <marker date="1491836790433" expanded="true" signature="2760:2821" ph="insert into offers... " />
+            <marker date="1491836790433" expanded="true" signature="3096:3157" ph="insert into offers... " />
+            <marker date="1491836790433" expanded="true" signature="3317:3348" ph="delete from " />
+            <marker date="1491836790433" expanded="true" signature="3549:3648" ph="select * fro... offers" />
+            <marker date="1491836790433" expanded="true" signature="4549:4567" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Image_RatingsDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Image.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Image_TagsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Comment_RatingsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/ImagesDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/CommentsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/TagsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/User2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Users2Dao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="153">
+          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="23" />
           <folding>
-            <marker date="1491231737659" expanded="true" signature="958:1096" ph="insert into users... " />
-            <marker date="1491231737659" expanded="true" signature="1201:1252" ph="select count... users" />
-            <marker date="1491231737659" expanded="true" signature="1565:1583" ph="DELETE FROM " />
-            <marker date="1491231737659" expanded="true" signature="1629:1646" ph="DELETE FROM " />
+            <element signature="e#548#549#0" expanded="true" />
+            <element signature="e#579#580#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Comment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="56" lean-forward="true" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
+        <state relative-caret-position="357">
+          <caret line="28" column="67" lean-forward="false" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
           <folding>
-            <marker date="1491831352995" expanded="true" signature="983:1121" ph="insert into users... " />
-            <marker date="1491831352995" expanded="true" signature="1226:1277" ph="select count... users" />
-            <marker date="1491831352995" expanded="true" signature="1590:1608" ph="DELETE FROM " />
-            <marker date="1491831352995" expanded="true" signature="1654:1671" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="802:892" ph="INSERT INTO User... " />
+            <marker date="1491836531505" expanded="true" signature="808:892" ph="insert into User... " />
+            <marker date="1491836531505" expanded="true" signature="993:1041" ph="SELECT COUNT... User" />
+            <marker date="1491836531505" expanded="true" signature="999:1041" ph="select count... User" />
+            <marker date="1491836531505" expanded="true" signature="1348:1360" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1348:1372" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1418:1435" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1481:1493" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1481:1507" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1553:1572" ph="DELETE FROM " />
+            <marker date="1491836531505" expanded="true" signature="1618:1634" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/TagsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1491837387102" expanded="true" signature="673:731" ph="INSERT INTO Tag... " />
+            <marker date="1491837387102" expanded="true" signature="832:873" ph="SELECT COUNT... Tag" />
+            <marker date="1491837387102" expanded="true" signature="1172:1191" ph="DELETE FROM " />
+            <marker date="1491837387102" expanded="true" signature="1237:1261" ph="DELETE FROM " />
+            <marker date="1491837387102" expanded="true" signature="1307:1328" ph="DELETE FROM " />
+            <marker date="1491837387102" expanded="true" signature="1374:1391" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/Tag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#96#97#0" expanded="true" />
+            <element signature="e#128#129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <element signature="e#355#356#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/ImageDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="53" column="25" lean-forward="false" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1491837428212" expanded="true" signature="960:1115" ph="INSERT INTO Image... " />
+            <marker date="1491837428212" expanded="true" signature="1217:1268" ph="SELECT COUNT... Image" />
+            <marker date="1491837428212" expanded="true" signature="1977:2119" ph="UPDATE Image... " />
+            <marker date="1491837428212" expanded="true" signature="2215:2236" ph="DELETE FROM " />
+            <marker date="1491837428212" expanded="true" signature="2282:2294" ph="DELETE FROM " />
+            <marker date="1491837428212" expanded="true" signature="2282:2297" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/CommentsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="54" column="33" lean-forward="true" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1491837438164" expanded="true" signature="998:1173" ph="INSERT INTO Comment... " />
+            <marker date="1491837438164" expanded="true" signature="1004:1083" ph="insert into Comment... " />
+            <marker date="1491837438164" expanded="true" signature="1004:1163" ph="insert into Comment... " />
+            <marker date="1491837438164" expanded="true" signature="1004:1173" ph="insert into Comment... " />
+            <marker date="1491837438164" expanded="true" signature="1277:1334" ph="SELECT COUNT... Comment" />
+            <marker date="1491837438164" expanded="true" signature="2084:2250" ph="UPDATE Comme... " />
+            <marker date="1491837438164" expanded="true" signature="2350:2376" ph="DELETE FROM " />
+            <marker date="1491837438164" expanded="true" signature="2422:2441" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
