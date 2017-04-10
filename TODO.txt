@@ -10,8 +10,18 @@ Jednotkové testy k DAO
  -> Uživatel pøidá komentáø a udìlám výpis komentáøù
  -> Uživatel zmìní komentáø a udìlám výpis created
  -> Uživatel vloží like/dislike a udìlám výpis like/disklike
+ 
+Ukázková aplikace è. 2 - Konfigurace Hibernate
+
+ -> Z toho vzít testy a implementace DAO (Criteria API)
 
 Mapování relaèních tabulek
 
- -> Namapovat všechny tabulky pøes Hibernate nebo Spring repozitáø
+ -> Namapovat všechny tabulky pøes modul Spring Hibernate
  -> Mapovat pøes Anotace
+ 
+Výsledný projekt bude fungovat na Spring Repository
+
+ -> Nyní udìlat novou vìtev aplikace pro SQL dotazy
+ -> Další vetec pro Criteria API
+ -> Main vìtev pojede do finálního projektu

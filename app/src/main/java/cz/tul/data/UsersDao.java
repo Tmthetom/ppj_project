@@ -19,7 +19,6 @@ public class UsersDao {
         MapSqlParameterSource params = new MapSqlParameterSource();
 
         params.addValue();
-
         params.addValue("username", user.getUsername());
         params.addValue("password", user.getPassword());
         params.addValue("email", user.getEmail());

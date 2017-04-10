@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="826e1f63-b0bf-42b2-9eee-d6f95935e908" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDao.java" afterPath="$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDao.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,13 +39,13 @@
       <file leaf-file-name="UsersDao.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+            <state relative-caret-position="255">
+              <caret line="21" column="56" lean-forward="true" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
               <folding>
-                <marker date="1491809809059" expanded="true" signature="984:1122" ph="insert into users... " />
-                <marker date="1491809809059" expanded="true" signature="1227:1278" ph="select count... users" />
-                <marker date="1491809809059" expanded="true" signature="1591:1609" ph="DELETE FROM " />
-                <marker date="1491809809059" expanded="true" signature="1655:1672" ph="DELETE FROM " />
+                <marker date="1491831352995" expanded="true" signature="983:1121" ph="insert into users... " />
+                <marker date="1491831352995" expanded="true" signature="1226:1277" ph="select count... users" />
+                <marker date="1491831352995" expanded="true" signature="1590:1608" ph="DELETE FROM " />
+                <marker date="1491831352995" expanded="true" signature="1654:1671" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -102,8 +101,8 @@
         <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/ImagesDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/Image_RatingsDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/Image_TagsDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDao.java" />
       </list>
     </option>
   </component>
@@ -705,12 +704,12 @@
       <option name="presentableId" value="Default" />
       <updated>1491229741000</updated>
       <workItem from="1491229964877" duration="2127000" />
-      <workItem from="1491808370984" duration="4537000" />
+      <workItem from="1491808370984" duration="6606000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6664000" />
+    <option name="totallyTimeSpent" value="8733000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -797,10 +796,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1491809809059" expanded="true" signature="984:1122" ph="insert into users... " />
-            <marker date="1491809809059" expanded="true" signature="1227:1278" ph="select count... users" />
-            <marker date="1491809809059" expanded="true" signature="1591:1609" ph="DELETE FROM " />
-            <marker date="1491809809059" expanded="true" signature="1655:1672" ph="DELETE FROM " />
+            <marker date="1491831352995" expanded="true" signature="983:1121" ph="insert into users... " />
+            <marker date="1491831352995" expanded="true" signature="1226:1277" ph="select count... users" />
+            <marker date="1491831352995" expanded="true" signature="1590:1608" ph="DELETE FROM " />
+            <marker date="1491831352995" expanded="true" signature="1654:1671" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -1071,13 +1070,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/tul/data/UsersDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+        <state relative-caret-position="255">
+          <caret line="21" column="56" lean-forward="true" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
           <folding>
-            <marker date="1491809809059" expanded="true" signature="984:1122" ph="insert into users... " />
-            <marker date="1491809809059" expanded="true" signature="1227:1278" ph="select count... users" />
-            <marker date="1491809809059" expanded="true" signature="1591:1609" ph="DELETE FROM " />
-            <marker date="1491809809059" expanded="true" signature="1655:1672" ph="DELETE FROM " />
+            <marker date="1491831352995" expanded="true" signature="983:1121" ph="insert into users... " />
+            <marker date="1491831352995" expanded="true" signature="1226:1277" ph="select count... users" />
+            <marker date="1491831352995" expanded="true" signature="1590:1608" ph="DELETE FROM " />
+            <marker date="1491831352995" expanded="true" signature="1654:1671" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
