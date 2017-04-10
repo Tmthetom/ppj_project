@@ -1,13 +1,17 @@
 DAO
 
--> DAO tøídy, které implementují SQL dotazy k databázovému modelu
+ -> DAO tøídy, které implementují SQL dotazy k databázovému modelu
 
 Jednotkové testy k DAO
 
--> Pøidám uživatele a vypíšu seznam uživatelù
--> Uživatel vloží obrázek a udìlám výpis obrázkù
--> Uživatel zmìní obrázek a udìlám výpis updated
--> Uživatel pøidá komentáø a udìlám výpis komentáøù
--> Uživatel zmìní komentáø a udìlám výpis created
--> Uživatel vloží like/dislike a udìlám výpis like/disklike
+ -> Pøidám uživatele a vypíšu seznam uživatelù
+ -> Uživatel vloží obrázek a udìlám výpis obrázkù
+ -> Uživatel zmìní obrázek a udìlám výpis updated
+ -> Uživatel pøidá komentáø a udìlám výpis komentáøù
+ -> Uživatel zmìní komentáø a udìlám výpis created
+ -> Uživatel vloží like/dislike a udìlám výpis like/disklike
 
+Mapování relaèních tabulek
+
+ -> Namapovat všechny tabulky pøes Hibernate nebo Spring repozitáø
+ -> Mapovat pøes Anotace
