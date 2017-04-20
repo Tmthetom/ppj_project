@@ -51,8 +51,10 @@ public class ImageDao {
         return jdbc.update("UPDATE Image SET id_image=:id_image, id_author=:id_author, name=:name, path=:path, created=:created, updated=:updated where id_image=:id_image", params) == 1;
     }
 
-    public void deleteTag() {
+    public void deleteImage() {
+        jdbc.getJdbcOperations().execute("DELETE FROM Comment");
         jdbc.getJdbcOperations().execute("DELETE FROM Image_Tag");
-        jdbc.getJdbcOperations().execute("DELETE FROM Tag");
+        jdbc.getJdbcOperations().execute("DELETE FROM Image_Rating");
+        jdbc.getJdbcOperations().execute("DELETE FROM Image");
     }
 }

@@ -32,10 +32,8 @@ public class TagsDao {
         return jdbc.query("SELECT * FROM Tag", BeanPropertyRowMapper.newInstance(User.class));
     }
 
-    public void deleteUser() {
-        jdbc.getJdbcOperations().execute("DELETE FROM Comment");
-        jdbc.getJdbcOperations().execute("DELETE FROM Image_Rating");
+    public void deleteTag() {
         jdbc.getJdbcOperations().execute("DELETE FROM Image_Tag");
-        jdbc.getJdbcOperations().execute("DELETE FROM Image");
+        jdbc.getJdbcOperations().execute("DELETE FROM Tag");
     }
 }

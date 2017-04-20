@@ -49,7 +49,7 @@ public class CommentsDao {
         params.addValue("created", comment.getCreated());
         params.addValue("updated", comment.getUpdated());
 
-        return jdbc.update("UPDATE Comment SET id_comment=:id_comment, id_image=:id_image, id_author=:id_author, message=:message, created=:created, updated=:updated where id_comment=:id_comment", params) == 1;
+        return jdbc.update("UPDATE Comment SET id_comment=:id_comment, id_image=:id_image, id_author=:id_author, message=:message, created=:created, updated=:updated WHERE id_comment=:id_comment", params) == 1;
     }
 
     public void deleteComment() {

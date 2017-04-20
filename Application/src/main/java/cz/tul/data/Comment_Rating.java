@@ -28,7 +28,7 @@ public class Comment_Rating {
         this.id_user = id_user;
     }
 
-    public boolean isRating() {
+    public boolean getRating() {
         return rating;
     }
 
