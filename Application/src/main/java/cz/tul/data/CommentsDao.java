@@ -15,9 +15,7 @@ public class CommentsDao {
 
     @Transactional
     public boolean create(Comment comment) {
-
         MapSqlParameterSource params = new MapSqlParameterSource();
-
         params.addValue("id_comment", comment.getId_comment());
         params.addValue("id_image", comment.getId_image());
         params.addValue("id_author", comment.getId_author());
@@ -39,9 +37,7 @@ public class CommentsDao {
     }
 
     public boolean update(Comment comment) {
-
         MapSqlParameterSource params = new MapSqlParameterSource();
-
         params.addValue("id_comment", comment.getId_comment());
         params.addValue("id_image", comment.getId_image());
         params.addValue("id_author", comment.getId_author());
@@ -52,7 +48,7 @@ public class CommentsDao {
         return jdbc.update("UPDATE Comment SET id_comment=:id_comment, id_image=:id_image, id_author=:id_author, message=:message, created=:created, updated=:updated WHERE id_comment=:id_comment", params) == 1;
     }
 
-    public void deleteComment() {
+    public void deleteComments() {
         jdbc.getJdbcOperations().execute("DELETE FROM Comment_Rating");
         jdbc.getJdbcOperations().execute("DELETE FROM Comment");
     }

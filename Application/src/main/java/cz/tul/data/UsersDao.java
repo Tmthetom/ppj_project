@@ -15,9 +15,7 @@ public class UsersDao {
 
     @Transactional
     public boolean create(User user) {
-
         MapSqlParameterSource params = new MapSqlParameterSource();
-
         params.addValue("id_user", user.getId_user());
         params.addValue("username", user.getUsername());
         params.addValue("registered", user.getRegistered());
@@ -34,7 +32,7 @@ public class UsersDao {
         return jdbc.query("SELECT * FROM User", BeanPropertyRowMapper.newInstance(User.class));
     }
 
-    public void deleteUser() {
+    public void deleteUsers() {
         jdbc.getJdbcOperations().execute("DELETE FROM Image_Rating");
         jdbc.getJdbcOperations().execute("DELETE FROM Image");
         jdbc.getJdbcOperations().execute("DELETE FROM Comment_Rating");

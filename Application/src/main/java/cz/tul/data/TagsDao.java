@@ -14,9 +14,7 @@ public class TagsDao {
 
     @Transactional
     public boolean create(Tag tag) {
-
         MapSqlParameterSource params = new MapSqlParameterSource();
-
         params.addValue("name", tag.getName());
 
         return jdbc.update("INSERT INTO Tag (name) " +

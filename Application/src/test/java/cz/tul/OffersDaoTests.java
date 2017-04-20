@@ -1,7 +1,5 @@
 package cz.tul;
 
-import cz.tul.data.Offer;
-import cz.tul.data.OffersDao;
 import cz.tul.data.User;
 import cz.tul.data.UsersDao;
 import org.junit.FixMethodOrder;

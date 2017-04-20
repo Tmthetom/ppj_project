@@ -15,9 +15,7 @@ public class Image_RatingDao {
 
     @Transactional
     public boolean create(Image_Rating rating) {
-
         MapSqlParameterSource params = new MapSqlParameterSource();
-
         params.addValue("id_image", rating.getId_image());
         params.addValue("id_user", rating.getId_user());
         params.addValue("rating", rating.getRating());
@@ -26,9 +24,13 @@ public class Image_RatingDao {
                 "VALUES (:id_image, :id_user, :rating)", params) == 1;
     }
 
-    public boolean exists(int id_image) {
-        return jdbc.queryForObject("SELECT COUNT(*) FROM Image_Rating WHERE id_image=:id_image",
-                new MapSqlParameterSource("id_image", id_image), Integer.class) > 0;
+    public boolean exists(int id_image, int id_user) {
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("id_image", id_image);
+        params.addValue("id_user", id_user);
+
+        return jdbc.queryForObject("SELECT COUNT(*) FROM Image_Rating WHERE id_image=:id_image AND id_user=:id_user",
+                params, Integer.class) > 0;
     }
 
     public List<User> getAllImageRatings() {
@@ -36,9 +38,7 @@ public class Image_RatingDao {
     }
 
     public boolean update(Image_Rating rating) {
-
         MapSqlParameterSource params = new MapSqlParameterSource();
-
         params.addValue("id_image", rating.getId_image());
         params.addValue("id_user", rating.getId_user());
         params.addValue("rating", rating.getRating());
@@ -46,7 +46,7 @@ public class Image_RatingDao {
         return jdbc.update("UPDATE Image_Rating SET id_image=:id_image, id_user=:id_user, rating=:rating where id_image=:id_image", params) == 1;
     }
 
-    public void deleteImageRating() {
+    public void deleteImageRatings() {
         jdbc.getJdbcOperations().execute("DELETE FROM Image_Rating");
     }
 }

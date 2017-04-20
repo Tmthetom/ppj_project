@@ -14,9 +14,7 @@ public class ImageDao {
 
     @Transactional
     public boolean create(Image image) {
-
         MapSqlParameterSource params = new MapSqlParameterSource();
-
         params.addValue("id_image", image.getId_image());
         params.addValue("id_author", image.getId_author());
         params.addValue("name", image.getName());
@@ -38,10 +36,7 @@ public class ImageDao {
     }
 
     public boolean update(Image image) {
-
         MapSqlParameterSource params = new MapSqlParameterSource();
-
-        params.addValue("id_image", image.getId_image());
         params.addValue("id_author", image.getId_author());
         params.addValue("name", image.getName());
         params.addValue("path", image.getPath());
@@ -51,7 +46,7 @@ public class ImageDao {
         return jdbc.update("UPDATE Image SET id_image=:id_image, id_author=:id_author, name=:name, path=:path, created=:created, updated=:updated where id_image=:id_image", params) == 1;
     }
 
-    public void deleteImage() {
+    public void deleteImages() {
         jdbc.getJdbcOperations().execute("DELETE FROM Comment");
         jdbc.getJdbcOperations().execute("DELETE FROM Image_Tag");
         jdbc.getJdbcOperations().execute("DELETE FROM Image_Rating");

@@ -1,6 +1,5 @@
 package cz.tul;
 
-import cz.tul.data.OffersDao;
 import cz.tul.data.User;
 import cz.tul.data.UsersDao;
 import cz.tul.provisioning.Provisioner;

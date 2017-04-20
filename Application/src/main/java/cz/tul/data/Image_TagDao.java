@@ -15,9 +15,7 @@ public class Image_TagDao {
 
     @Transactional
     public boolean create(Image_Tag tag) {
-
         MapSqlParameterSource params = new MapSqlParameterSource();
-
         params.addValue("id_image", tag.getId_image());
         params.addValue("name", tag.getName());
 
@@ -25,9 +23,13 @@ public class Image_TagDao {
                 "VALUES (:id_image, :name)", params) == 1;
     }
 
-    public boolean exists(int id_image) {
-        return jdbc.queryForObject("SELECT COUNT(*) FROM Image_Tag WHERE id_image=:id_image",
-                new MapSqlParameterSource("id_image", id_image), Integer.class) > 0;
+    public boolean exists(int id_image, int name) {
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("id_image", id_image);
+        params.addValue("name", name);
+
+        return jdbc.queryForObject("SELECT COUNT(*) FROM Image_Tag WHERE id_image=:id_image AND name=:name",
+                params, Integer.class) > 0;
     }
 
     public List<User> getAllImagesTags() {
@@ -35,16 +37,14 @@ public class Image_TagDao {
     }
 
     public boolean update(Image_Tag tag) {
-
         MapSqlParameterSource params = new MapSqlParameterSource();
-
         params.addValue("id_image", tag.getId_image());
         params.addValue("name", tag.getName());
 
         return jdbc.update("UPDATE Image_Tag SET id_image=:id_image, name=:name WHERE id_image=:id_image", params) == 1;
     }
 
-    public void deleteTag() {
+    public void deleteTags() {
         jdbc.getJdbcOperations().execute("DELETE FROM Image_Tag");
         jdbc.getJdbcOperations().execute("DELETE FROM Tag");
     }
