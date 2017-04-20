@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public class Image_RatingDao {
+public class Image_RatingsDao {
 
     @Autowired
     private NamedParameterJdbcOperations jdbc;
