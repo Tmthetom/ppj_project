@@ -33,10 +33,10 @@ public class UsersDao {
     }
 
     public void deleteUsers() {
-        jdbc.getJdbcOperations().execute("DELETE FROM Image_Rating");
+        /*jdbc.getJdbcOperations().execute("DELETE FROM Image_Rating");
         jdbc.getJdbcOperations().execute("DELETE FROM Image");
         jdbc.getJdbcOperations().execute("DELETE FROM Comment_Rating");
-        jdbc.getJdbcOperations().execute("DELETE FROM Comment");
+        jdbc.getJdbcOperations().execute("DELETE FROM Comment");*/
         jdbc.getJdbcOperations().execute("DELETE FROM User");
     }
 }
