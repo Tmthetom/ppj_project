@@ -18,6 +18,15 @@ public class User {
         this.registered = registered;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id = " + id_user + ", " +
+                "username = " + username + ", " +
+                "registered = " + registered +
+                '}';
+    }
+
     public int getId_user() {
         return id_user;
     }
@@ -40,14 +49,5 @@ public class User {
 
     public void setRegistered(Date registered) {
         this.registered = registered;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id = " + id_user + ", " +
-                "username = " + username + ", " +
-                "registered = " + registered +
-                '}';
     }
 }

@@ -11,6 +11,10 @@ public class Comment {
     private Date created;
     private Date updated;
 
+    public Comment() {
+        ;
+    }
+
     public Comment(int id_comment, int id_image, int id_author, String message, Date created, Date updated) {
         this.id_comment = id_comment;
         this.id_image = id_image;
@@ -18,6 +22,18 @@ public class Comment {
         this.message = message;
         this.created = created;
         this.updated = updated;
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id_comment = " + id_comment + ", " +
+                "id_image = " + id_image + ", " +
+                "id_author = " + id_author + ", " +
+                "message = " + message + ", " +
+                "created = " + created + ", " +
+                "updated = " + updated +
+                '}';
     }
 
     public int getId_comment() {

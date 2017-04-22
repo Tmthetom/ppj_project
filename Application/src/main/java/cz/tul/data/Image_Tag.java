@@ -5,9 +5,21 @@ public class Image_Tag {
     private int id_image;
     private String name;
 
+    public Image_Tag() {
+        ;
+    }
+
     public Image_Tag(int id_image, String name) {
         this.id_image = id_image;
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Image_Tag{" +
+                "id_image = " + id_image + ", " +
+                "name = " + name +
+                '}';
     }
 
     public int getId_image() {

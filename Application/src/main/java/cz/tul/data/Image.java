@@ -11,6 +11,10 @@ public class Image {
     private Date created;
     private Date updated;
 
+    public Image() {
+        ;
+    }
+
     public Image(int id_image, int id_author, String name, String path, Date created, Date updated) {
         this.id_image = id_image;
         this.id_author = id_author;
@@ -18,6 +22,18 @@ public class Image {
         this.path = path;
         this.created = created;
         this.updated = updated;
+    }
+
+    @Override
+    public String toString() {
+        return "Image{" +
+                "id_image = " + id_image + ", " +
+                "id_author = " + id_author + ", " +
+                "name = " + name + ", " +
+                "path = " + path + ", " +
+                "created = " + created + ", " +
+                "updated = " + updated +
+                '}';
     }
 
     public int getId_image() {

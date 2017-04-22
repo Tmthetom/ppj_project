@@ -6,10 +6,23 @@ public class Image_Rating {
     private int id_user;
     private boolean rating;
 
+    public Image_Rating() {
+        ;
+    }
+
     public Image_Rating(int id_image, int id_user, boolean rating) {
         this.id_image = id_image;
         this.id_user = id_user;
         this.rating = rating;
+    }
+
+    @Override
+    public String toString() {
+        return "Image_Rating{" +
+                "id_image = " + id_image + ", " +
+                "id_user = " + id_user + ", " +
+                "rating = " + rating +
+                '}';
     }
 
     public int getId_image() {
