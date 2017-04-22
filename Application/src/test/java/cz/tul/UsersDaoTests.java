@@ -11,6 +11,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -27,22 +28,18 @@ public class UsersDaoTests {
 
     @Test
     public void testUsers() {
-
         usersDao.deleteUsers();
 
-        User user = new User("developer", "Petr", "hellothere",
-                "petr@seznam.cz", true, "user");
-
+        User user = new User(1, "Tmthetom", new Date());
         assertTrue("User creation should return true", usersDao.create(user));
 
         List<User> users = usersDao.getAllUsers();
 
         assertEquals("Number of users should be 1.", 1, users.size());
 
-        assertTrue("User should exist.", usersDao.exists(user.getUsername()));
+        assertTrue("User should exist.", usersDao.exists(user.getId_user()));
 
         assertEquals("Created user should be identical to retrieved user",
                 user, users.get(0));
-
     }
 }

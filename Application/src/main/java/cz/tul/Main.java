@@ -1,7 +1,6 @@
 package cz.tul;
 
-import cz.tul.data.User;
-import cz.tul.data.UsersDao;
+import cz.tul.data.*;
 import cz.tul.provisioning.Provisioner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,12 +14,37 @@ import java.util.List;
 public class Main {
 
     @Bean
-    public OffersDao offersDao() {
-        return new OffersDao();
+    public CommentsDao commentsDao() {
+        return new CommentsDao();
     }
 
     @Bean
-    public UsersDao usersDao() {
+    public Comment_RatingsDao comment_RatingsDao(){
+        return new Comment_RatingsDao();
+    }
+
+    @Bean
+    public ImagesDao imagesDao(){
+        return new ImagesDao();
+    }
+
+    @Bean
+    public Image_RatingsDao image_RatingsDao(){
+        return new Image_RatingsDao();
+    }
+
+    @Bean
+    public Image_TagsDao image_TagsDao(){
+        return new Image_TagsDao();
+    }
+
+    @Bean
+    public TagsDao tagsDao(){
+        return new TagsDao();
+    }
+
+    @Bean
+    public UsersDao usersDao(){
         return new UsersDao();
     }
 
@@ -39,7 +63,5 @@ public class Main {
 
         List<User> users = usersDao.getAllUsers();
         System.out.println(users);
-
     }
-
 }

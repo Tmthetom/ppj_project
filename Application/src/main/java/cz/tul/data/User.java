@@ -8,6 +8,10 @@ public class User {
     private String username;
     private Date registered;
 
+    public User() {
+        ;
+    }
+
     public User(int id_user, String username, Date registered) {
         this.id_user = id_user;
         this.username = username;
@@ -36,5 +40,14 @@ public class User {
 
     public void setRegistered(Date registered) {
         this.registered = registered;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id = " + id_user + ", " +
+                "username = " + username + ", " +
+                "registered = " + registered +
+                '}';
     }
 }
