@@ -15,6 +15,17 @@ public class Image {
         ;
     }
 
+    public Image(int id_author, String path) {
+        this.id_author = id_author;
+        this.path = path;
+    }
+
+    public Image(int id_author, String path, String name) {
+        this.id_author = id_author;
+        this.path = path;
+        this.name = name;
+    }
+
     public Image(int id_image, int id_author, String name, String path, Date created, Date updated) {
         this.id_image = id_image;
         this.id_author = id_author;

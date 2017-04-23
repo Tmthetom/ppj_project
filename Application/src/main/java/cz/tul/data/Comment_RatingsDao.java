@@ -33,8 +33,8 @@ public class Comment_RatingsDao {
                 params, Integer.class) > 0;
     }
 
-    public List<User> getAllCommentRatings() {
-        return jdbc.query("SELECT * FROM Comment_Rating", BeanPropertyRowMapper.newInstance(User.class));
+    public List<Comment_Rating> getAllCommentRatings() {
+        return jdbc.query("SELECT * FROM Comment_Rating", BeanPropertyRowMapper.newInstance(Comment_Rating.class));
     }
 
     public boolean update(Comment_Rating rating) {

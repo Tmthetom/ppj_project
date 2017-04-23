@@ -31,8 +31,8 @@ public class ImagesDao {
                 new MapSqlParameterSource("id_image", id_image), Integer.class) > 0;
     }
 
-    public List<User> getAllImages() {
-        return jdbc.query("SELECT * FROM Images", BeanPropertyRowMapper.newInstance(User.class));
+    public List<Image> getAllImages() {
+        return jdbc.query("SELECT * FROM Images", BeanPropertyRowMapper.newInstance(Image.class));
     }
 
     public boolean update(Image image) {

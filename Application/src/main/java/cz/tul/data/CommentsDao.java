@@ -32,8 +32,8 @@ public class CommentsDao {
                 new MapSqlParameterSource("id_comment", id_comment), Integer.class) > 0;
     }
 
-    public List<User> getAllComments() {
-        return jdbc.query("SELECT * FROM Comment", BeanPropertyRowMapper.newInstance(User.class));
+    public List<Comment> getAllComments() {
+        return jdbc.query("SELECT * FROM Comment", BeanPropertyRowMapper.newInstance(Comment.class));
     }
 
     public boolean update(Comment comment) {
