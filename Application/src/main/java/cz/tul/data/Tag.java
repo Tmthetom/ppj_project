@@ -19,6 +19,21 @@ public class Tag {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null){
+            return false;
+        }
+        if(getClass() != obj.getClass()){
+            return false;
+        }
+        Tag temp = (Tag)obj;
+        if (!getName().equals(temp.getName())) {
+            return false;
+        }
+        return true;
+    }
+
     public String getName() {
         return name;
     }

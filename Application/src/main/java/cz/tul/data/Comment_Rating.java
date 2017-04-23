@@ -25,6 +25,27 @@ public class Comment_Rating {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null){
+            return false;
+        }
+        if(getClass() != obj.getClass()){
+            return false;
+        }
+        Comment_Rating temp = (Comment_Rating)obj;
+        if (getId_comment() != temp.getId_comment()) {
+            return false;
+        }
+        if (getId_user() != temp.getId_user()) {
+            return false;
+        }
+        if (!getRating() != temp.getRating()) {
+            return false;
+        }
+        return true;
+    }
+
     public int getId_comment() {
         return id_comment;
     }

@@ -22,6 +22,24 @@ public class Image_Tag {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null){
+            return false;
+        }
+        if(getClass() != obj.getClass()){
+            return false;
+        }
+        Image_Tag temp = (Image_Tag)obj;
+        if (getId_image() != temp.getId_image()) {
+            return false;
+        }
+        if (!getName().equals(temp.getName())) {
+            return false;
+        }
+        return true;
+    }
+
     public int getId_image() {
         return id_image;
     }

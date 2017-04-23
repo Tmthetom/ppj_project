@@ -25,6 +25,27 @@ public class Image_Rating {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null){
+            return false;
+        }
+        if(getClass() != obj.getClass()){
+            return false;
+        }
+        Image_Rating temp = (Image_Rating)obj;
+        if (getId_image() != temp.getId_image()) {
+            return false;
+        }
+        if (getId_user() != temp.getId_user()) {
+            return false;
+        }
+        if (getRating() != temp.getRating()) {
+            return false;
+        }
+        return true;
+    }
+
     public int getId_image() {
         return id_image;
     }

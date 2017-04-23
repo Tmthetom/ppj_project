@@ -36,6 +36,40 @@ public class Image {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null){
+            return false;
+        }
+        if(getClass() != obj.getClass()){
+            return false;
+        }
+        Image temp = (Image)obj;
+        if (getId_image() != temp.getId_image()){
+            return false;
+        }
+        if (!getPath().equals(temp.getPath())){
+            return false;
+        }
+        if (getName() == null) {
+            if (temp.getName() != null) {
+                return false;
+            }
+        } else {
+            if (temp.getName() == null) {
+                return false;
+            } else {
+                if (!getName().equals(temp.getName())) {
+                    return false;
+                }
+            }
+        }
+        if (getId_author() != temp.getId_author()) {
+            return false;
+        }
+        return true;
+    }
+
     public int getId_image() {
         return id_image;
     }

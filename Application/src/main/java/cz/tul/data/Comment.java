@@ -36,6 +36,30 @@ public class Comment {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null){
+            return false;
+        }
+        if(getClass() != obj.getClass()){
+            return false;
+        }
+        Comment temp = (Comment)obj;
+        if (getId_comment() != temp.getId_comment()) {
+            return false;
+        }
+        if (getId_author() != temp.getId_author()) {
+            return false;
+        }
+        if (getId_author() != temp.getId_comment()) {
+            return false;
+        }
+        if (!getMessage().equals(temp.getMessage())) {
+            return false;
+        }
+        return true;
+    }
+
     public int getId_comment() {
         return id_comment;
     }
