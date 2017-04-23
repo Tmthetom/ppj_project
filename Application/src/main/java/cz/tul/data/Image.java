@@ -20,10 +20,10 @@ public class Image {
         this.path = path;
     }
 
-    public Image(int id_author, String path, String name) {
+    public Image(int id_author, String name, String path) {
         this.id_author = id_author;
-        this.path = path;
         this.name = name;
+        this.path = path;
     }
 
     public Image(int id_image, int id_author, String name, String path, Date created, Date updated) {

@@ -20,11 +20,9 @@ public class CommentsDao {
         params.addValue("id_image", comment.getId_image());
         params.addValue("id_author", comment.getId_author());
         params.addValue("message", comment.getMessage());
-        params.addValue("created", comment.getCreated());
-        params.addValue("updated", comment.getUpdated());
 
-        return jdbc.update("INSERT INTO Comment (id_comment, id_image, id_author, message, created, updated) " +
-                "VALUES (:id_comment, :id_image, :id_author, :message, :created, :updated)", params) == 1;
+        return jdbc.update("INSERT INTO Comment (id_comment, id_image, id_author, message) " +
+                "VALUES (:id_comment, :id_image, :id_author, :message)", params) == 1;
     }
 
     public boolean exists(int id_comment) {

@@ -19,11 +19,9 @@ public class ImagesDao {
         params.addValue("id_author", image.getId_author());
         params.addValue("name", image.getName());
         params.addValue("path", image.getPath());
-        params.addValue("created", image.getCreated());
-        params.addValue("updated", image.getUpdated());
 
-        return jdbc.update("INSERT INTO Image (id_image, id_author, name, path, created, updated) " +
-                "VALUES (:id_image, :id_author, :name, :path, :created, :updated)", params) == 1;
+        return jdbc.update("INSERT INTO Image (id_image, id_author, name, path) " +
+                "VALUES (:id_image, :id_author, :name, :path)", params) == 1;
     }
 
     public boolean exists(int id_image) {
@@ -32,7 +30,7 @@ public class ImagesDao {
     }
 
     public List<Image> getAllImages() {
-        return jdbc.query("SELECT * FROM Images", BeanPropertyRowMapper.newInstance(Image.class));
+        return jdbc.query("SELECT * FROM Image", BeanPropertyRowMapper.newInstance(Image.class));
     }
 
     public boolean update(Image image) {

@@ -74,13 +74,15 @@ Create trigger insert_Image
 Before insert on Image
 	Referencing NEW ROW AS new
 For each row
-SET new.Created=NOW()
+SET new.Created=NOW(),
+	new.Updated=NOW()
 
 Create trigger insert_Comment
 Before insert on Comment
 	Referencing NEW ROW AS new
 For each row
-SET new.Created=NOW()
+SET new.Created=NOW(),
+	new.Updated=NOW()
 
 Create trigger update_Image
 Before update on Image
