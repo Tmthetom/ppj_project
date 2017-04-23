@@ -19,6 +19,7 @@ import static org.junit.Assert.assertTrue;
 @SpringApplicationConfiguration(classes = {Main.class})
 @ActiveProfiles({"test"})
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+
 public class CommentsDaoTests {
     @Autowired
     private CommentsDao commentsDao;

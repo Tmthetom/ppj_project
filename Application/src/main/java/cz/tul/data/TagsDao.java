@@ -30,7 +30,7 @@ public class TagsDao {
         return jdbc.query("SELECT * FROM Tag", BeanPropertyRowMapper.newInstance(Tag.class));
     }
 
-    public void deleteTag() {
+    public void deleteTags() {
         jdbc.getJdbcOperations().execute("DELETE FROM Image_Tag");
         jdbc.getJdbcOperations().execute("DELETE FROM Tag");
     }
