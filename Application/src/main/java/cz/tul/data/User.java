@@ -27,6 +27,18 @@ public class User {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null){
+            return false;
+        }
+        if(getClass() != obj.getClass()){
+            return false;
+        }
+        User temp = (User)obj;
+        return getUsername().equals(temp.getUsername());
+    }
+
     public int getId_user() {
         return id_user;
     }
