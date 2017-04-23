@@ -37,7 +37,7 @@ public class Provisioner {
     }
 
     public void createDb() {
-        Resource rc = new ClassPathResource("create_tables.hsql");
+        Resource rc = new ClassPathResource("create_tables.sql");
         try {
             ScriptUtils.executeSqlScript(dataSource.getConnection(), rc);
         } catch (Exception e) {
