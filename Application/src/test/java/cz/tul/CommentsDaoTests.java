@@ -37,21 +37,21 @@ public class CommentsDaoTests {
         usersDao.deleteUsers();
         imagesDao.deleteImages();
 
-        User a = new User("Tmthetom");
-        usersDao.create(a);
+        User user = new User("Tmthetom");
+        usersDao.create(user);
 
-        Image i = new Image(a.getId_user(), "obrazek","url");
-        imagesDao.create(i);
-        i = imagesDao.getAllImages().get(0);
+        Image image = new Image(user.getId_user(), "obrazek","url");
+        imagesDao.create(image);
+        image = imagesDao.getAllImages().get(0);
 
-        Comment c = new Comment(i.getId_image(), a.getId_user(), "comment");
-        assertTrue("Comment should be created", commentsDao.create(c));
+        Comment comment = new Comment(image.getId_image(), user.getId_user(), "comment");
+        assertTrue("Comment should be created", commentsDao.create(comment));
 
         List<Comment> comments = commentsDao.getAllComments();
         assertEquals("Number of comments should be 1", 1, comments.size());
 
         assertTrue("Comment should exist", commentsDao.exists(comments.get(0).getId_comment()));
 
-        assertEquals("Created comment should be identical to retrieved comment", c, comments.get(0));
+        assertEquals("Created comment should be identical to retrieved comment", comment, comments.get(0));
     }
 }

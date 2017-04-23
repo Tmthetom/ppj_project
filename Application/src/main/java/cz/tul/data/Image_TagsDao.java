@@ -23,7 +23,7 @@ public class Image_TagsDao {
                 "VALUES (:id_image, :name)", params) == 1;
     }
 
-    public boolean exists(int id_image, int name) {
+    public boolean exists(int id_image, String name) {
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id_image", id_image);
         params.addValue("name", name);

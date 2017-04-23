@@ -36,7 +36,7 @@ public class ImagesDaoTests {
         User a = new User("Tmthetom");
         usersDao.create(a);
 
-        Image i = new Image(a.getId_user(), "obrazek","url");
+        Image i = new Image(a.getId_user(), "New York","url");
         assertTrue("Image should be created", imagesDao.create(i));
 
         List<Image> images = imagesDao.getAllImages();
