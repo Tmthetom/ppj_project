@@ -21,6 +21,7 @@ import static org.junit.Assert.assertTrue;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class CommentsDaoTests {
+
     @Autowired
     private CommentsDao commentsDao;
 
@@ -33,8 +34,8 @@ public class CommentsDaoTests {
     @Test
     public void testComments(){
         commentsDao.deleteComments();
-        imagesDao.deleteImages();
         usersDao.deleteUsers();
+        imagesDao.deleteImages();
 
         User a = new User("Tmthetom");
         usersDao.create(a);
