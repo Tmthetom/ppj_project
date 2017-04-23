@@ -30,7 +30,7 @@ public class UsersDaoTests {
     public void testUsers() {
         usersDao.deleteUsers();
 
-        User user = new User(1, "Tmthetom", new Date());
+        User user = new User("Tmthetom");
         assertTrue("User creation should return true", usersDao.create(user));
 
         List<User> users = usersDao.getAllUsers();

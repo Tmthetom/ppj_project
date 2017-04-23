@@ -12,6 +12,10 @@ public class User {
         ;
     }
 
+    public User(String username) {
+        this.username = username;
+    }
+
     public User(int id_user, String username, Date registered) {
         this.id_user = id_user;
         this.username = username;
