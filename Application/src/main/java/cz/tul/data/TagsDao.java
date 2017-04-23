@@ -26,8 +26,8 @@ public class TagsDao {
                 new MapSqlParameterSource("name", name), Integer.class) > 0;
     }
 
-    public List<User> getAllTags() {
-        return jdbc.query("SELECT * FROM Tag", BeanPropertyRowMapper.newInstance(User.class));
+    public List<Tag> getAllTags() {
+        return jdbc.query("SELECT * FROM Tag", BeanPropertyRowMapper.newInstance(Tag.class));
     }
 
     public void deleteTag() {

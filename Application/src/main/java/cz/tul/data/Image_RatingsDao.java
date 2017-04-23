@@ -33,8 +33,8 @@ public class Image_RatingsDao {
                 params, Integer.class) > 0;
     }
 
-    public List<User> getAllImageRatings() {
-        return jdbc.query("SELECT * FROM Image_Rating", BeanPropertyRowMapper.newInstance(User.class));
+    public List<Image_Rating> getAllImageRatings() {
+        return jdbc.query("SELECT * FROM Image_Rating", BeanPropertyRowMapper.newInstance(Image_Rating.class));
     }
 
     public boolean update(Image_Rating rating) {

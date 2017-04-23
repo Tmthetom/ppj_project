@@ -32,8 +32,8 @@ public class Image_TagsDao {
                 params, Integer.class) > 0;
     }
 
-    public List<User> getAllImagesTags() {
-        return jdbc.query("SELECT * FROM Image_Tag", BeanPropertyRowMapper.newInstance(User.class));
+    public List<Image_Tag> getAllImagesTags() {
+        return jdbc.query("SELECT * FROM Image_Tag", BeanPropertyRowMapper.newInstance(Image_Tag.class));
     }
 
     public boolean update(Image_Tag tag) {
