@@ -39,9 +39,11 @@ public class Image_RatingsDaoTests {
 
         User user = new User("Tmthetom");
         usersDao.create(user);
+        user = usersDao.getAllUsers().get(0);
 
         Image image = new Image(user.getId_user(), "New York","url");
         imagesDao.create(image);
+        image = imagesDao.getAllImages().get(0);
 
         Image_Rating rating = new Image_Rating(image.getId_image(), user.getId_user(), Boolean.TRUE);
         assertTrue("Image_rating should be created", image_ratingsDao.create(rating));

@@ -15,13 +15,12 @@ public class ImagesDao {
     @Transactional
     public boolean create(Image image) {
         MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("id_image", image.getId_image());
         params.addValue("id_author", image.getId_author());
         params.addValue("name", image.getName());
         params.addValue("path", image.getPath());
 
-        return jdbc.update("INSERT INTO Image (id_image, id_author, name, path) " +
-                "VALUES (:id_image, :id_author, :name, :path)", params) == 1;
+        return jdbc.update("INSERT INTO Image (id_author, name, path) " +
+                "VALUES (:id_author, :name, :path)", params) == 1;
     }
 
     public boolean exists(int id_image) {
@@ -35,16 +34,18 @@ public class ImagesDao {
 
     public boolean update(Image image) {
         MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("id_image", image.getId_image());
         params.addValue("id_author", image.getId_author());
         params.addValue("name", image.getName());
         params.addValue("path", image.getPath());
         params.addValue("created", image.getCreated());
         params.addValue("updated", image.getUpdated());
 
-        return jdbc.update("UPDATE Image SET id_image=:id_image, id_author=:id_author, name=:name, path=:path, created=:created, updated=:updated where id_image=:id_image", params) == 1;
+        return jdbc.update("UPDATE Image SET id_author=:id_author, name=:name, path=:path, created=:created, updated=:updated where id_image=:id_image", params) == 1;
     }
 
     public void deleteImages() {
+        jdbc.getJdbcOperations().execute("DELETE FROM Comment_Rating");
         jdbc.getJdbcOperations().execute("DELETE FROM Comment");
         jdbc.getJdbcOperations().execute("DELETE FROM Image_Tag");
         jdbc.getJdbcOperations().execute("DELETE FROM Image_Rating");

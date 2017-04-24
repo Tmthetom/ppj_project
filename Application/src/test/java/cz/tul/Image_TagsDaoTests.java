@@ -43,15 +43,19 @@ public class Image_TagsDaoTests {
 
         User user = new User("Tmthetom");
         usersDao.create(user);
+        user = usersDao.getAllUsers().get(0);
 
         Tag tag = new Tag("Mesto");
         tagsDao.create(tag);
+        tag = tagsDao.getAllTags().get(0);
 
         Image image = new Image(user.getId_user(), "New York","url");
         imagesDao.create(image);
+        image = imagesDao.getAllImages().get(0);
 
         Image_Tag image_tag = new Image_Tag(image.getId_image(), tag.getName());
         assertTrue("Image_tag should be created", image_tagsDao.create(image_tag));
+        image_tag = image_tagsDao.getAllImagesTags().get(0);
 
         List<Image_Tag> image_tags = image_tagsDao.getAllImagesTags();
         assertEquals("Number of image_tags should be 1", 1, image_tags.size());

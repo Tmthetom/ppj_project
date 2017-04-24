@@ -16,13 +16,12 @@ public class CommentsDao {
     @Transactional
     public boolean create(Comment comment) {
         MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("id_comment", comment.getId_comment());
         params.addValue("id_image", comment.getId_image());
         params.addValue("id_author", comment.getId_author());
         params.addValue("message", comment.getMessage());
 
-        return jdbc.update("INSERT INTO Comment (id_comment, id_image, id_author, message) " +
-                "VALUES (:id_comment, :id_image, :id_author, :message)", params) == 1;
+        return jdbc.update("INSERT INTO Comment (id_image, id_author, message) " +
+                "VALUES (:id_image, :id_author, :message)", params) == 1;
     }
 
     public boolean exists(int id_comment) {

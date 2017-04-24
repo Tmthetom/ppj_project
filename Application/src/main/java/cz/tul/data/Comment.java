@@ -58,7 +58,7 @@ public class Comment {
         if (getId_author() != temp.getId_author()) {
             return false;
         }
-        if (getId_author() != temp.getId_comment()) {
+        if (getId_image() != temp.getId_image()) {
             return false;
         }
         if (!getMessage().equals(temp.getMessage())) {

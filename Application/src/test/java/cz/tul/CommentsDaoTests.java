@@ -39,6 +39,7 @@ public class CommentsDaoTests {
 
         User user = new User("Tmthetom");
         usersDao.create(user);
+        user = usersDao.getAllUsers().get(0);
 
         Image image = new Image(user.getId_user(), "obrazek","url");
         imagesDao.create(image);
@@ -46,6 +47,7 @@ public class CommentsDaoTests {
 
         Comment comment = new Comment(image.getId_image(), user.getId_user(), "comment");
         assertTrue("Comment should be created", commentsDao.create(comment));
+        comment = commentsDao.getAllComments().get(0);
 
         List<Comment> comments = commentsDao.getAllComments();
         assertEquals("Number of comments should be 1", 1, comments.size());

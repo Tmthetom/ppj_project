@@ -31,6 +31,7 @@ public class TagsDaoTests {
 
         Tag tag = new Tag("Mesto");
         assertTrue("Tag creation should return true", tagsDao.create(tag));
+        tag = tagsDao.getAllTags().get(0);
 
         List<Tag> tags = tagsDao.getAllTags();
 

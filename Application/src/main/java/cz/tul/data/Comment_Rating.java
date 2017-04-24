@@ -40,7 +40,7 @@ public class Comment_Rating {
         if (getId_user() != temp.getId_user()) {
             return false;
         }
-        if (!getRating() != temp.getRating()) {
+        if (getRating() != temp.getRating()) {
             return false;
         }
         return true;

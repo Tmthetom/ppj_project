@@ -16,11 +16,10 @@ public class UsersDao {
     @Transactional
     public boolean create(User user) {
         MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("id_user", user.getId_user());
         params.addValue("username", user.getUsername());
         params.addValue("registered", user.getRegistered());
 
-        return jdbc.update("INSERT INTO User (id_user, username, registered) VALUES (:id_user, :username, :registered)", params) == 1;
+        return jdbc.update("INSERT INTO User (username, registered) VALUES (:username, :registered)", params) == 1;
     }
 
     public boolean exists(int id_user) {

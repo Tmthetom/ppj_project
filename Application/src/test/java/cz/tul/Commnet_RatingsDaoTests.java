@@ -31,26 +31,37 @@ public class Commnet_RatingsDaoTests {
     @Autowired
     private CommentsDao commentsDao;
 
+    @Autowired
+    private Comment_RatingsDao comment_ratingsDao;
+
     @Test
-    public void testImage_Ratings(){
+    public void testComment_Ratings(){
         usersDao.deleteUsers();
         imagesDao.deleteImages();
         commentsDao.deleteComments();
+        comment_ratingsDao.deleteCommentRatings();
 
         User user = new User("Tmthetom");
         usersDao.create(user);
+        user = usersDao.getAllUsers().get(0);
 
         Image image = new Image(user.getId_user(), "New York","url");
         imagesDao.create(image);
+        image = imagesDao.getAllImages().get(0);
 
         Comment comment = new Comment(image.getId_image(), user.getId_user(), "WOW, such a nice image");
-        assertTrue("Comment_rating should be created", commentsDao.create(comment));
+        commentsDao.create(comment);
+        comment = commentsDao.getAllComments().get(0);
 
-        List<Comment> comments = commentsDao.getAllComments();
-        assertEquals("Number of Comment_ratings should be 1", 1, comments.size());
+        Comment_Rating comment_rating = new Comment_Rating(comment.getId_comment(), user.getId_user(), Boolean.TRUE);
+        assertTrue("Comment_rating should be created", comment_ratingsDao.create(comment_rating));
+        comment_rating = comment_ratingsDao.getAllCommentRatings().get(0);
 
-        assertTrue("Comment_rating should exist", commentsDao.exists(comments.get(0).getId_comment()));
+        List<Comment_Rating> comment_ratings = comment_ratingsDao.getAllCommentRatings();
+        assertEquals("Number of Comment_ratings should be 1", 1, comment_ratings.size());
 
-        assertEquals("Created Comment_rating should be identical to retrieved image_tag", comment, comments.get(0));
+        assertTrue("Comment_rating should exist", comment_ratingsDao.exists(comment.getId_comment(), user.getId_user()));
+
+        assertEquals("Created Comment_rating should be identical to retrieved image_tag", comment_rating, comment_ratings.get(0));
     }
 }

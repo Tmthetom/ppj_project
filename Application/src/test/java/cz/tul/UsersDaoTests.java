@@ -32,6 +32,7 @@ public class UsersDaoTests {
 
         User user = new User("Tmthetom");
         assertTrue("User creation should return true", usersDao.create(user));
+        user = usersDao.getAllUsers().get(0);
 
         List<User> users = usersDao.getAllUsers();
 
