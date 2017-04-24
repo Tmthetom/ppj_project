@@ -40,10 +40,10 @@ public class ImagesDaoTests {
         assertTrue("Image should be created", imagesDao.create(i));
 
         List<Image> images = imagesDao.getAllImages();
-        assertEquals("Number of comments should be 1", 1, images.size());
+        assertEquals("Number of images should be 1", 1, images.size());
 
-        assertTrue("Comment should exist", imagesDao.exists(images.get(0).getId_image()));
+        assertTrue("Image should exist", imagesDao.exists(images.get(0).getId_image()));
 
-        assertEquals("Created comment should be identical to retrieved comment", i, images.get(0));
+        assertEquals("Created comment image be identical to retrieved comment", i, images.get(0));
     }
 }

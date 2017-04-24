@@ -44,13 +44,13 @@ public class Commnet_RatingsDaoTests {
         imagesDao.create(image);
 
         Comment comment = new Comment(image.getId_image(), user.getId_user(), "WOW, such a nice image");
-        assertTrue("Image_rating should be created", commentsDao.create(comment));
+        assertTrue("Comment_rating should be created", commentsDao.create(comment));
 
         List<Comment> comments = commentsDao.getAllComments();
-        assertEquals("Number of Image_rating should be 1", 1, comments.size());
+        assertEquals("Number of Comment_ratings should be 1", 1, comments.size());
 
-        assertTrue("Image_rating should exist", commentsDao.exists(comments.get(0).getId_comment()));
+        assertTrue("Comment_rating should exist", commentsDao.exists(comments.get(0).getId_comment()));
 
-        assertEquals("Created Image_rating should be identical to retrieved image_tag", comment, comments.get(0));
+        assertEquals("Created Comment_rating should be identical to retrieved image_tag", comment, comments.get(0));
     }
 }

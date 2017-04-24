@@ -47,7 +47,7 @@ public class Image_RatingsDaoTests {
         assertTrue("Image_rating should be created", image_ratingsDao.create(rating));
 
         List<Image_Rating> ratings = image_ratingsDao.getAllImageRatings();
-        assertEquals("Number of Image_rating should be 1", 1, ratings.size());
+        assertEquals("Number of Image_ratings should be 1", 1, ratings.size());
 
         assertTrue("Image_rating should exist", image_ratingsDao.exists(ratings.get(0).getId_image(), ratings.get(0).getId_user()));
 

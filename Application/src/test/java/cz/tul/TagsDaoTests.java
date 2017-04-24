@@ -30,15 +30,15 @@ public class TagsDaoTests {
         tagsDao.deleteTags();
 
         Tag tag = new Tag("Mesto");
-        assertTrue("User creation should return true", tagsDao.create(tag));
+        assertTrue("Tag creation should return true", tagsDao.create(tag));
 
         List<Tag> tags = tagsDao.getAllTags();
 
-        assertEquals("Number of users should be 1.", 1, tags.size());
+        assertEquals("Number of tags should be 1.", 1, tags.size());
 
-        assertTrue("User should exist.", tagsDao.exists(tag.getName()));
+        assertTrue("Tag should exist.", tagsDao.exists(tag.getName()));
 
-        assertEquals("Created user should be identical to retrieved user",
+        assertEquals("Created tag should be identical to retrieved user",
                 tag, tags.get(0));
     }
 }
