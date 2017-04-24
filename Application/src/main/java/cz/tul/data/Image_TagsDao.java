@@ -28,8 +28,8 @@ public class Image_TagsDao {
         Criteria criteria = session().createCriteria(Tag.class);
         criteria.add(Restrictions.eq("id_image", id_image));
         criteria.add(Restrictions.eq("name", name));
-        Image_Tag t = (Image_Tag) criteria.uniqueResult();
-        return t != null;
+        Image_Tag image_tag = (Image_Tag) criteria.uniqueResult();
+        return image_tag != null;
     }
 
     public List<Image_Tag> getAll() {
