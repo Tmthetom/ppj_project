@@ -1,12 +1,25 @@
 package cz.tul.data;
 
+import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
+@Entity
+@Table(name="User")
 public class User {
 
+    @Id
+    @Column(name="id_user")
     private int id_user;
+
+    @Column(name="username")
     private String username;
+
+    @Column(name="registered")
     private Date registered;
+
+    @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
+    private Set<Image> imageSet;
 
     public User() {
         ;

@@ -61,7 +61,6 @@ public class ApplicationTests {
         user1 = usersDao.getAllUsers().get(0);
         assertEquals("User 1 should be equal", user1, usersDao.getAllUsers().get(0));
 
-
         User user2 = new User("Pavel");
         assertTrue("User 2 should be created", usersDao.create(user2));
         user2 = usersDao.getAllUsers().get(1);
@@ -72,7 +71,6 @@ public class ApplicationTests {
         assertTrue("Image should be created", imagesDao.create(image));
         image = imagesDao.getAllImages().get(0);
         assertEquals("Image should be equal", image, imagesDao.getAllImages().get(0));
-
 
         // Update image
         image.setPath("url2");
