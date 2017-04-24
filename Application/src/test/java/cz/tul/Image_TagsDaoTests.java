@@ -39,7 +39,7 @@ public class Image_TagsDaoTests {
         usersDao.deleteUsers();
         tagsDao.deleteTags();
         imagesDao.deleteImages();
-        image_tagsDao.deleteTags();
+        image_tagsDao.deleteAll();
 
         User user = new User("Tmthetom");
         usersDao.create(user);

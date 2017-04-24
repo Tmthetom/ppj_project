@@ -50,7 +50,7 @@ public class ApplicationTests {
         imagesDao.deleteImages();
         commentsDao.deleteComments();
         tagsDao.deleteTags();
-        image_tagsDao.deleteTags();
+        image_tagsDao.deleteAll();
         image_ratingsDao.deleteImageRatings();
         comment_ratingsDao.deleteCommentRatings();
 
