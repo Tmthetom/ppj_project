@@ -10,7 +10,6 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -40,6 +39,7 @@ public class Image_TagsDaoTests {
         usersDao.deleteUsers();
         tagsDao.deleteTags();
         imagesDao.deleteImages();
+        image_tagsDao.deleteTags();
 
         User user = new User("Tmthetom");
         usersDao.create(user);
