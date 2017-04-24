@@ -74,10 +74,10 @@ public class Main {
         ApplicationContext ctx = app.run(args);
 
         UsersDao usersDao = ctx.getBean(UsersDao.class);
-        usersDao.deleteUsers();
+        usersDao.deleteAll();
         usersDao.create(new User("Tmthetom"));
 
-        List<User> users = usersDao.getAllUsers();
+        List<User> users = usersDao.getAll();
         System.out.println(users);
     }
 }

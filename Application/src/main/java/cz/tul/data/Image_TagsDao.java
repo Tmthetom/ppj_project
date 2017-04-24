@@ -33,7 +33,7 @@ public class Image_TagsDao {
         return t != null;
     }
 
-    public List<Image_Tag> getAllImagesTags() {
+    public List<Image_Tag> getAll() {
         Criteria criteria = session().createCriteria(Image_Tag.class);
         return criteria.list();
     }

@@ -27,13 +27,13 @@ public class TagsDaoTests {
 
     @Test
     public void testTags() {
-        tagsDao.deleteTags();
+        tagsDao.deleteAll();
 
         Tag tag = new Tag("Mesto");
         assertTrue("Tag creation should return true", tagsDao.create(tag));
-        tag = tagsDao.getAllTags().get(0);
+        tag = tagsDao.getAll().get(0);
 
-        List<Tag> tags = tagsDao.getAllTags();
+        List<Tag> tags = tagsDao.getAll();
 
         assertEquals("Number of tags should be 1.", 1, tags.size());
 

@@ -33,7 +33,7 @@ public class Image_RatingsDao {
                 params, Integer.class) > 0;
     }
 
-    public List<Image_Rating> getAllImageRatings() {
+    public List<Image_Rating> getAll() {
         return jdbc.query("SELECT * FROM Image_Rating", BeanPropertyRowMapper.newInstance(Image_Rating.class));
     }
 
@@ -46,7 +46,7 @@ public class Image_RatingsDao {
         return jdbc.update("UPDATE Image_Rating SET id_image=:id_image, id_user=:id_user, rating=:rating where id_image=:id_image", params) == 1;
     }
 
-    public void deleteImageRatings() {
+    public void deleteAll() {
         jdbc.getJdbcOperations().execute("DELETE FROM Image_Rating");
     }
 }

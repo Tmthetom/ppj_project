@@ -33,12 +33,12 @@ public class UsersDao {
         return user != null;
     }
 
-    public List<User> getAllUsers() {
+    public List<User> getAll() {
         Criteria criteria = session().createCriteria(User.class);
         return criteria.list();
     }
 
-    public void deleteUsers() {
+    public void deleteAll() {
         session().createQuery("DELETE FROM Comment_Rating").executeUpdate();
         session().createQuery("DELETE FROM Comment").executeUpdate();
         session().createQuery("DELETE FROM Image_Rating").executeUpdate();

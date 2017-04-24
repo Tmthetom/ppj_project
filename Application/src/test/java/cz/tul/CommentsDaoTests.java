@@ -33,23 +33,23 @@ public class CommentsDaoTests {
 
     @Test
     public void testComments(){
-        commentsDao.deleteComments();
-        usersDao.deleteUsers();
-        imagesDao.deleteImages();
+        commentsDao.deleteAll();
+        usersDao.deleteAll();
+        imagesDao.deleteAll();
 
         User user = new User("Tmthetom");
         usersDao.create(user);
-        user = usersDao.getAllUsers().get(0);
+        user = usersDao.getAll().get(0);
 
         Image image = new Image(user.getId_user(), "obrazek","url");
         imagesDao.create(image);
-        image = imagesDao.getAllImages().get(0);
+        image = imagesDao.getAll().get(0);
 
         Comment comment = new Comment(image.getId_image(), user.getId_user(), "comment");
         assertTrue("Comment should be created", commentsDao.create(comment));
-        comment = commentsDao.getAllComments().get(0);
+        comment = commentsDao.getAll().get(0);
 
-        List<Comment> comments = commentsDao.getAllComments();
+        List<Comment> comments = commentsDao.getAll();
         assertEquals("Number of comments should be 1", 1, comments.size());
 
         assertTrue("Comment should exist", commentsDao.exists(comments.get(0).getId_comment()));

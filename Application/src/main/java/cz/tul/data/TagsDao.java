@@ -31,12 +31,12 @@ public class TagsDao {
         return tag != null;
     }
 
-    public List<Tag> getAllTags() {
+    public List<Tag> getAll() {
         Criteria criteria = session().createCriteria(Tag.class);
         return criteria.list();
     }
 
-    public void deleteTags() {
+    public void deleteAll() {
         session().createQuery("DELETE FROM Image_Tag").executeUpdate();
         session().createQuery("DELETE FROM Tag").executeUpdate();
     }

@@ -35,7 +35,7 @@ public class ImagesDao {
         return image != null;
     }
 
-    public List<Image> getAllImages() {
+    public List<Image> getAll() {
         Criteria criteria = session().createCriteria(Image.class);
         return criteria.list();
     }
@@ -45,7 +45,7 @@ public class ImagesDao {
         session().update(image);
     }
 
-    public void deleteImages() {
+    public void deleteAll() {
         session().createQuery("DELETE FROM Comment_Rating").executeUpdate();
         session().createQuery("DELETE FROM Comment").executeUpdate();
         session().createQuery("DELETE FROM Image_Tag").executeUpdate();

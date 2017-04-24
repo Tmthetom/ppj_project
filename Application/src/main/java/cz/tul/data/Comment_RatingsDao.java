@@ -35,7 +35,7 @@ public class Comment_RatingsDao {
                 params, Integer.class) > 0;
     }
 
-    public List<Comment_Rating> getAllCommentRatings() {
+    public List<Comment_Rating> getAll() {
         return jdbc.query("SELECT * FROM Comment_Rating", BeanPropertyRowMapper.newInstance(Comment_Rating.class));
     }
 
@@ -48,7 +48,7 @@ public class Comment_RatingsDao {
         return jdbc.update("UPDATE Comment_Rating SET id_comment=:id_comment, id_user=:id_user, rating=:rating WHERE id_comment=:id_comment", params) == 1;
     }
 
-    public void deleteCommentRatings() {
+    public void deleteAll() {
         jdbc.getJdbcOperations().execute("DELETE FROM Comment_Rating");
     }
 }

@@ -29,7 +29,7 @@ public class CommentsDao {
                 new MapSqlParameterSource("id_comment", id_comment), Integer.class) > 0;
     }
 
-    public List<Comment> getAllComments() {
+    public List<Comment> getAll() {
         return jdbc.query("SELECT * FROM Comment", BeanPropertyRowMapper.newInstance(Comment.class));
     }
 
@@ -45,7 +45,7 @@ public class CommentsDao {
         return jdbc.update("UPDATE Comment SET id_comment=:id_comment, id_image=:id_image, id_author=:id_author, message=:message, created=:created, updated=:updated WHERE id_comment=:id_comment", params) == 1;
     }
 
-    public void deleteComments() {
+    public void deleteAll() {
         jdbc.getJdbcOperations().execute("DELETE FROM Comment_Rating");
         jdbc.getJdbcOperations().execute("DELETE FROM Comment");
     }

@@ -28,14 +28,14 @@ public class UsersDaoTests {
 
     @Test
     public void testUsers() {
-        usersDao.deleteUsers();
+        usersDao.deleteAll();
 
         User user = new User("Tmthetom");
         //assertTrue("User creation should return true", usersDao.create(user));
         usersDao.create(user);
-        user = usersDao.getAllUsers().get(0);
+        user = usersDao.getAll().get(0);
 
-        List<User> users = usersDao.getAllUsers();
+        List<User> users = usersDao.getAll();
 
         assertEquals("Number of users should be 1.", 1, users.size());
 

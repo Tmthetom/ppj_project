@@ -30,18 +30,18 @@ public class ImagesDaoTests {
 
     @Test
     public void testImages(){
-        imagesDao.deleteImages();
-        usersDao.deleteUsers();
+        imagesDao.deleteAll();
+        usersDao.deleteAll();
 
         User user = new User("Tmthetom");
         usersDao.create(user);
-        user = usersDao.getAllUsers().get(0);
+        user = usersDao.getAll().get(0);
 
         Image image = new Image(user.getId_user(), "New York","url");
         assertTrue("Image should be created", imagesDao.create(image));
-        image = imagesDao.getAllImages().get(0);
+        image = imagesDao.getAll().get(0);
 
-        List<Image> images = imagesDao.getAllImages();
+        List<Image> images = imagesDao.getAll();
         assertEquals("Number of images should be 1", 1, images.size());
 
         assertTrue("Image should exist", imagesDao.exists(images.get(0).getId_image()));
