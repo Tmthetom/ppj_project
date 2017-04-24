@@ -37,7 +37,6 @@ public class Comment {
         this.message = message;
     }
 
-
     public Comment(int id_comment, int id_image, int id_author, String message, Date created, Date updated) {
         this.id_comment = id_comment;
         this.id_image = id_image;

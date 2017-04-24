@@ -1,6 +1,5 @@
 package cz.tul;
 
-import cz.tul.app.Main;
 import cz.tul.data.*;
 import org.junit.FixMethodOrder;
 import org.junit.Test;

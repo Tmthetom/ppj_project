@@ -13,7 +13,7 @@ public class Image_Rating {
     @Column(name="id_image")
     private int id_image;
 
-    @Id
+    //@Id
     @Column(name="id_user")
     private int id_user;
 

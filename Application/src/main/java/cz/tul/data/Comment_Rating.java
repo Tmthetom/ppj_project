@@ -13,7 +13,7 @@ public class Comment_Rating {
     @Column(name="id_comment")
     private int id_comment;
 
-    @Id
+    //@Id
     @Column(name="id_user")
     private int id_user;
 

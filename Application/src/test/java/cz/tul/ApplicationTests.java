@@ -1,6 +1,5 @@
 package cz.tul;
 
-import cz.tul.app.Main;
 import cz.tul.data.*;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -57,12 +56,14 @@ public class ApplicationTests {
 
         // Create users
         User user1 = new User("Tmthetom");
-        assertTrue("User 1 should be created", usersDao.create(user1));
+        //assertTrue("User 1 should be created", usersDao.create(user1));
+        usersDao.create(user1);
         user1 = usersDao.getAllUsers().get(0);
         assertEquals("User 1 should be equal", user1, usersDao.getAllUsers().get(0));
 
         User user2 = new User("Pavel");
-        assertTrue("User 2 should be created", usersDao.create(user2));
+        //assertTrue("User 2 should be created", usersDao.create(user2));
+        usersDao.create(user2);
         user2 = usersDao.getAllUsers().get(1);
         assertEquals("User 2 should be equal", user2, usersDao.getAllUsers().get(1));
 

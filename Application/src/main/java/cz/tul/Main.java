@@ -1,4 +1,4 @@
-package cz.tul.app;
+package cz.tul;
 
 import cz.tul.data.*;
 import org.hibernate.SessionFactory;

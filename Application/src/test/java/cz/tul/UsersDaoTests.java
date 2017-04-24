@@ -1,6 +1,5 @@
 package cz.tul;
 
-import cz.tul.app.Main;
 import cz.tul.data.User;
 import cz.tul.data.UsersDao;
 import org.junit.FixMethodOrder;
@@ -32,7 +31,8 @@ public class UsersDaoTests {
         usersDao.deleteUsers();
 
         User user = new User("Tmthetom");
-        assertTrue("User creation should return true", usersDao.create(user));
+        //assertTrue("User creation should return true", usersDao.create(user));
+        usersDao.create(user);
         user = usersDao.getAllUsers().get(0);
 
         List<User> users = usersDao.getAllUsers();
