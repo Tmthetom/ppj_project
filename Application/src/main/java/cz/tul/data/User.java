@@ -19,7 +19,7 @@ public class User {
     private Date registered;
 
     @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
-    private Set<Image> imageSet;
+    private Set<Image> images;
 
     public User() {
         ;
@@ -78,5 +78,13 @@ public class User {
 
     public void setRegistered(Date registered) {
         this.registered = registered;
+    }
+
+    public Set<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<Image> images) {
+        this.images = images;
     }
 }

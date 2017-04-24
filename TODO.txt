@@ -13,4 +13,7 @@ Výsledný projekt bude fungovat na Spring Repository
  -> Další vetec pro Criteria API
  -> Main vìtev pojede do finálního projektu
  
-getAllUsers().get(0); NE -> Pøedelat na user.Create(user), aby vracelo ID a podle ovìøit exists. Pak si vrátit jeden user a ne všechny.
+Pøipomínky z minula
+ 
+-> getAllUsers().get(0); NE -> Pøedelat na user.Create(user), aby vracelo ID a podle ovìøit exists. Pak si vrátit jeden user a ne všechny.
+-> Criteria api má metodu unique result, pøetypovat na ten object
