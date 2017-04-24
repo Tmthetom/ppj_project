@@ -29,7 +29,7 @@ public class CommentsDao {
     }
 
     public boolean exists(int id_comment) {
-        Criteria criteria = session().createCriteria(Image.class);
+        Criteria criteria = session().createCriteria(Comment.class);
         criteria.add(Restrictions.idEq(id_comment));
         Comment comment = (Comment)criteria.uniqueResult();
         return comment != null;

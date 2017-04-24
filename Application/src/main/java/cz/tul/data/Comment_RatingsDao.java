@@ -21,23 +21,16 @@ public class Comment_RatingsDao {
     }
 
     @Transactional
-    public void create(Comment_Rating rating) {
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("id_comment", rating.getId_comment());
-        params.addValue("id_user", rating.getId_user());
-        params.addValue("rating", rating.getRating());
-
-        return jdbc.update("INSERT INTO Comment_Rating (id_comment, id_user, rating) " +
-                "VALUES (:id_comment, :id_user, :rating)", params) == 1;
+    public void create(Comment_Rating comment_rating) {
+        session().save(comment_rating);
     }
 
     public boolean exists(int id_comment, int id_user) {
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("id_comment", id_comment);
-        params.addValue("id_user", id_user);
-
-        return jdbc.queryForObject("SELECT COUNT(*) FROM Comment_Rating WHERE id_comment=:id_comment AND id_user=:id_user",
-                params, Integer.class) > 0;
+        Criteria criteria = session().createCriteria(Comment_Rating.class);
+        criteria.add(Restrictions.eq("id_comment", id_comment));
+        criteria.add(Restrictions.eq("id_user", id_user));
+        Comment_Rating comment_rating = (Comment_Rating) criteria.uniqueResult();
+        return comment_rating != null;
     }
 
     public List<Comment_Rating> getAll() {

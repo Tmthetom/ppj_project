@@ -25,7 +25,7 @@ public class Image_RatingsDao {
     }
 
     public boolean exists(int id_image, int id_user) {
-        Criteria criteria = session().createCriteria(Tag.class);
+        Criteria criteria = session().createCriteria(Image_Rating.class);
         criteria.add(Restrictions.eq("id_image", id_image));
         criteria.add(Restrictions.eq("id_user", id_user));
         Image_Rating image_rating = (Image_Rating) criteria.uniqueResult();

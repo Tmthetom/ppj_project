@@ -25,7 +25,7 @@ public class Image_TagsDao {
     }
 
     public boolean exists(int id_image, String name) {
-        Criteria criteria = session().createCriteria(Tag.class);
+        Criteria criteria = session().createCriteria(Image_Tag.class);
         criteria.add(Restrictions.eq("id_image", id_image));
         criteria.add(Restrictions.eq("name", name));
         Image_Tag image_tag = (Image_Tag) criteria.uniqueResult();
