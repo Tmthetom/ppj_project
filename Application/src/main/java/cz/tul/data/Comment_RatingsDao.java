@@ -7,7 +7,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
 
 @Transactional
@@ -34,19 +33,15 @@ public class Comment_RatingsDao {
     }
 
     public List<Comment_Rating> getAll() {
-        return jdbc.query("SELECT * FROM Comment_Rating", BeanPropertyRowMapper.newInstance(Comment_Rating.class));
+        Criteria criteria = session().createCriteria(Comment_Rating.class);
+        return criteria.list();
     }
 
-    public void update(Comment_Rating rating) {
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("id_comment", rating.getId_comment());
-        params.addValue("id_user", rating.getId_user());
-        params.addValue("rating", rating.getRating());
-
-        return jdbc.update("UPDATE Comment_Rating SET id_comment=:id_comment, id_user=:id_user, rating=:rating WHERE id_comment=:id_comment", params) == 1;
+    public void update(Comment_Rating comment_rating) {
+        session().update(comment_rating);
     }
 
     public void deleteAll() {
-        jdbc.getJdbcOperations().execute("DELETE FROM Comment_Rating");
+        session().createQuery("DELETE FROM Comment_Rating").executeUpdate();
     }
 }
