@@ -7,7 +7,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
 
 @Transactional
@@ -38,8 +37,8 @@ public class Image_TagsDao {
         return criteria.list();
     }
 
-    public void update(Image_Tag tag) {
-        session().update(tag);
+    public void update(Image_Tag image_tag) {
+        session().update(image_tag);
     }
 
     public void deleteAll() {
