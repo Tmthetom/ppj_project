@@ -1,22 +1,27 @@
 package cz.tul.data;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.util.Date;
 import java.util.List;
 
+@Transactional
 public class Comment_RatingsDao {
 
     @Autowired
-    private NamedParameterJdbcOperations jdbc;
+    private SessionFactory sessionFactory;
+
+    public Session session() {
+        return sessionFactory.getCurrentSession();
+    }
 
     @Transactional
-    public boolean create(Comment_Rating rating) {
+    public void create(Comment_Rating rating) {
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id_comment", rating.getId_comment());
         params.addValue("id_user", rating.getId_user());
@@ -39,7 +44,7 @@ public class Comment_RatingsDao {
         return jdbc.query("SELECT * FROM Comment_Rating", BeanPropertyRowMapper.newInstance(Comment_Rating.class));
     }
 
-    public boolean update(Comment_Rating rating) {
+    public void update(Comment_Rating rating) {
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id_comment", rating.getId_comment());
         params.addValue("id_user", rating.getId_user());
