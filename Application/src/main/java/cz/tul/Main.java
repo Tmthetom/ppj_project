@@ -74,7 +74,8 @@ public class Main {
         ApplicationContext ctx = app.run(args);
 
         UsersDao usersDao = ctx.getBean(UsersDao.class);
-        usersDao.create(new User("Karel"));
+        usersDao.deleteUsers();
+        usersDao.create(new User("Tmthetom"));
 
         List<User> users = usersDao.getAllUsers();
         System.out.println(users);

@@ -1,37 +1,43 @@
 package cz.tul.data;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 public class TagsDao {
+
     @Autowired
-    private NamedParameterJdbcOperations jdbc;
+    private SessionFactory sessionFactory;
+
+    public Session session() {
+        return sessionFactory.getCurrentSession();
+    }
 
     @Transactional
-    public boolean create(Tag tag) {
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("name", tag.getName());
-
-        return jdbc.update("INSERT INTO Tag (name) " +
-                "VALUES (:name)", params) == 1;
+    public void create(Tag tag) {
+        session().save(tag);
     }
 
     public boolean exists(String name) {
-        return jdbc.queryForObject("SELECT COUNT(*) FROM Tag WHERE name=:name",
-                new MapSqlParameterSource("name", name), Integer.class) > 0;
+        Criteria criteria = session().createCriteria(Tag.class);
+        criteria.add(Restrictions.idEq(name));
+        Tag tag = (Tag)criteria.uniqueResult();
+        return tag != null;
     }
 
     public List<Tag> getAllTags() {
-        return jdbc.query("SELECT * FROM Tag", BeanPropertyRowMapper.newInstance(Tag.class));
+        Criteria criteria = session().createCriteria(Tag.class);
+        return criteria.list();
     }
 
     public void deleteTags() {
-        jdbc.getJdbcOperations().execute("DELETE FROM Image_Tag");
-        jdbc.getJdbcOperations().execute("DELETE FROM Tag");
+        session().createQuery("DELETE FROM Image_Tag").executeUpdate();
+        session().createQuery("DELETE FROM Tag").executeUpdate();
     }
 }

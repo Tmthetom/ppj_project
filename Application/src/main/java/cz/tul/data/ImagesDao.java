@@ -1,54 +1,55 @@
 package cz.tul.data;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
+@Transactional
 public class ImagesDao {
+
     @Autowired
-    private NamedParameterJdbcOperations jdbc;
+    private SessionFactory sessionFactory;
+
+    public Session session() {
+        return sessionFactory.getCurrentSession();
+    }
 
     @Transactional
-    public boolean create(Image image) {
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("id_author", image.getId_author());
-        params.addValue("name", image.getName());
-        params.addValue("path", image.getPath());
-
-        return jdbc.update("INSERT INTO Image (id_author, name, path) " +
-                "VALUES (:id_author, :name, :path)", params) == 1;
+    public void create(Image image) {
+        Date date = new Date();
+        image.setCreated(date);
+        image.setUpdated(date);
+        session().save(image);
     }
 
     public boolean exists(int id_image) {
-        return jdbc.queryForObject("SELECT COUNT(*) FROM Image WHERE id_image=:id_image",
-                new MapSqlParameterSource("id_image", id_image), Integer.class) > 0;
+        Criteria criteria = session().createCriteria(Image.class);
+        criteria.add(Restrictions.idEq(id_image));
+        Image image = (Image)criteria.uniqueResult();
+        return image != null;
     }
 
     public List<Image> getAllImages() {
-        return jdbc.query("SELECT * FROM Image", BeanPropertyRowMapper.newInstance(Image.class));
+        Criteria criteria = session().createCriteria(Image.class);
+        return criteria.list();
     }
 
-    public boolean update(Image image) {
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("id_image", image.getId_image());
-        params.addValue("id_author", image.getId_author());
-        params.addValue("name", image.getName());
-        params.addValue("path", image.getPath());
-        params.addValue("created", image.getCreated());
-        params.addValue("updated", image.getUpdated());
-
-        return jdbc.update("UPDATE Image SET id_author=:id_author, name=:name, path=:path, created=:created, updated=:updated where id_image=:id_image", params) == 1;
+    public void update(Image image) {
+        image.setUpdated(new Date());
+        session().update(image);
     }
 
     public void deleteImages() {
-        jdbc.getJdbcOperations().execute("DELETE FROM Comment_Rating");
-        jdbc.getJdbcOperations().execute("DELETE FROM Comment");
-        jdbc.getJdbcOperations().execute("DELETE FROM Image_Tag");
-        jdbc.getJdbcOperations().execute("DELETE FROM Image_Rating");
-        jdbc.getJdbcOperations().execute("DELETE FROM Image");
+        session().createQuery("DELETE FROM Comment_Rating").executeUpdate();
+        session().createQuery("DELETE FROM Comment").executeUpdate();
+        session().createQuery("DELETE FROM Image_Tag").executeUpdate();
+        session().createQuery("DELETE FROM Image_Rating").executeUpdate();
+        session().createQuery("DELETE FROM Image").executeUpdate();
     }
 }
