@@ -1,14 +1,30 @@
 package cz.tul.data;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name="Comment")
 public class Comment {
 
+    @Id
+    @GeneratedValue
+    @Column(name="id_comment")
     private int id_comment;
+
+    @Column(name="id_image")
     private int id_image;
+
+    @Column(name="id_author")
     private int id_author;
+
+    @Column(name="message")
     private String message;
+
+    @Column(name="created")
     private Date created;
+
+    @Column(name="updated")
     private Date updated;
 
     public Comment() {

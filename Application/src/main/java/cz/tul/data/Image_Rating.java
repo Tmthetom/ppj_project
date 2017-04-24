@@ -1,9 +1,23 @@
 package cz.tul.data;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Image_Rating")
 public class Image_Rating {
 
+    @Id
+    @Column(name="id_image")
     private int id_image;
+
+    @Id
+    @Column(name="id_user")
     private int id_user;
+
+    @Column(name="rating")
     private boolean rating;
 
     public Image_Rating() {

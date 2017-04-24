@@ -2,13 +2,13 @@ package cz.tul.data;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 @Table(name="User")
 public class User {
 
     @Id
+    @GeneratedValue
     @Column(name="id_user")
     private int id_user;
 
@@ -17,9 +17,6 @@ public class User {
 
     @Column(name="registered")
     private Date registered;
-
-    @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
-    private Set<Image> images;
 
     public User() {
         ;
@@ -78,13 +75,5 @@ public class User {
 
     public void setRegistered(Date registered) {
         this.registered = registered;
-    }
-
-    public Set<Image> getImages() {
-        return images;
-    }
-
-    public void setImages(Set<Image> images) {
-        this.images = images;
     }
 }

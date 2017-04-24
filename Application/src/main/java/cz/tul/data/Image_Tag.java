@@ -1,8 +1,19 @@
 package cz.tul.data;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Image_Tag")
 public class Image_Tag {
 
+    @Id
+    @Column(name="id_image")
     private int id_image;
+
+    @Column(name="name")
     private String name;
 
     public Image_Tag() {

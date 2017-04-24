@@ -1,14 +1,30 @@
 package cz.tul.data;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name="Image")
 public class Image {
 
+    @Id
+    @GeneratedValue
+    @Column(name="id_image")
     private int id_image;
+
+    @Column(name="id_author")
     private int id_author;
+
+    @Column(name="name")
     private String name;
+
+    @Column(name="path")
     private String path;
+
+    @Column(name="created")
     private Date created;
+
+    @Column(name="updated")
     private Date updated;
 
     public Image() {
