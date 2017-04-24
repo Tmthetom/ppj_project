@@ -1,5 +1,6 @@
 package cz.tul;
 
+import cz.tul.app.Main;
 import cz.tul.data.*;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -9,9 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.util.Date;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;

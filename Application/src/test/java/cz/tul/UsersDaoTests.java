@@ -1,5 +1,6 @@
 package cz.tul;
 
+import cz.tul.app.Main;
 import cz.tul.data.User;
 import cz.tul.data.UsersDao;
 import org.junit.FixMethodOrder;
