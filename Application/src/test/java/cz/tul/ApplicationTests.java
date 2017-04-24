@@ -69,31 +69,36 @@ public class ApplicationTests {
 
         // Create image with user 1
         Image image = new Image(user1.getId_user(), "New York","url");
-        assertTrue("Image should be created", imagesDao.create(image));
+        //assertTrue("Image should be created", imagesDao.create(image));
+        imagesDao.create(image);
         image = imagesDao.getAll().get(0);
         assertEquals("Image should be equal", image, imagesDao.getAll().get(0));
 
         // Update image
         image.setPath("url2");
-        assertTrue("Image update should be created", imagesDao.update(image));
+        //assertTrue("Image update should be created", imagesDao.update(image));
+        imagesDao.update(image);
         assertNotEquals("Image should have updated date", null, imagesDao.getAll().get(0).getUpdated());
         image = imagesDao.getAll().get(0);
 
         // Create tag
         Tag tag = new Tag("Mesto");
-        assertTrue("Tag should be created", tagsDao.create(tag));
+        //assertTrue("Tag should be created", tagsDao.create(tag));
+        tagsDao.create(tag);
         assertEquals("Tag should be equal", tag, tagsDao.getAll().get(0));
         tag = tagsDao.getAll().get(0);
 
         // Create image rating with user 2
         Image_Rating image_rating = new Image_Rating(image.getId_image(), user2.getId_user(), Boolean.FALSE);
-        assertTrue("Image_Rating should be created", image_ratingsDao.create(image_rating));
+        //assertTrue("Image_Rating should be created", image_ratingsDao.create(image_rating));
+        image_ratingsDao.create(image_rating)
         image_rating = image_ratingsDao.getAll().get(0);
         assertEquals("Image_Rating should be equal", image_rating, image_ratingsDao.getAll().get(0));
 
         // Create comment with user 2
         Comment comment = new Comment(image.getId_image(), user2.getId_user(), "I dunt like it dwq");
-        assertTrue("Comment should be created", commentsDao.create(comment));
+        //assertTrue("Comment should be created", commentsDao.create(comment));
+        commentsDao.create(comment);
         comment = commentsDao.getAll().get(0);
         assertEquals("Comment should be equal", comment, commentsDao.getAll().get(0));
 

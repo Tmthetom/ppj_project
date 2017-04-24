@@ -1,18 +1,3 @@
-Ukázková aplikace è. 2 - Konfigurace Hibernate
-
- -> Z toho vzít testy a implementace DAO (Criteria API)
-
-Mapování relaèních tabulek
-
- -> Namapovat všechny tabulky pøes modul Spring Hibernate
- -> Mapovat pøes Anotace
- 
-Vıslednı projekt bude fungovat na Spring Repository
-
- -> Nyní udìlat novou vìtev aplikace pro SQL dotazy
- -> Další vetec pro Criteria API
- -> Main vìtev pojede do finálního projektu
- 
 Pøipomínky z minula
  
 -> getAllUsers().get(0); NE -> Pøedelat na user.Create(user), aby vracelo ID a podle ovìøit exists. Pak si vrátit jeden user a ne všechny.
