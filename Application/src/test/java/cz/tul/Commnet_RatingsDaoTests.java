@@ -54,7 +54,8 @@ public class Commnet_RatingsDaoTests {
         comment = commentsDao.getAll().get(0);
 
         Comment_Rating comment_rating = new Comment_Rating(comment.getId_comment(), user.getId_user(), Boolean.TRUE);
-        assertTrue("Comment_rating should be created", comment_ratingsDao.create(comment_rating));
+        //assertTrue("Comment_rating should be created", comment_ratingsDao.create(comment_rating));
+        comment_ratingsDao.create(comment_rating);
         comment_rating = comment_ratingsDao.getAll().get(0);
 
         List<Comment_Rating> comment_ratings = comment_ratingsDao.getAll();

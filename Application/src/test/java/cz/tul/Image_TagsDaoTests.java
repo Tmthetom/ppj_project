@@ -54,7 +54,8 @@ public class Image_TagsDaoTests {
         image = imagesDao.getAll().get(0);
 
         Image_Tag image_tag = new Image_Tag(image.getId_image(), tag.getName());
-        assertTrue("Image_tag should be created", image_tagsDao.create(image_tag));
+        //assertTrue("Image_tag should be created", image_tagsDao.create(image_tag));
+        image_tagsDao.create(image_tag);
         image_tag = image_tagsDao.getAll().get(0);
 
         List<Image_Tag> image_tags = image_tagsDao.getAll();

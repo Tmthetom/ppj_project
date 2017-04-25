@@ -91,7 +91,7 @@ public class ApplicationTests {
         // Create image rating with user 2
         Image_Rating image_rating = new Image_Rating(image.getId_image(), user2.getId_user(), Boolean.FALSE);
         //assertTrue("Image_Rating should be created", image_ratingsDao.create(image_rating));
-        image_ratingsDao.create(image_rating)
+        image_ratingsDao.create(image_rating);
         image_rating = image_ratingsDao.getAll().get(0);
         assertEquals("Image_Rating should be equal", image_rating, image_ratingsDao.getAll().get(0));
 
@@ -104,13 +104,15 @@ public class ApplicationTests {
 
         // Update comment with user 2
         comment.setMessage("I dont like it");
-        assertTrue("Comment should be created", commentsDao.update(comment));
+        //assertTrue("Comment should be created", commentsDao.update(comment));
+        commentsDao.update(comment);
         comment = commentsDao.getAll().get(0);
         assertNotEquals("Comment should have updated date", null, commentsDao.getAll().get(0).getUpdated());
 
         // Create comment rating with user 1
         Comment_Rating comment_rating = new Comment_Rating(comment.getId_comment(), user1.getId_user(), Boolean.FALSE);
-        assertTrue("Comment_rating should be created", comment_ratingsDao.create(comment_rating));
+        //assertTrue("Comment_rating should be created", comment_ratingsDao.create(comment_rating));
+        comment_ratingsDao.create(comment_rating);
         comment_rating = comment_ratingsDao.getAll().get(0);
         assertEquals("Comment_rating should be equal", comment_rating, comment_ratingsDao.getAll().get(0));
     }

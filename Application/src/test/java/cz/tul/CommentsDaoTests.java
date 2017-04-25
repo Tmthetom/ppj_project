@@ -46,7 +46,8 @@ public class CommentsDaoTests {
         image = imagesDao.getAll().get(0);
 
         Comment comment = new Comment(image.getId_image(), user.getId_user(), "comment");
-        assertTrue("Comment should be created", commentsDao.create(comment));
+        //assertTrue("Comment should be created", commentsDao.create(comment));
+        commentsDao.create(comment);
         comment = commentsDao.getAll().get(0);
 
         List<Comment> comments = commentsDao.getAll();

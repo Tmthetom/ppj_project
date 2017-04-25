@@ -30,7 +30,8 @@ public class TagsDaoTests {
         tagsDao.deleteAll();
 
         Tag tag = new Tag("Mesto");
-        assertTrue("Tag creation should return true", tagsDao.create(tag));
+        //assertTrue("Tag creation should return true", tagsDao.create(tag));
+        tagsDao.create(tag);
         tag = tagsDao.getAll().get(0);
 
         List<Tag> tags = tagsDao.getAll();
