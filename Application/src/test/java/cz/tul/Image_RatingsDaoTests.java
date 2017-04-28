@@ -46,7 +46,6 @@ public class Image_RatingsDaoTests {
         image = imagesDao.getAll().get(0);
 
         Image_Rating image_rating = new Image_Rating(image, user, Boolean.TRUE);
-        //assertTrue("Image_rating should be created", image_ratingsDao.create(rating));
         image_ratingsDao.create(image_rating);
 
         List<Image_Rating> image_ratings = image_ratingsDao.getAll();
