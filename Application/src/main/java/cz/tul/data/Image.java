@@ -92,7 +92,7 @@ public class Image {
                 }
             }
         }
-        if (getAuthor() != temp.getAuthor()) {
+        if (!getAuthor().equals(temp.getAuthor())) {
             return false;
         }
         return true;
