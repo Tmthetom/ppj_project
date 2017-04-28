@@ -23,22 +23,22 @@ import static org.junit.Assert.assertTrue;
 public class TagDaoTests {
 
     @Autowired
-    private TagDao tagDao;
+    private TagsDao tagsDao;
 
     @Test
     public void testTags() {
-        tagDao.deleteAll();
+        tagsDao.deleteAll();
 
         Tag tag = new Tag("Mesto");
         //assertTrue("Tag creation should return true", tagsDao.create(tag));
-        tagDao.create(tag);
-        tag = tagDao.getAll().get(0);
+        tagsDao.create(tag);
+        tag = tagsDao.getAll().get(0);
 
-        List<Tag> tags = tagDao.getAll();
+        List<Tag> tags = tagsDao.getAll();
 
         assertEquals("Number of tags should be 1.", 1, tags.size());
 
-        assertTrue("Tag should exist.", tagDao.exists(tag.getName()));
+        assertTrue("Tag should exist.", tagsDao.exists(tag.getName()));
 
         assertEquals("Created tag should be identical to retrieved user",
                 tag, tags.get(0));

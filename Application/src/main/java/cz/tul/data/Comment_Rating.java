@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Comment_Rating")
-public class CommentRating {
+public class Comment_Rating {
 
     @Id
     @Column(name="id_comment")
@@ -20,11 +20,11 @@ public class CommentRating {
     @Column(name="rating")
     private boolean rating;
 
-    public CommentRating() {
+    public Comment_Rating() {
         ;
     }
 
-    public CommentRating(int id_comment, int id_user, boolean rating) {
+    public Comment_Rating(int id_comment, int id_user, boolean rating) {
         this.id_comment = id_comment;
         this.id_user = id_user;
         this.rating = rating;
@@ -47,7 +47,7 @@ public class CommentRating {
         if(getClass() != obj.getClass()){
             return false;
         }
-        CommentRating temp = (CommentRating)obj;
+        Comment_Rating temp = (Comment_Rating)obj;
         if (getId_comment() != temp.getId_comment()) {
             return false;
         }

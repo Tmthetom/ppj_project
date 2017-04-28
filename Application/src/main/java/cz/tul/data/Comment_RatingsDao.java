@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Transactional
-public class CommentRatingDao {
+public class Comment_RatingsDao {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -20,24 +20,24 @@ public class CommentRatingDao {
     }
 
     @Transactional
-    public void create(CommentRating comment_rating) {
+    public void create(Comment_Rating comment_rating) {
         session().save(comment_rating);
     }
 
     public boolean exists(int id_comment, int id_user) {
-        Criteria criteria = session().createCriteria(CommentRating.class);
+        Criteria criteria = session().createCriteria(Comment_Rating.class);
         criteria.add(Restrictions.eq("id_comment", id_comment));
         criteria.add(Restrictions.eq("id_user", id_user));
-        CommentRating comment_rating = (CommentRating) criteria.uniqueResult();
+        Comment_Rating comment_rating = (Comment_Rating) criteria.uniqueResult();
         return comment_rating != null;
     }
 
-    public List<CommentRating> getAll() {
-        Criteria criteria = session().createCriteria(CommentRating.class);
+    public List<Comment_Rating> getAll() {
+        Criteria criteria = session().createCriteria(Comment_Rating.class);
         return criteria.list();
     }
 
-    public void update(CommentRating comment_rating) {
+    public void update(Comment_Rating comment_rating) {
         session().update(comment_rating);
     }
 

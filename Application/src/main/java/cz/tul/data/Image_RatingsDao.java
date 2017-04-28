@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Transactional
-public class ImageRatingDao {
+public class Image_RatingsDao {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -20,24 +20,24 @@ public class ImageRatingDao {
     }
 
     @Transactional
-    public void create(ImageRating image_rating) {
+    public void create(Image_Rating image_rating) {
         session().save(image_rating);
     }
 
     public boolean exists(int id_image, int id_user) {
-        Criteria criteria = session().createCriteria(ImageRating.class);
+        Criteria criteria = session().createCriteria(Image_Rating.class);
         criteria.add(Restrictions.eq("id_image", id_image));
         criteria.add(Restrictions.eq("id_user", id_user));
-        ImageRating image_rating = (ImageRating) criteria.uniqueResult();
+        Image_Rating image_rating = (Image_Rating) criteria.uniqueResult();
         return image_rating != null;
     }
 
-    public List<ImageRating> getAll() {
-        Criteria criteria = session().createCriteria(ImageRating.class);
+    public List<Image_Rating> getAll() {
+        Criteria criteria = session().createCriteria(Image_Rating.class);
         return criteria.list();
     }
 
-    public void update(ImageRating image_rating) {
+    public void update(Image_Rating image_rating) {
         session().update(image_rating);
     }
 

@@ -23,33 +23,33 @@ import static org.junit.Assert.assertTrue;
 public class ImageRatingDaoTests {
 
     @Autowired
-    private UserDao userDao;
+    private UsersDao usersDao;
 
     @Autowired
-    private ImageDao imageDao;
+    private ImagesDao imagesDao;
 
     @Autowired
-    private ImageRatingDao image_ratingsDao;
+    private Image_RatingsDao image_ratingsDao;
 
     @Test
     public void testImage_Ratings(){
-        userDao.deleteAll();
-        imageDao.deleteAll();
+        usersDao.deleteAll();
+        imagesDao.deleteAll();
         image_ratingsDao.deleteAll();
 
         User user = new User("Tmthetom");
-        userDao.create(user);
-        user = userDao.getAll().get(0);
+        usersDao.create(user);
+        user = usersDao.getAll().get(0);
 
         Image image = new Image(user.getId_user(), "New York","url");
-        imageDao.create(image);
-        image = imageDao.getAll().get(0);
+        imagesDao.create(image);
+        image = imagesDao.getAll().get(0);
 
-        ImageRating rating = new ImageRating(image.getId_image(), user.getId_user(), Boolean.TRUE);
+        Image_Rating rating = new Image_Rating(image.getId_image(), user.getId_user(), Boolean.TRUE);
         //assertTrue("Image_rating should be created", image_ratingsDao.create(rating));
         image_ratingsDao.create(rating);
 
-        List<ImageRating> ratings = image_ratingsDao.getAll();
+        List<Image_Rating> ratings = image_ratingsDao.getAll();
         assertEquals("Number of Image_ratings should be 1", 1, ratings.size());
 
         assertTrue("Image_rating should exist", image_ratingsDao.exists(ratings.get(0).getId_image(), ratings.get(0).getId_user()));

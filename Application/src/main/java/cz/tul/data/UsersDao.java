@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 @Transactional
-public class UserDao {
+public class UsersDao {
 
     @Autowired
     private SessionFactory sessionFactory;

@@ -1,7 +1,7 @@
 package cz.tul;
 
 import cz.tul.data.User;
-import cz.tul.data.UserDao;
+import cz.tul.data.UsersDao;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,22 +24,22 @@ import static org.junit.Assert.assertTrue;
 public class UserDaoTests {
 
     @Autowired
-    private UserDao userDao;
+    private UsersDao usersDao;
 
     @Test
     public void testUsers() {
-        userDao.deleteAll();
+        usersDao.deleteAll();
 
         User user = new User("Tmthetom");
         //assertTrue("User creation should return true", usersDao.create(user));
-        userDao.create(user);
-        user = userDao.getAll().get(0);
+        usersDao.create(user);
+        user = usersDao.getAll().get(0);
 
-        List<User> users = userDao.getAll();
+        List<User> users = usersDao.getAll();
 
         assertEquals("Number of users should be 1.", 1, users.size());
 
-        assertTrue("User should exist.", userDao.exists(user.getId_user()));
+        assertTrue("User should exist.", usersDao.exists(user.getId_user()));
 
         assertEquals("Created user should be identical to retrieved user",
                 user, users.get(0));
