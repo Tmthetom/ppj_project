@@ -38,21 +38,21 @@ public class CommentsDaoTests {
         imagesDao.deleteAll();
 
         User user = new User("Tmthetom");
-        usersDao.create(user);
-        user = usersDao.getAll().get(0);
+        user.setId_user(usersDao.create(user));
+        user = usersDao.get(user);
 
         Image image = new Image(user, "obrazek","url");
-        imagesDao.create(image);
-        image = imagesDao.getAll().get(0);
+        image.setId_image(imagesDao.create(image));
+        image = imagesDao.get(image);
 
         Comment comment = new Comment(image, user, "comment");
-        int id_comment = commentsDao.create(comment);
+        comment.setId_comment(commentsDao.create(comment));
 
         List<Comment> comments = commentsDao.getAll();
         assertEquals("Number of comments should be 1", 1, comments.size());
 
-        assertTrue("Comment id should exist", commentsDao.exists(id_comment));
+        assertTrue("Comment id should exist", commentsDao.exists(comment));
 
-        assertEquals("Created comment should be identical to retrieved comment", comment, comments.get(0));
+        assertEquals("Created comment should be identical to retrieved comment", comment, commentsDao.get(comment));
     }
 }

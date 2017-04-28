@@ -35,9 +35,9 @@ public class TagsDaoTests {
         List<Tag> tags = tagsDao.getAll();
         assertEquals("Number of tags should be 1.", 1, tags.size());
 
-        assertTrue("Tag should exist.", tagsDao.exists(tag.getName()));
+        assertTrue("Tag should exist.", tagsDao.exists(tag));
 
         assertEquals("Created tag should be identical to retrieved tag",
-                tag, tags.get(0));
+                tag, tagsDao.get(tag));
     }
 }

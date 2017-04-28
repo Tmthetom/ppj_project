@@ -26,16 +26,22 @@ public class UsersDao {
         return (Integer) session().save(user);
     }
 
-    public boolean exists(int id_user) {
+    public boolean exists(User user) {
         Criteria criteria = session().createCriteria(User.class);
-        criteria.add(Restrictions.idEq(id_user));
-        User user = (User)criteria.uniqueResult();
+        criteria.add(Restrictions.idEq(user.getId_user()));
+        user = (User)criteria.uniqueResult();
         return user != null;
     }
 
     public List<User> getAll() {
         Criteria criteria = session().createCriteria(User.class);
         return criteria.list();
+    }
+
+    public User get(User user){
+        Criteria criteria = session().createCriteria(User.class);
+        criteria.add(Restrictions.idEq(user.getId_user()));
+        return (User) criteria.list().get(0);
     }
 
     public void deleteAll() {

@@ -34,17 +34,18 @@ public class ImagesDaoTests {
         usersDao.deleteAll();
 
         User user = new User("Tmthetom");
-        usersDao.create(user);
-        user = usersDao.getAll().get(0);
+        user.setId_user(usersDao.create(user));
+        user = usersDao.get(user);
 
         Image image = new Image(user, "New York","url");
-        int id_image = imagesDao.create(image);
+        image.setId_image(imagesDao.create(image));
 
         List<Image> images = imagesDao.getAll();
         assertEquals("Number of images should be 1", 1, images.size());
 
-        assertTrue("Image id should exist", imagesDao.exists(id_image));
+        assertTrue("Image id should exist", imagesDao.exists(image));
 
-        assertEquals("Created image be identical to retrieved image", image, images.get(0));
+        assertEquals("Created image be identical to retrieved image",
+                image, imagesDao.get(image));
     }
 }

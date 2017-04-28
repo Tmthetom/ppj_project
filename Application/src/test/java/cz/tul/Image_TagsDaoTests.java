@@ -42,16 +42,16 @@ public class Image_TagsDaoTests {
         image_tagsDao.deleteAll();
 
         User user = new User("Tmthetom");
-        usersDao.create(user);
-        user = usersDao.getAll().get(0);
+        user.setId_user(usersDao.create(user));
+        user = usersDao.get(user);
 
         Tag tag = new Tag("Mesto");
         tagsDao.create(tag);
         tag = tagsDao.getAll().get(0);
 
         Image image = new Image(user, "New York","url");
-        imagesDao.create(image);
-        image = imagesDao.getAll().get(0);
+        image.setId_image(imagesDao.create(image));
+        image = imagesDao.get(image);
 
         Image_Tag image_tag = new Image_Tag(image, tag);
         image_tagsDao.create(image_tag);
@@ -59,8 +59,9 @@ public class Image_TagsDaoTests {
         List<Image_Tag> image_tags = image_tagsDao.getAll();
         assertEquals("Number of image_tags should be 1", 1, image_tags.size());
 
-        assertTrue("Image_tag should exist", image_tagsDao.exists(image_tag.getImage(), image_tag.getTag()));
+        assertTrue("Image_tag should exist", image_tagsDao.exists(image_tag));
 
-        assertEquals("Created image_tag should be identical to retrieved image_tag", image_tag, image_tags.get(0));
+        assertEquals("Created image_tag should be identical to retrieved image_tag",
+                image_tag, image_tagsDao.get(image_tag));
     }
 }

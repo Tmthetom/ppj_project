@@ -28,16 +28,22 @@ public class CommentsDao {
         return (Integer) session().save(comment);
     }
 
-    public boolean exists(int id_comment) {
+    public boolean exists(Comment comment) {
         Criteria criteria = session().createCriteria(Comment.class);
-        criteria.add(Restrictions.idEq(id_comment));
-        Comment comment = (Comment)criteria.uniqueResult();
+        criteria.add(Restrictions.idEq(comment.getId_comment()));
+        comment = (Comment)criteria.uniqueResult();
         return comment != null;
     }
 
     public List<Comment> getAll() {
         Criteria criteria = session().createCriteria(Comment.class);
         return criteria.list();
+    }
+
+    public Comment get(Comment comment){
+        Criteria criteria = session().createCriteria(Comment.class);
+        criteria.add(Restrictions.idEq(comment.getId_comment()));
+        return (Comment) criteria.list().get(0);
     }
 
     public void update(Comment comment) {

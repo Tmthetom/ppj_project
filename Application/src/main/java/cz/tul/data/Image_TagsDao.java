@@ -24,17 +24,24 @@ public class Image_TagsDao {
         session().save(image_tag);
     }
 
-    public boolean exists(Image image, Tag tag) {
+    public boolean exists(Image_Tag image_tag) {
         Criteria criteria = session().createCriteria(Image_Tag.class);
-        criteria.add(Restrictions.eq("image", image));
-        criteria.add(Restrictions.eq("tag", tag));
-        Image_Tag image_tag = (Image_Tag) criteria.uniqueResult();
+        criteria.add(Restrictions.eq("image", image_tag.getImage()));
+        criteria.add(Restrictions.eq("tag", image_tag.getTag()));
+        image_tag = (Image_Tag) criteria.uniqueResult();
         return image_tag != null;
     }
 
     public List<Image_Tag> getAll() {
         Criteria criteria = session().createCriteria(Image_Tag.class);
         return criteria.list();
+    }
+
+    public Image_Tag get(Image_Tag image_tag){
+        Criteria criteria = session().createCriteria(Image_Tag.class);
+        criteria.add(Restrictions.eq("image", image_tag.getImage()));
+        criteria.add(Restrictions.eq("tag", image_tag.getTag()));
+        return (Image_Tag) criteria.list().get(0);
     }
 
     public void update(Image_Tag image_tag) {

@@ -24,16 +24,22 @@ public class TagsDao {
         session().save(tag);
     }
 
-    public boolean exists(String name) {
+    public boolean exists(Tag tag) {
         Criteria criteria = session().createCriteria(Tag.class);
-        criteria.add(Restrictions.idEq(name));
-        Tag tag = (Tag)criteria.uniqueResult();
+        criteria.add(Restrictions.idEq(tag.getName()));
+        tag = (Tag)criteria.uniqueResult();
         return tag != null;
     }
 
     public List<Tag> getAll() {
         Criteria criteria = session().createCriteria(Tag.class);
         return criteria.list();
+    }
+
+    public Tag get(Tag tag){
+        Criteria criteria = session().createCriteria(Tag.class);
+        criteria.add(Restrictions.idEq(tag.getName()));
+        return (Tag) criteria.list().get(0);
     }
 
     public void deleteAll() {

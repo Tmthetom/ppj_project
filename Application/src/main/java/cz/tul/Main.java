@@ -78,15 +78,10 @@ public class Main {
         usersDao.deleteAll();
         usersDao.create(user);
 
-        Image image = new Image(user,"New York","Path");
-        ImagesDao imagesDao = ctx.getBean(ImagesDao.class);
-        imagesDao.deleteAll();
-        imagesDao.create(image);
-
         List<User> users = usersDao.getAll();
         System.out.println(users);
 
-        List<Image> images = imagesDao.getAll();
-        System.out.println(images);
+        User user1 = usersDao.get(user);
+        System.out.println(user1);
     }
 }

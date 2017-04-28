@@ -24,17 +24,24 @@ public class Image_RatingsDao {
         session().save(image_rating);
     }
 
-    public boolean exists(Image image, User user) {
+    public boolean exists(Image_Rating image_rating) {
         Criteria criteria = session().createCriteria(Image_Rating.class);
-        criteria.add(Restrictions.eq("image", image));
-        criteria.add(Restrictions.eq("user", user));
-        Image_Rating image_rating = (Image_Rating) criteria.uniqueResult();
+        criteria.add(Restrictions.eq("image", image_rating.getImage()));
+        criteria.add(Restrictions.eq("user", image_rating.getUser()));
+        image_rating = (Image_Rating) criteria.uniqueResult();
         return image_rating != null;
     }
 
     public List<Image_Rating> getAll() {
         Criteria criteria = session().createCriteria(Image_Rating.class);
         return criteria.list();
+    }
+
+    public Image_Rating get(Image_Rating image_rating){
+        Criteria criteria = session().createCriteria(Image_Rating.class);
+        criteria.add(Restrictions.eq("image", image_rating.getImage()));
+        criteria.add(Restrictions.eq("user", image_rating.getUser()));
+        return (Image_Rating) criteria.list().get(0);
     }
 
     public void update(Image_Rating image_rating) {

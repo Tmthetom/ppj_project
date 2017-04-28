@@ -28,16 +28,22 @@ public class ImagesDao {
         return (Integer) session().save(image);
     }
 
-    public boolean exists(int id_image) {
+    public boolean exists(Image image) {
         Criteria criteria = session().createCriteria(Image.class);
-        criteria.add(Restrictions.idEq(id_image));
-        Image image = (Image)criteria.uniqueResult();
+        criteria.add(Restrictions.idEq(image.getId_image()));
+        image = (Image)criteria.uniqueResult();
         return image != null;
     }
 
     public List<Image> getAll() {
         Criteria criteria = session().createCriteria(Image.class);
         return criteria.list();
+    }
+
+    public Image get(Image image){
+        Criteria criteria = session().createCriteria(Image.class);
+        criteria.add(Restrictions.idEq(image.getId_image()));
+        return (Image) criteria.list().get(0);
     }
 
     public void update(Image image) {
