@@ -20,10 +20,7 @@ import static org.junit.Assert.assertTrue;
 @ActiveProfiles({"test"})
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class CommentDaoTests {
-
-    @Autowired
-    private CommentsDao commentsDao;
+public class ImagesDaoTests {
 
     @Autowired
     private UsersDao usersDao;
@@ -32,29 +29,24 @@ public class CommentDaoTests {
     private ImagesDao imagesDao;
 
     @Test
-    public void testComments(){
-        commentsDao.deleteAll();
-        usersDao.deleteAll();
+    public void testImages(){
         imagesDao.deleteAll();
+        usersDao.deleteAll();
 
         User user = new User("Tmthetom");
         usersDao.create(user);
         user = usersDao.getAll().get(0);
 
-        Image image = new Image(user.getId_user(), "obrazek","url");
+        Image image = new Image(user.getId_user(), "New York","url");
+        //assertTrue("Image should be created", imagesDao.create(image));
         imagesDao.create(image);
         image = imagesDao.getAll().get(0);
 
-        Comment comment = new Comment(image.getId_image(), user.getId_user(), "comment");
-        //assertTrue("Comment should be created", commentsDao.create(comment));
-        commentsDao.create(comment);
-        comment = commentsDao.getAll().get(0);
+        List<Image> images = imagesDao.getAll();
+        assertEquals("Number of images should be 1", 1, images.size());
 
-        List<Comment> comments = commentsDao.getAll();
-        assertEquals("Number of comments should be 1", 1, comments.size());
+        assertTrue("Image should exist", imagesDao.exists(images.get(0).getId_image()));
 
-        assertTrue("Comment should exist", commentsDao.exists(comments.get(0).getId_comment()));
-
-        assertEquals("Created comment should be identical to retrieved comment", comment, comments.get(0));
+        assertEquals("Created comment image be identical to retrieved comment", image, images.get(0));
     }
 }

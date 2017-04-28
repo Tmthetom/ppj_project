@@ -20,7 +20,10 @@ import static org.junit.Assert.assertTrue;
 @ActiveProfiles({"test"})
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class ImageRatingDaoTests {
+public class CommentsDaoTests {
+
+    @Autowired
+    private CommentsDao commentsDao;
 
     @Autowired
     private UsersDao usersDao;
@@ -28,32 +31,30 @@ public class ImageRatingDaoTests {
     @Autowired
     private ImagesDao imagesDao;
 
-    @Autowired
-    private Image_RatingsDao image_ratingsDao;
-
     @Test
-    public void testImage_Ratings(){
+    public void testComments(){
+        commentsDao.deleteAll();
         usersDao.deleteAll();
         imagesDao.deleteAll();
-        image_ratingsDao.deleteAll();
 
         User user = new User("Tmthetom");
         usersDao.create(user);
         user = usersDao.getAll().get(0);
 
-        Image image = new Image(user.getId_user(), "New York","url");
+        Image image = new Image(user.getId_user(), "obrazek","url");
         imagesDao.create(image);
         image = imagesDao.getAll().get(0);
 
-        Image_Rating rating = new Image_Rating(image.getId_image(), user.getId_user(), Boolean.TRUE);
-        //assertTrue("Image_rating should be created", image_ratingsDao.create(rating));
-        image_ratingsDao.create(rating);
+        Comment comment = new Comment(image.getId_image(), user.getId_user(), "comment");
+        //assertTrue("Comment should be created", commentsDao.create(comment));
+        commentsDao.create(comment);
+        comment = commentsDao.getAll().get(0);
 
-        List<Image_Rating> ratings = image_ratingsDao.getAll();
-        assertEquals("Number of Image_ratings should be 1", 1, ratings.size());
+        List<Comment> comments = commentsDao.getAll();
+        assertEquals("Number of comments should be 1", 1, comments.size());
 
-        assertTrue("Image_rating should exist", image_ratingsDao.exists(ratings.get(0).getId_image(), ratings.get(0).getId_user()));
+        assertTrue("Comment should exist", commentsDao.exists(comments.get(0).getId_comment()));
 
-        assertEquals("Created Image_rating should be identical to retrieved image_tag", rating, ratings.get(0));
+        assertEquals("Created comment should be identical to retrieved comment", comment, comments.get(0));
     }
 }
