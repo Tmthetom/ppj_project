@@ -45,6 +45,6 @@ public class ImagesDaoTests {
 
         assertTrue("Image id should exist", imagesDao.exists(id_image));
 
-        assertEquals("Created image be identical to retrieved comment", image, images.get(0));
+        assertEquals("Created image be identical to retrieved image", image, images.get(0));
     }
 }
