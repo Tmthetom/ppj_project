@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="Comment_Rating")
-public class Comment_Rating implements Serializable{
+public class Comment_Rating implements Serializable {
 
     @Id
     @ManyToOne
