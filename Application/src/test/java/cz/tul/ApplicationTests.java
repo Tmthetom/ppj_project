@@ -89,7 +89,7 @@ public class ApplicationTests {
         tag = tagsDao.getAll().get(0);
 
         // Create image rating with user 2
-        Image_Rating image_rating = new Image_Rating(image.getId_image(), user2.getId_user(), Boolean.FALSE);
+        Image_Rating image_rating = new Image_Rating(image, user2, Boolean.FALSE);
         //assertTrue("Image_Rating should be created", image_ratingsDao.create(image_rating));
         image_ratingsDao.create(image_rating);
         image_rating = image_ratingsDao.getAll().get(0);

@@ -45,15 +45,15 @@ public class Image_RatingsDaoTests {
         imagesDao.create(image);
         image = imagesDao.getAll().get(0);
 
-        Image_Rating rating = new Image_Rating(image.getId_image(), user.getId_user(), Boolean.TRUE);
+        Image_Rating image_rating = new Image_Rating(image, user, Boolean.TRUE);
         //assertTrue("Image_rating should be created", image_ratingsDao.create(rating));
-        image_ratingsDao.create(rating);
+        image_ratingsDao.create(image_rating);
 
-        List<Image_Rating> ratings = image_ratingsDao.getAll();
-        assertEquals("Number of Image_ratings should be 1", 1, ratings.size());
+        List<Image_Rating> image_ratings = image_ratingsDao.getAll();
+        assertEquals("Number of Image_ratings should be 1", 1, image_ratings.size());
 
-        assertTrue("Image_rating should exist", image_ratingsDao.exists(ratings.get(0).getId_image(), ratings.get(0).getId_user()));
+        assertTrue("Image_rating should exist", image_ratingsDao.exists(image_rating.getImage(), image_rating.getUser()));
 
-        assertEquals("Created Image_rating should be identical to retrieved image_tag", rating, ratings.get(0));
+        assertEquals("Created Image_rating should be identical to retrieved image_tag", image_rating, image_ratings.get(0));
     }
 }

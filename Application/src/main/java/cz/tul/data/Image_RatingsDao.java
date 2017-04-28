@@ -24,10 +24,10 @@ public class Image_RatingsDao {
         session().save(image_rating);
     }
 
-    public boolean exists(int id_image, int id_user) {
+    public boolean exists(Image image, User user) {
         Criteria criteria = session().createCriteria(Image_Rating.class);
-        criteria.add(Restrictions.eq("id_image", id_image));
-        criteria.add(Restrictions.eq("id_user", id_user));
+        criteria.add(Restrictions.eq("image", image));
+        criteria.add(Restrictions.eq("user", user));
         Image_Rating image_rating = (Image_Rating) criteria.uniqueResult();
         return image_rating != null;
     }
