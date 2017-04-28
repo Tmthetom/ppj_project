@@ -31,6 +31,11 @@ public class Comment_Rating implements Serializable {
     }
 
     @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
     public String toString() {
         return "Comment_Rating{" +
                 "comment = " + comment + ", " +

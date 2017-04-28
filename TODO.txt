@@ -1,5 +1,0 @@
-Pøipomínky z minula
- 
--> getAllUsers().get(0); NE -> Pøedelat na user.Create(user), aby vracelo ID a podle ovìøit exists. Pak si vrátit jeden user a ne všechny.
--> Criteria api má metodu unique result, pøetypovat na ten object
--> Eager je moc agresivní používat lazy

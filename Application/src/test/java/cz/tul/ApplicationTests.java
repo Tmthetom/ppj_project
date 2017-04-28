@@ -19,7 +19,7 @@ import static org.junit.Assert.assertTrue;
 @ActiveProfiles({"test"})
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class ApplicationUpdatesTests {
+public class ApplicationTests {
 
     @Autowired
     private UsersDao usersDao;
@@ -81,9 +81,19 @@ public class ApplicationUpdatesTests {
         tag = tagsDao.getAll().get(0);
 
         // Create image rating with user 2
-        Image_Rating image_rating = new Image_Rating(image, user2, Boolean.FALSE);
-        image_ratingsDao.create(image_rating);
-        image_rating = image_ratingsDao.getAll().get(0);
+        Image_Rating image_ratingBefore = new Image_Rating(image, user2, Boolean.FALSE);
+        image_ratingsDao.create(image_ratingBefore);
+        image_ratingBefore = image_ratingsDao.getAll().get(0);
+
+        // Update image rating with user 2
+        Image_Rating image_ratingAfter = image_ratingsDao.getAll().get(0);
+        image_ratingAfter.setRating(!image_ratingAfter.getRating());
+        image_ratingsDao.update(image_ratingAfter);
+        image_ratingAfter = image_ratingsDao.getAll().get(0);
+
+        // Check update of image rating
+        assertNotEquals("Image rating should have updated rating", image_ratingBefore.getRating(),
+                image_ratingAfter.getRating());
 
         // Create comment with user 2
         Comment comment = new Comment(image, user2, "I dunt like it dwq");

@@ -27,6 +27,11 @@ public class Image_Tag implements Serializable {
     }
 
     @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
     public String toString() {
         return "Image_Tag{" +
                 "image = " + image + ", " +

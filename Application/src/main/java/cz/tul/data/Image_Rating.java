@@ -31,6 +31,11 @@ public class Image_Rating implements Serializable {
     }
 
     @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
     public String toString() {
         return "Image_Rating{" +
                 "image = " + image + ", " +
