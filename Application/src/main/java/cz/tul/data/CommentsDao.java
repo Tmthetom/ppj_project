@@ -21,11 +21,11 @@ public class CommentsDao {
     }
 
     @Transactional
-    public void create(Comment comment) {
+    public int create(Comment comment) {
         Date date = new Date();
         comment.setCreated(date);
         comment.setUpdated(date);
-        session().save(comment);
+        return (Integer) session().save(comment);
     }
 
     public boolean exists(int id_comment) {

@@ -49,7 +49,7 @@ public class Commnet_RatingsDaoTests {
         imagesDao.create(image);
         image = imagesDao.getAll().get(0);
 
-        Comment comment = new Comment(image.getId_image(), user.getId_user(), "WOW, such a nice image");
+        Comment comment = new Comment(image, user, "WOW, such a nice image");
         commentsDao.create(comment);
         comment = commentsDao.getAll().get(0);
 

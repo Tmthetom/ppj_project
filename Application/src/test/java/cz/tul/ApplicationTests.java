@@ -56,23 +56,17 @@ public class ApplicationTests {
 
         // Create users
         User user1 = new User("Tmthetom");
-        //assertTrue("User 1 should be created", usersDao.create(user1));
         usersDao.create(user1);
         user1 = usersDao.getAll().get(0);
-        assertEquals("User 1 should be equal", user1, usersDao.getAll().get(0));
 
         User user2 = new User("Pavel");
-        //assertTrue("User 2 should be created", usersDao.create(user2));
         usersDao.create(user2);
         user2 = usersDao.getAll().get(1);
-        assertEquals("User 2 should be equal", user2, usersDao.getAll().get(1));
 
         // Create image with user 1
         Image image = new Image(user1, "New York","url");
-        //assertTrue("Image should be created", imagesDao.create(image));
         imagesDao.create(image);
         image = imagesDao.getAll().get(0);
-        assertEquals("Image should be equal", image, imagesDao.getAll().get(0));
 
         // Update image
         image.setPath("url2");
@@ -96,7 +90,7 @@ public class ApplicationTests {
         assertEquals("Image_Rating should be equal", image_rating, image_ratingsDao.getAll().get(0));
 
         // Create comment with user 2
-        Comment comment = new Comment(image.getId_image(), user2.getId_user(), "I dunt like it dwq");
+        Comment comment = new Comment(image, user2, "I dunt like it dwq");
         //assertTrue("Comment should be created", commentsDao.create(comment));
         commentsDao.create(comment);
         comment = commentsDao.getAll().get(0);

@@ -45,15 +45,13 @@ public class CommentsDaoTests {
         imagesDao.create(image);
         image = imagesDao.getAll().get(0);
 
-        Comment comment = new Comment(image.getId_image(), user.getId_user(), "comment");
-        //assertTrue("Comment should be created", commentsDao.create(comment));
-        commentsDao.create(comment);
-        comment = commentsDao.getAll().get(0);
+        Comment comment = new Comment(image, user, "comment");
+        int id_comment = commentsDao.create(comment);
 
         List<Comment> comments = commentsDao.getAll();
         assertEquals("Number of comments should be 1", 1, comments.size());
 
-        assertTrue("Comment should exist", commentsDao.exists(comments.get(0).getId_comment()));
+        assertTrue("Comment id should exist", commentsDao.exists(id_comment));
 
         assertEquals("Created comment should be identical to retrieved comment", comment, comments.get(0));
     }
