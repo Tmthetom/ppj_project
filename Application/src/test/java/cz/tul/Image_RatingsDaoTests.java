@@ -53,6 +53,6 @@ public class Image_RatingsDaoTests {
 
         assertTrue("Image_rating should exist", image_ratingsDao.exists(image_rating.getImage(), image_rating.getUser()));
 
-        assertEquals("Created Image_rating should be identical to retrieved image_tag", image_rating, image_ratings.get(0));
+        assertEquals("Created Image_rating should be identical to retrieved Image_rating", image_rating, image_ratings.get(0));
     }
 }
