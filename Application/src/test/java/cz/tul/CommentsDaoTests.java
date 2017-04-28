@@ -33,27 +33,26 @@ public class CommentsDaoTests {
 
     @Test
     public void testComments(){
-        commentsDao.deleteComments();
-        usersDao.deleteUsers();
-        imagesDao.deleteImages();
+        commentsDao.deleteAll();
+        usersDao.deleteAll();
+        imagesDao.deleteAll();
 
         User user = new User("Tmthetom");
-        usersDao.create(user);
-        user = usersDao.getAllUsers().get(0);
+        user.setId_user(usersDao.create(user));
+        user = usersDao.get(user);
 
-        Image image = new Image(user.getId_user(), "obrazek","url");
-        imagesDao.create(image);
-        image = imagesDao.getAllImages().get(0);
+        Image image = new Image(user, "obrazek","url");
+        image.setId_image(imagesDao.create(image));
+        image = imagesDao.get(image);
 
-        Comment comment = new Comment(image.getId_image(), user.getId_user(), "comment");
-        assertTrue("Comment should be created", commentsDao.create(comment));
-        comment = commentsDao.getAllComments().get(0);
+        Comment comment = new Comment(image, user, "comment");
+        comment.setId_comment(commentsDao.create(comment));
 
-        List<Comment> comments = commentsDao.getAllComments();
+        List<Comment> comments = commentsDao.getAll();
         assertEquals("Number of comments should be 1", 1, comments.size());
 
-        assertTrue("Comment should exist", commentsDao.exists(comments.get(0).getId_comment()));
+        assertTrue("Comment id should exist", commentsDao.exists(comment));
 
-        assertEquals("Created comment should be identical to retrieved comment", comment, comments.get(0));
+        assertEquals("Created comment should be identical to retrieved comment", comment, commentsDao.get(comment));
     }
 }

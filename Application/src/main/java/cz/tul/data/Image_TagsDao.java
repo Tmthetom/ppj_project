@@ -1,51 +1,54 @@
 package cz.tul.data;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 public class Image_TagsDao {
 
     @Autowired
-    private NamedParameterJdbcOperations jdbc;
+    private SessionFactory sessionFactory;
+
+    public Session session() {
+        return sessionFactory.getCurrentSession();
+    }
 
     @Transactional
-    public boolean create(Image_Tag tag) {
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("id_image", tag.getId_image());
-        params.addValue("name", tag.getName());
-
-        return jdbc.update("INSERT INTO Image_Tag (id_image, name) " +
-                "VALUES (:id_image, :name)", params) == 1;
+    public void create(Image_Tag image_tag) {
+        session().save(image_tag);
     }
 
-    public boolean exists(int id_image, String name) {
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("id_image", id_image);
-        params.addValue("name", name);
-
-        return jdbc.queryForObject("SELECT COUNT(*) FROM Image_Tag WHERE id_image=:id_image AND name=:name",
-                params, Integer.class) > 0;
+    public boolean exists(Image_Tag image_tag) {
+        Criteria criteria = session().createCriteria(Image_Tag.class);
+        criteria.add(Restrictions.eq("image", image_tag.getImage()));
+        criteria.add(Restrictions.eq("tag", image_tag.getTag()));
+        image_tag = (Image_Tag) criteria.uniqueResult();
+        return image_tag != null;
     }
 
-    public List<Image_Tag> getAllImagesTags() {
-        return jdbc.query("SELECT * FROM Image_Tag", BeanPropertyRowMapper.newInstance(Image_Tag.class));
+    public List<Image_Tag> getAll() {
+        Criteria criteria = session().createCriteria(Image_Tag.class);
+        return criteria.list();
     }
 
-    public boolean update(Image_Tag tag) {
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("id_image", tag.getId_image());
-        params.addValue("name", tag.getName());
-
-        return jdbc.update("UPDATE Image_Tag SET id_image=:id_image, name=:name WHERE id_image=:id_image", params) == 1;
+    public Image_Tag get(Image_Tag image_tag){
+        Criteria criteria = session().createCriteria(Image_Tag.class);
+        criteria.add(Restrictions.eq("image", image_tag.getImage()));
+        criteria.add(Restrictions.eq("tag", image_tag.getTag()));
+        return (Image_Tag) criteria.list().get(0);
     }
 
-    public void deleteTags() {
-        jdbc.getJdbcOperations().execute("DELETE FROM Image_Tag");
-        jdbc.getJdbcOperations().execute("DELETE FROM Tag");
+    public void update(Image_Tag image_tag) {
+        session().update(image_tag);
+    }
+
+    public void deleteAll() {
+        session().createQuery("DELETE FROM Image_Tag").executeUpdate();
     }
 }

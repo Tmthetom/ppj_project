@@ -28,19 +28,17 @@ public class UsersDaoTests {
 
     @Test
     public void testUsers() {
-        usersDao.deleteUsers();
+        usersDao.deleteAll();
 
         User user = new User("Tmthetom");
-        assertTrue("User creation should return true", usersDao.create(user));
-        user = usersDao.getAllUsers().get(0);
+        user.setId_user(usersDao.create(user));
 
-        List<User> users = usersDao.getAllUsers();
-
+        List<User> users = usersDao.getAll();
         assertEquals("Number of users should be 1.", 1, users.size());
 
-        assertTrue("User should exist.", usersDao.exists(user.getId_user()));
+        assertTrue("User id should exist.", usersDao.exists(user));
 
         assertEquals("Created user should be identical to retrieved user",
-                user, users.get(0));
+                user, usersDao.get(user));
     }
 }

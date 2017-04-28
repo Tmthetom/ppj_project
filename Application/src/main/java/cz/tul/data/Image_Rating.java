@@ -1,26 +1,45 @@
 package cz.tul.data;
 
-public class Image_Rating {
+import javax.persistence.*;
+import java.io.Serializable;
 
-    private int id_image;
-    private int id_user;
+@Entity
+@Table(name="Image_Rating")
+public class Image_Rating implements Serializable {
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name="id_image")
+    private Image image;
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name="id_user")
+    private User user;
+
+    @Column(name="rating")
     private boolean rating;
 
     public Image_Rating() {
         ;
     }
 
-    public Image_Rating(int id_image, int id_user, boolean rating) {
-        this.id_image = id_image;
-        this.id_user = id_user;
+    public Image_Rating(Image image, User user, boolean rating) {
+        this.image = image;
+        this.user = user;
         this.rating = rating;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 
     @Override
     public String toString() {
         return "Image_Rating{" +
-                "id_image = " + id_image + ", " +
-                "id_user = " + id_user + ", " +
+                "image = " + image + ", " +
+                "user = " + user + ", " +
                 "rating = " + rating +
                 '}';
     }
@@ -34,10 +53,10 @@ public class Image_Rating {
             return false;
         }
         Image_Rating temp = (Image_Rating)obj;
-        if (getId_image() != temp.getId_image()) {
+        if (!getImage().equals(temp.getImage())) {
             return false;
         }
-        if (getId_user() != temp.getId_user()) {
+        if (!getUser().equals(temp.getUser())) {
             return false;
         }
         if (getRating() != temp.getRating()) {
@@ -46,20 +65,20 @@ public class Image_Rating {
         return true;
     }
 
-    public int getId_image() {
-        return id_image;
+    public Image getImage() {
+        return image;
     }
 
-    public void setId_image(int id_image) {
-        this.id_image = id_image;
+    public void setImage(Image image) {
+        this.image = image;
     }
 
-    public int getId_user() {
-        return id_user;
+    public User getUser() {
+        return user;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public boolean getRating() {

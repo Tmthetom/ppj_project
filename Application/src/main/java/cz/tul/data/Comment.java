@@ -1,31 +1,48 @@
 package cz.tul.data;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name="Comment")
 public class Comment {
 
+    @Id
+    @GeneratedValue
+    @Column(name="id_comment")
     private int id_comment;
-    private int id_image;
-    private int id_author;
+
+    @ManyToOne
+    @JoinColumn(name="id_image")
+    private Image image;
+
+    @ManyToOne
+    @JoinColumn(name="id_author")
+    private User author;
+
+    @Column(name="message")
     private String message;
+
+    @Column(name="created")
     private Date created;
+
+    @Column(name="updated")
     private Date updated;
 
     public Comment() {
         ;
     }
 
-    public Comment(int id_image, int id_author, String message) {
-        this.id_image = id_image;
-        this.id_author = id_author;
+    public Comment(Image image, User author, String message) {
+        this.image = image;
+        this.author = author;
         this.message = message;
     }
 
-
-    public Comment(int id_comment, int id_image, int id_author, String message, Date created, Date updated) {
+    public Comment(int id_comment, Image image, User author, String message, Date created, Date updated) {
         this.id_comment = id_comment;
-        this.id_image = id_image;
-        this.id_author = id_author;
+        this.image = image;
+        this.author = author;
         this.message = message;
         this.created = created;
         this.updated = updated;
@@ -35,8 +52,8 @@ public class Comment {
     public String toString() {
         return "Comment{" +
                 "id_comment = " + id_comment + ", " +
-                "id_image = " + id_image + ", " +
-                "id_author = " + id_author + ", " +
+                "image = " + image + ", " +
+                "author = " + author + ", " +
                 "message = " + message + ", " +
                 "created = " + created + ", " +
                 "updated = " + updated +
@@ -55,10 +72,10 @@ public class Comment {
         if (getId_comment() != temp.getId_comment()) {
             return false;
         }
-        if (getId_author() != temp.getId_author()) {
+        if (!getAuthor().equals(temp.getAuthor())) {
             return false;
         }
-        if (getId_image() != temp.getId_image()) {
+        if (!getImage().equals(temp.getImage())) {
             return false;
         }
         if (!getMessage().equals(temp.getMessage())) {
@@ -75,20 +92,20 @@ public class Comment {
         this.id_comment = id_comment;
     }
 
-    public int getId_image() {
-        return id_image;
+    public Image getImage() {
+        return image;
     }
 
-    public void setId_image(int id_image) {
-        this.id_image = id_image;
+    public void setImage(Image image) {
+        this.image = image;
     }
 
-    public int getId_author() {
-        return id_author;
+    public User getAuthor() {
+        return author;
     }
 
-    public void setId_author(int id_author) {
-        this.id_author = id_author;
+    public void setAuthor(User author) {
+        this.author = author;
     }
 
     public String getMessage() {

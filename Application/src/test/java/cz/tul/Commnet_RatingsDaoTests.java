@@ -36,32 +36,32 @@ public class Commnet_RatingsDaoTests {
 
     @Test
     public void testComment_Ratings(){
-        usersDao.deleteUsers();
-        imagesDao.deleteImages();
-        commentsDao.deleteComments();
-        comment_ratingsDao.deleteCommentRatings();
+        usersDao.deleteAll();
+        imagesDao.deleteAll();
+        commentsDao.deleteAll();
+        comment_ratingsDao.deleteAll();
 
         User user = new User("Tmthetom");
-        usersDao.create(user);
-        user = usersDao.getAllUsers().get(0);
+        user.setId_user(usersDao.create(user));
+        user = usersDao.get(user);
 
-        Image image = new Image(user.getId_user(), "New York","url");
-        imagesDao.create(image);
-        image = imagesDao.getAllImages().get(0);
+        Image image = new Image(user, "New York","url");
+        image.setId_image(imagesDao.create(image));
+        image = imagesDao.get(image);
 
-        Comment comment = new Comment(image.getId_image(), user.getId_user(), "WOW, such a nice image");
+        Comment comment = new Comment(image, user, "WOW, such a nice image");
         commentsDao.create(comment);
-        comment = commentsDao.getAllComments().get(0);
+        comment = commentsDao.get(comment);
 
-        Comment_Rating comment_rating = new Comment_Rating(comment.getId_comment(), user.getId_user(), Boolean.TRUE);
-        assertTrue("Comment_rating should be created", comment_ratingsDao.create(comment_rating));
-        comment_rating = comment_ratingsDao.getAllCommentRatings().get(0);
+        Comment_Rating comment_rating = new Comment_Rating(comment, user, Boolean.TRUE);
+        comment_ratingsDao.create(comment_rating);
 
-        List<Comment_Rating> comment_ratings = comment_ratingsDao.getAllCommentRatings();
+        List<Comment_Rating> comment_ratings = comment_ratingsDao.getAll();
         assertEquals("Number of Comment_ratings should be 1", 1, comment_ratings.size());
 
-        assertTrue("Comment_rating should exist", comment_ratingsDao.exists(comment.getId_comment(), user.getId_user()));
+        assertTrue("Comment_rating should exist", comment_ratingsDao.exists(comment_rating));
 
-        assertEquals("Created Comment_rating should be identical to retrieved image_tag", comment_rating, comment_ratings.get(0));
+        assertEquals("Created Comment_rating should be identical to retrieved Comment_rating",
+                comment_rating, comment_ratingsDao.get(comment_rating));
     }
 }

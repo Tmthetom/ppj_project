@@ -27,19 +27,17 @@ public class TagsDaoTests {
 
     @Test
     public void testTags() {
-        tagsDao.deleteTags();
+        tagsDao.deleteAll();
 
         Tag tag = new Tag("Mesto");
-        assertTrue("Tag creation should return true", tagsDao.create(tag));
-        tag = tagsDao.getAllTags().get(0);
+        tagsDao.create(tag);
 
-        List<Tag> tags = tagsDao.getAllTags();
-
+        List<Tag> tags = tagsDao.getAll();
         assertEquals("Number of tags should be 1.", 1, tags.size());
 
-        assertTrue("Tag should exist.", tagsDao.exists(tag.getName()));
+        assertTrue("Tag should exist.", tagsDao.exists(tag));
 
-        assertEquals("Created tag should be identical to retrieved user",
-                tag, tags.get(0));
+        assertEquals("Created tag should be identical to retrieved tag",
+                tag, tagsDao.get(tag));
     }
 }

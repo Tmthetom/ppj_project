@@ -1,41 +1,54 @@
 package cz.tul.data;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
+@Transactional
 public class UsersDao {
 
     @Autowired
-    private NamedParameterJdbcOperations jdbc;
+    private SessionFactory sessionFactory;
+
+    public Session session() {
+        return sessionFactory.getCurrentSession();
+    }
 
     @Transactional
-    public boolean create(User user) {
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("username", user.getUsername());
-        params.addValue("registered", user.getRegistered());
-
-        return jdbc.update("INSERT INTO User (username, registered) VALUES (:username, :registered)", params) == 1;
+    public int create(User user) {
+        user.setRegistered(new Date());
+        return (Integer) session().save(user);
     }
 
-    public boolean exists(int id_user) {
-        return jdbc.queryForObject("SELECT COUNT(*) FROM User WHERE id_user=:id_user",
-                new MapSqlParameterSource("id_user", id_user), Integer.class) > 0;
+    public boolean exists(User user) {
+        Criteria criteria = session().createCriteria(User.class);
+        criteria.add(Restrictions.idEq(user.getId_user()));
+        user = (User)criteria.uniqueResult();
+        return user != null;
     }
 
-    public List<User> getAllUsers() {
-        return jdbc.query("SELECT * FROM User", BeanPropertyRowMapper.newInstance(User.class));
+    public List<User> getAll() {
+        Criteria criteria = session().createCriteria(User.class);
+        return criteria.list();
     }
 
-    public void deleteUsers() {
-        jdbc.getJdbcOperations().execute("DELETE FROM Comment_Rating");
-        jdbc.getJdbcOperations().execute("DELETE FROM Comment");
-        jdbc.getJdbcOperations().execute("DELETE FROM Image_Rating");
-        jdbc.getJdbcOperations().execute("DELETE FROM Image");
-        jdbc.getJdbcOperations().execute("DELETE FROM User");
+    public User get(User user){
+        Criteria criteria = session().createCriteria(User.class);
+        criteria.add(Restrictions.idEq(user.getId_user()));
+        return (User) criteria.list().get(0);
+    }
+
+    public void deleteAll() {
+        session().createQuery("DELETE FROM Comment_Rating").executeUpdate();
+        session().createQuery("DELETE FROM Comment").executeUpdate();
+        session().createQuery("DELETE FROM Image_Rating").executeUpdate();
+        session().createQuery("DELETE FROM Image").executeUpdate();
+        session().createQuery("DELETE FROM User").executeUpdate();
     }
 }

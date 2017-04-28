@@ -33,26 +33,27 @@ public class Image_RatingsDaoTests {
 
     @Test
     public void testImage_Ratings(){
-        usersDao.deleteUsers();
-        imagesDao.deleteImages();
-        image_ratingsDao.deleteImageRatings();
+        usersDao.deleteAll();
+        imagesDao.deleteAll();
+        image_ratingsDao.deleteAll();
 
         User user = new User("Tmthetom");
-        usersDao.create(user);
-        user = usersDao.getAllUsers().get(0);
+        user.setId_user(usersDao.create(user));
+        user = usersDao.get(user);
 
-        Image image = new Image(user.getId_user(), "New York","url");
-        imagesDao.create(image);
-        image = imagesDao.getAllImages().get(0);
+        Image image = new Image(user, "New York","url");
+        image.setId_image(imagesDao.create(image));
+        image = imagesDao.get(image);
 
-        Image_Rating rating = new Image_Rating(image.getId_image(), user.getId_user(), Boolean.TRUE);
-        assertTrue("Image_rating should be created", image_ratingsDao.create(rating));
+        Image_Rating image_rating = new Image_Rating(image, user, Boolean.TRUE);
+        image_ratingsDao.create(image_rating);
 
-        List<Image_Rating> ratings = image_ratingsDao.getAllImageRatings();
-        assertEquals("Number of Image_ratings should be 1", 1, ratings.size());
+        List<Image_Rating> image_ratings = image_ratingsDao.getAll();
+        assertEquals("Number of Image_ratings should be 1", 1, image_ratings.size());
 
-        assertTrue("Image_rating should exist", image_ratingsDao.exists(ratings.get(0).getId_image(), ratings.get(0).getId_user()));
+        assertTrue("Image_rating should exist", image_ratingsDao.exists(image_rating));
 
-        assertEquals("Created Image_rating should be identical to retrieved image_tag", rating, ratings.get(0));
+        assertEquals("Created Image_rating should be identical to retrieved Image_rating",
+                image_rating, image_ratingsDao.get(image_rating));
     }
 }

@@ -1,11 +1,21 @@
 package cz.tul.data;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name="User")
 public class User {
 
+    @Id
+    @GeneratedValue
+    @Column(name="id_user")
     private int id_user;
+
+    @Column(name="username")
     private String username;
+
+    @Column(name="registered")
     private Date registered;
 
     public User() {

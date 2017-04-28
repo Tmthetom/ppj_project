@@ -1,52 +1,54 @@
 package cz.tul.data;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 public class Comment_RatingsDao {
 
     @Autowired
-    private NamedParameterJdbcOperations jdbc;
+    private SessionFactory sessionFactory;
+
+    public Session session() {
+        return sessionFactory.getCurrentSession();
+    }
 
     @Transactional
-    public boolean create(Comment_Rating rating) {
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("id_comment", rating.getId_comment());
-        params.addValue("id_user", rating.getId_user());
-        params.addValue("rating", rating.getRating());
-
-        return jdbc.update("INSERT INTO Comment_Rating (id_comment, id_user, rating) " +
-                "VALUES (:id_comment, :id_user, :rating)", params) == 1;
+    public void create(Comment_Rating comment_rating) {
+        session().save(comment_rating);
     }
 
-    public boolean exists(int id_comment, int id_user) {
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("id_comment", id_comment);
-        params.addValue("id_user", id_user);
-
-        return jdbc.queryForObject("SELECT COUNT(*) FROM Comment_Rating WHERE id_comment=:id_comment AND id_user=:id_user",
-                params, Integer.class) > 0;
+    public boolean exists(Comment_Rating comment_rating) {
+        Criteria criteria = session().createCriteria(Comment_Rating.class);
+        criteria.add(Restrictions.eq("comment", comment_rating.getComment()));
+        criteria.add(Restrictions.eq("user", comment_rating.getUser()));
+        comment_rating = (Comment_Rating) criteria.uniqueResult();
+        return comment_rating != null;
     }
 
-    public List<Comment_Rating> getAllCommentRatings() {
-        return jdbc.query("SELECT * FROM Comment_Rating", BeanPropertyRowMapper.newInstance(Comment_Rating.class));
+    public List<Comment_Rating> getAll() {
+        Criteria criteria = session().createCriteria(Comment_Rating.class);
+        return criteria.list();
     }
 
-    public boolean update(Comment_Rating rating) {
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("id_comment", rating.getId_comment());
-        params.addValue("id_user", rating.getId_user());
-        params.addValue("rating", rating.getRating());
-
-        return jdbc.update("UPDATE Comment_Rating SET id_comment=:id_comment, id_user=:id_user, rating=:rating WHERE id_comment=:id_comment", params) == 1;
+    public Comment_Rating get(Comment_Rating comment_rating){
+        Criteria criteria = session().createCriteria(Comment_Rating.class);
+        criteria.add(Restrictions.eq("comment", comment_rating.getComment()));
+        criteria.add(Restrictions.eq("user", comment_rating.getUser()));
+        return (Comment_Rating) criteria.list().get(0);
     }
 
-    public void deleteCommentRatings() {
-        jdbc.getJdbcOperations().execute("DELETE FROM Comment_Rating");
+    public void update(Comment_Rating comment_rating) {
+        session().update(comment_rating);
+    }
+
+    public void deleteAll() {
+        session().createQuery("DELETE FROM Comment_Rating").executeUpdate();
     }
 }
