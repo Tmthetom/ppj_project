@@ -19,7 +19,7 @@ import static org.junit.Assert.assertTrue;
 @ActiveProfiles({"test"})
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class ApplicationTests {
+public class ApplicationUpdatesTests {
 
     @Autowired
     private UsersDao usersDao;
