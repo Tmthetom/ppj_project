@@ -9,12 +9,12 @@ public class Image_Rating implements Serializable {
 
     @Id
     @ManyToOne
-    @JoinColumn(name="image")
+    @JoinColumn(name="id_image")
     private Image image;
 
     @Id
     @ManyToOne
-    @JoinColumn(name="user")
+    @JoinColumn(name="id_user")
     private User user;
 
     @Column(name="rating")
