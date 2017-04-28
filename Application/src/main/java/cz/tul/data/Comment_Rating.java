@@ -1,9 +1,6 @@
 package cz.tul.data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="Comment_Rating")
@@ -13,7 +10,6 @@ public class Comment_Rating {
     @Column(name="id_comment")
     private int id_comment;
 
-    //@Id
     @Column(name="id_user")
     private int id_user;
 

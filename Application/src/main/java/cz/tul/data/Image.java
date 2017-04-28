@@ -12,8 +12,9 @@ public class Image {
     @Column(name="id_image")
     private int id_image;
 
-    @Column(name="id_author")
-    private int id_author;
+    @ManyToOne
+    @JoinColumn(name="id_author")
+    private User author;
 
     @Column(name="name")
     private String name;
@@ -31,20 +32,20 @@ public class Image {
         ;
     }
 
-    public Image(int id_author, String path) {
-        this.id_author = id_author;
+    public Image(User author, String path) {
+        this.author = author;
         this.path = path;
     }
 
-    public Image(int id_author, String name, String path) {
-        this.id_author = id_author;
+    public Image(User author, String name, String path) {
+        this.author = author;
         this.name = name;
         this.path = path;
     }
 
-    public Image(int id_image, int id_author, String name, String path, Date created, Date updated) {
+    public Image(int id_image, User author, String name, String path, Date created, Date updated) {
         this.id_image = id_image;
-        this.id_author = id_author;
+        this.author = author;
         this.name = name;
         this.path = path;
         this.created = created;
@@ -55,7 +56,7 @@ public class Image {
     public String toString() {
         return "Image{" +
                 "id_image = " + id_image + ", " +
-                "id_author = " + id_author + ", " +
+                "author = " + author + ", " +
                 "name = " + name + ", " +
                 "path = " + path + ", " +
                 "created = " + created + ", " +
@@ -91,7 +92,7 @@ public class Image {
                 }
             }
         }
-        if (getId_author() != temp.getId_author()) {
+        if (getAuthor() != temp.getAuthor()) {
             return false;
         }
         return true;
@@ -105,12 +106,12 @@ public class Image {
         this.id_image = id_image;
     }
 
-    public int getId_author() {
-        return id_author;
+    public User getAuthor() {
+        return author;
     }
 
-    public void setId_author(int id_author) {
-        this.id_author = id_author;
+    public void setAuthor(User author) {
+        this.author = author;
     }
 
     public String getName() {

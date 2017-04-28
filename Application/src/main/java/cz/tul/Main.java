@@ -73,12 +73,20 @@ public class Main {
         SpringApplication app = new SpringApplication(Main.class);
         ApplicationContext ctx = app.run(args);
 
+        User user = new User("Tmthetom");
         UsersDao usersDao = ctx.getBean(UsersDao.class);
         usersDao.deleteAll();
-        usersDao.create(new User("Tmthetom"));
+        usersDao.create(user);
+
+        Image image = new Image(user,"New York","Path");
+        ImagesDao imagesDao = ctx.getBean(ImagesDao.class);
+        imagesDao.deleteAll();
+        imagesDao.create(image);
 
         List<User> users = usersDao.getAll();
         System.out.println(users);
 
+        List<Image> images = imagesDao.getAll();
+        System.out.println(images);
     }
 }

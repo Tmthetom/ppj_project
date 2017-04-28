@@ -41,7 +41,7 @@ public class CommentsDaoTests {
         usersDao.create(user);
         user = usersDao.getAll().get(0);
 
-        Image image = new Image(user.getId_user(), "obrazek","url");
+        Image image = new Image(user, "obrazek","url");
         imagesDao.create(image);
         image = imagesDao.getAll().get(0);
 

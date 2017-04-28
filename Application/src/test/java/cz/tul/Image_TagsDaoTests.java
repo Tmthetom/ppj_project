@@ -49,7 +49,7 @@ public class Image_TagsDaoTests {
         tagsDao.create(tag);
         tag = tagsDao.getAll().get(0);
 
-        Image image = new Image(user.getId_user(), "New York","url");
+        Image image = new Image(user, "New York","url");
         imagesDao.create(image);
         image = imagesDao.getAll().get(0);
 

@@ -68,7 +68,7 @@ public class ApplicationTests {
         assertEquals("User 2 should be equal", user2, usersDao.getAll().get(1));
 
         // Create image with user 1
-        Image image = new Image(user1.getId_user(), "New York","url");
+        Image image = new Image(user1, "New York","url");
         //assertTrue("Image should be created", imagesDao.create(image));
         imagesDao.create(image);
         image = imagesDao.getAll().get(0);
