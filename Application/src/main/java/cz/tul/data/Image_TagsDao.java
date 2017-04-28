@@ -24,10 +24,10 @@ public class Image_TagsDao {
         session().save(image_tag);
     }
 
-    public boolean exists(int id_image, String name) {
+    public boolean exists(Image image, Tag tag) {
         Criteria criteria = session().createCriteria(Image_Tag.class);
-        criteria.add(Restrictions.eq("id_image", id_image));
-        criteria.add(Restrictions.eq("name", name));
+        criteria.add(Restrictions.eq("image", image));
+        criteria.add(Restrictions.eq("tag", tag));
         Image_Tag image_tag = (Image_Tag) criteria.uniqueResult();
         return image_tag != null;
     }

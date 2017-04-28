@@ -9,12 +9,12 @@ public class Comment_Rating implements Serializable {
 
     @Id
     @ManyToOne
-    @JoinColumn(name="comment")
+    @JoinColumn(name="id_comment")
     private Comment comment;
 
     @Id
     @ManyToOne
-    @JoinColumn(name="user")
+    @JoinColumn(name="id_user")
     private User user;
 
     @Column(name="rating")

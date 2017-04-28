@@ -13,11 +13,11 @@ public class Comment {
     private int id_comment;
 
     @ManyToOne
-    @JoinColumn(name="image")
+    @JoinColumn(name="id_image")
     private Image image;
 
     @ManyToOne
-    @JoinColumn(name="author")
+    @JoinColumn(name="id_author")
     private User author;
 
     @Column(name="message")

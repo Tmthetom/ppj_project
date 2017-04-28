@@ -1,35 +1,36 @@
 package cz.tul.data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="Image_Tag")
-public class Image_Tag {
+public class Image_Tag implements Serializable {
 
     @Id
-    @Column(name="id_image")
-    private int id_image;
+    @ManyToOne
+    @JoinColumn(name="id_image")
+    private Image image;
 
-    @Column(name="name")
-    private String name;
+    @Id
+    @ManyToOne
+    @JoinColumn(name="name")
+    private Tag tag;
 
     public Image_Tag() {
         ;
     }
 
-    public Image_Tag(int id_image, String name) {
-        this.id_image = id_image;
-        this.name = name;
+    public Image_Tag(Image Image, Tag tag) {
+        this.image = Image;
+        this.tag = tag;
     }
 
     @Override
     public String toString() {
         return "Image_Tag{" +
-                "id_image = " + id_image + ", " +
-                "name = " + name +
+                "image = " + image + ", " +
+                "tag = " + tag +
                 '}';
     }
 
@@ -42,28 +43,28 @@ public class Image_Tag {
             return false;
         }
         Image_Tag temp = (Image_Tag)obj;
-        if (getId_image() != temp.getId_image()) {
+        if (!getImage().equals(getImage())) {
             return false;
         }
-        if (!getName().equals(temp.getName())) {
+        if (!getTag().equals(temp.getTag())) {
             return false;
         }
         return true;
     }
 
-    public int getId_image() {
-        return id_image;
+    public Image getImage() {
+        return image;
     }
 
-    public void setId_image(int id_image) {
-        this.id_image = id_image;
+    public void setImage(Image image) {
+        this.image = image;
     }
 
-    public String getName() {
-        return name;
+    public Tag getTag() {
+        return tag;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTag(Tag tag) {
+        this.tag = tag;
     }
 }

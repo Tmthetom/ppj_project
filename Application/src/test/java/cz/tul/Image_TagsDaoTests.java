@@ -53,15 +53,13 @@ public class Image_TagsDaoTests {
         imagesDao.create(image);
         image = imagesDao.getAll().get(0);
 
-        Image_Tag image_tag = new Image_Tag(image.getId_image(), tag.getName());
-        //assertTrue("Image_tag should be created", image_tagsDao.create(image_tag));
+        Image_Tag image_tag = new Image_Tag(image, tag);
         image_tagsDao.create(image_tag);
-        image_tag = image_tagsDao.getAll().get(0);
 
         List<Image_Tag> image_tags = image_tagsDao.getAll();
         assertEquals("Number of image_tags should be 1", 1, image_tags.size());
 
-        assertTrue("Image_tag should exist", image_tagsDao.exists(image_tags.get(0).getId_image(), image_tags.get(0).getName()));
+        assertTrue("Image_tag should exist", image_tagsDao.exists(image_tag.getImage(), image_tag.getTag()));
 
         assertEquals("Created image_tag should be identical to retrieved image_tag", image_tag, image_tags.get(0));
     }
