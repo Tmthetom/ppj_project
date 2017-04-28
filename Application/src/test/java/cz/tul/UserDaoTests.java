@@ -1,6 +1,7 @@
 package cz.tul;
 
-import cz.tul.data.*;
+import cz.tul.data.User;
+import cz.tul.data.UserDao;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,27 +21,27 @@ import static org.junit.Assert.assertTrue;
 @ActiveProfiles({"test"})
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class TagsDaoTests {
+public class UserDaoTests {
 
     @Autowired
-    private TagDao tagDao;
+    private UserDao userDao;
 
     @Test
-    public void testTags() {
-        tagDao.deleteAll();
+    public void testUsers() {
+        userDao.deleteAll();
 
-        Tag tag = new Tag("Mesto");
-        //assertTrue("Tag creation should return true", tagsDao.create(tag));
-        tagDao.create(tag);
-        tag = tagDao.getAll().get(0);
+        User user = new User("Tmthetom");
+        //assertTrue("User creation should return true", usersDao.create(user));
+        userDao.create(user);
+        user = userDao.getAll().get(0);
 
-        List<Tag> tags = tagDao.getAll();
+        List<User> users = userDao.getAll();
 
-        assertEquals("Number of tags should be 1.", 1, tags.size());
+        assertEquals("Number of users should be 1.", 1, users.size());
 
-        assertTrue("Tag should exist.", tagDao.exists(tag.getName()));
+        assertTrue("User should exist.", userDao.exists(user.getId_user()));
 
-        assertEquals("Created tag should be identical to retrieved user",
-                tag, tags.get(0));
+        assertEquals("Created user should be identical to retrieved user",
+                user, users.get(0));
     }
 }

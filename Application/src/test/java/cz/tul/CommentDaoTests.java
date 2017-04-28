@@ -20,49 +20,41 @@ import static org.junit.Assert.assertTrue;
 @ActiveProfiles({"test"})
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class Image_TagsDaoTests {
+public class CommentDaoTests {
+
+    @Autowired
+    private CommentDao commentDao;
 
     @Autowired
     private UserDao userDao;
 
     @Autowired
-    private TagDao tagDao;
-
-    @Autowired
     private ImageDao imageDao;
 
-    @Autowired
-    private ImageTagDao image_tagsDao;
-
     @Test
-    public void testImage_Tags(){
+    public void testComments(){
+        commentDao.deleteAll();
         userDao.deleteAll();
-        tagDao.deleteAll();
         imageDao.deleteAll();
-        image_tagsDao.deleteAll();
 
         User user = new User("Tmthetom");
         userDao.create(user);
         user = userDao.getAll().get(0);
 
-        Tag tag = new Tag("Mesto");
-        tagDao.create(tag);
-        tag = tagDao.getAll().get(0);
-
-        Image image = new Image(user.getId_user(), "New York","url");
+        Image image = new Image(user.getId_user(), "obrazek","url");
         imageDao.create(image);
         image = imageDao.getAll().get(0);
 
-        ImageTag image_tag = new ImageTag(image.getId_image(), tag.getName());
-        //assertTrue("Image_tag should be created", image_tagsDao.create(image_tag));
-        image_tagsDao.create(image_tag);
-        image_tag = image_tagsDao.getAll().get(0);
+        Comment comment = new Comment(image.getId_image(), user.getId_user(), "comment");
+        //assertTrue("Comment should be created", commentsDao.create(comment));
+        commentDao.create(comment);
+        comment = commentDao.getAll().get(0);
 
-        List<ImageTag> image_tags = image_tagsDao.getAll();
-        assertEquals("Number of image_tags should be 1", 1, image_tags.size());
+        List<Comment> comments = commentDao.getAll();
+        assertEquals("Number of comments should be 1", 1, comments.size());
 
-        assertTrue("Image_tag should exist", image_tagsDao.exists(image_tags.get(0).getId_image(), image_tags.get(0).getName()));
+        assertTrue("Comment should exist", commentDao.exists(comments.get(0).getId_comment()));
 
-        assertEquals("Created image_tag should be identical to retrieved image_tag", image_tag, image_tags.get(0));
+        assertEquals("Created comment should be identical to retrieved comment", comment, comments.get(0));
     }
 }

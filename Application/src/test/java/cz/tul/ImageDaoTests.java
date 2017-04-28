@@ -1,7 +1,6 @@
 package cz.tul;
 
-import cz.tul.data.User;
-import cz.tul.data.UserDao;
+import cz.tul.data.*;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,27 +20,33 @@ import static org.junit.Assert.assertTrue;
 @ActiveProfiles({"test"})
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class UsersDaoTests {
+public class ImageDaoTests {
 
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private ImageDao imageDao;
+
     @Test
-    public void testUsers() {
+    public void testImages(){
+        imageDao.deleteAll();
         userDao.deleteAll();
 
         User user = new User("Tmthetom");
-        //assertTrue("User creation should return true", usersDao.create(user));
         userDao.create(user);
         user = userDao.getAll().get(0);
 
-        List<User> users = userDao.getAll();
+        Image image = new Image(user.getId_user(), "New York","url");
+        //assertTrue("Image should be created", imagesDao.create(image));
+        imageDao.create(image);
+        image = imageDao.getAll().get(0);
 
-        assertEquals("Number of users should be 1.", 1, users.size());
+        List<Image> images = imageDao.getAll();
+        assertEquals("Number of images should be 1", 1, images.size());
 
-        assertTrue("User should exist.", userDao.exists(user.getId_user()));
+        assertTrue("Image should exist", imageDao.exists(images.get(0).getId_image()));
 
-        assertEquals("Created user should be identical to retrieved user",
-                user, users.get(0));
+        assertEquals("Created comment image be identical to retrieved comment", image, images.get(0));
     }
 }

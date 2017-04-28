@@ -20,7 +20,7 @@ import static org.junit.Assert.assertTrue;
 @ActiveProfiles({"test"})
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class Commnet_RatingsDaoTests {
+public class CommnetRatingDaoTests {
 
     @Autowired
     private UserDao userDao;
