@@ -38,14 +38,12 @@ public class ImagesDaoTests {
         user = usersDao.getAll().get(0);
 
         Image image = new Image(user, "New York","url");
-        //assertTrue("Image should be created", imagesDao.create(image));
-        imagesDao.create(image);
-        image = imagesDao.getAll().get(0);
+        int id_image = imagesDao.create(image);
 
         List<Image> images = imagesDao.getAll();
         assertEquals("Number of images should be 1", 1, images.size());
 
-        assertTrue("Image should exist", imagesDao.exists(images.get(0).getId_image()));
+        assertTrue("Image id should exist", imagesDao.exists(id_image));
 
         assertEquals("Created image be identical to retrieved comment", image, images.get(0));
     }

@@ -21,9 +21,9 @@ public class UsersDao {
     }
 
     @Transactional
-    public void create(User user) {
+    public int create(User user) {
         user.setRegistered(new Date());
-        session().save(user);
+        return (Integer) session().save(user);
     }
 
     public boolean exists(int id_user) {

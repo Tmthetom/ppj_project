@@ -21,11 +21,11 @@ public class ImagesDao {
     }
 
     @Transactional
-    public void create(Image image) {
+    public int create(Image image) {
         Date date = new Date();
         image.setCreated(date);
         image.setUpdated(date);
-        session().save(image);
+        return (Integer) session().save(image);
     }
 
     public boolean exists(int id_image) {
