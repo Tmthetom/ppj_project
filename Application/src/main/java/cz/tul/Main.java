@@ -79,5 +79,6 @@ public class Main {
 
         List<User> users = usersDao.getAll();
         System.out.println(users);
+
     }
 }
