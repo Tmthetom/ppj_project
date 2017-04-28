@@ -6,30 +6,36 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Image_Tag")
-public class Image_Tag {
+@Table(name="Image_Rating")
+public class ImageRating {
 
     @Id
     @Column(name="id_image")
     private int id_image;
 
-    @Column(name="name")
-    private String name;
+    //@Id
+    @Column(name="id_user")
+    private int id_user;
 
-    public Image_Tag() {
+    @Column(name="rating")
+    private boolean rating;
+
+    public ImageRating() {
         ;
     }
 
-    public Image_Tag(int id_image, String name) {
+    public ImageRating(int id_image, int id_user, boolean rating) {
         this.id_image = id_image;
-        this.name = name;
+        this.id_user = id_user;
+        this.rating = rating;
     }
 
     @Override
     public String toString() {
-        return "Image_Tag{" +
+        return "Image_Rating{" +
                 "id_image = " + id_image + ", " +
-                "name = " + name +
+                "id_user = " + id_user + ", " +
+                "rating = " + rating +
                 '}';
     }
 
@@ -41,11 +47,14 @@ public class Image_Tag {
         if(getClass() != obj.getClass()){
             return false;
         }
-        Image_Tag temp = (Image_Tag)obj;
+        ImageRating temp = (ImageRating)obj;
         if (getId_image() != temp.getId_image()) {
             return false;
         }
-        if (!getName().equals(temp.getName())) {
+        if (getId_user() != temp.getId_user()) {
+            return false;
+        }
+        if (getRating() != temp.getRating()) {
             return false;
         }
         return true;
@@ -59,11 +68,19 @@ public class Image_Tag {
         this.id_image = id_image;
     }
 
-    public String getName() {
-        return name;
+    public int getId_user() {
+        return id_user;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
+    }
+
+    public boolean getRating() {
+        return rating;
+    }
+
+    public void setRating(boolean rating) {
+        this.rating = rating;
     }
 }

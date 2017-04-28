@@ -23,37 +23,37 @@ import static org.junit.Assert.assertTrue;
 public class CommentsDaoTests {
 
     @Autowired
-    private CommentsDao commentsDao;
+    private CommentDao commentDao;
 
     @Autowired
-    private UsersDao usersDao;
+    private UserDao userDao;
 
     @Autowired
-    private ImagesDao imagesDao;
+    private ImageDao imageDao;
 
     @Test
     public void testComments(){
-        commentsDao.deleteAll();
-        usersDao.deleteAll();
-        imagesDao.deleteAll();
+        commentDao.deleteAll();
+        userDao.deleteAll();
+        imageDao.deleteAll();
 
         User user = new User("Tmthetom");
-        usersDao.create(user);
-        user = usersDao.getAll().get(0);
+        userDao.create(user);
+        user = userDao.getAll().get(0);
 
         Image image = new Image(user.getId_user(), "obrazek","url");
-        imagesDao.create(image);
-        image = imagesDao.getAll().get(0);
+        imageDao.create(image);
+        image = imageDao.getAll().get(0);
 
         Comment comment = new Comment(image.getId_image(), user.getId_user(), "comment");
         //assertTrue("Comment should be created", commentsDao.create(comment));
-        commentsDao.create(comment);
-        comment = commentsDao.getAll().get(0);
+        commentDao.create(comment);
+        comment = commentDao.getAll().get(0);
 
-        List<Comment> comments = commentsDao.getAll();
+        List<Comment> comments = commentDao.getAll();
         assertEquals("Number of comments should be 1", 1, comments.size());
 
-        assertTrue("Comment should exist", commentsDao.exists(comments.get(0).getId_comment()));
+        assertTrue("Comment should exist", commentDao.exists(comments.get(0).getId_comment()));
 
         assertEquals("Created comment should be identical to retrieved comment", comment, comments.get(0));
     }

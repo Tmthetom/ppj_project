@@ -23,42 +23,42 @@ import static org.junit.Assert.assertTrue;
 public class Commnet_RatingsDaoTests {
 
     @Autowired
-    private UsersDao usersDao;
+    private UserDao userDao;
 
     @Autowired
-    private ImagesDao imagesDao;
+    private ImageDao imageDao;
 
     @Autowired
-    private CommentsDao commentsDao;
+    private CommentDao commentDao;
 
     @Autowired
-    private Comment_RatingsDao comment_ratingsDao;
+    private CommentRatingDao comment_ratingsDao;
 
     @Test
     public void testComment_Ratings(){
-        usersDao.deleteAll();
-        imagesDao.deleteAll();
-        commentsDao.deleteAll();
+        userDao.deleteAll();
+        imageDao.deleteAll();
+        commentDao.deleteAll();
         comment_ratingsDao.deleteAll();
 
         User user = new User("Tmthetom");
-        usersDao.create(user);
-        user = usersDao.getAll().get(0);
+        userDao.create(user);
+        user = userDao.getAll().get(0);
 
         Image image = new Image(user.getId_user(), "New York","url");
-        imagesDao.create(image);
-        image = imagesDao.getAll().get(0);
+        imageDao.create(image);
+        image = imageDao.getAll().get(0);
 
         Comment comment = new Comment(image.getId_image(), user.getId_user(), "WOW, such a nice image");
-        commentsDao.create(comment);
-        comment = commentsDao.getAll().get(0);
+        commentDao.create(comment);
+        comment = commentDao.getAll().get(0);
 
-        Comment_Rating comment_rating = new Comment_Rating(comment.getId_comment(), user.getId_user(), Boolean.TRUE);
+        CommentRating comment_rating = new CommentRating(comment.getId_comment(), user.getId_user(), Boolean.TRUE);
         //assertTrue("Comment_rating should be created", comment_ratingsDao.create(comment_rating));
         comment_ratingsDao.create(comment_rating);
         comment_rating = comment_ratingsDao.getAll().get(0);
 
-        List<Comment_Rating> comment_ratings = comment_ratingsDao.getAll();
+        List<CommentRating> comment_ratings = comment_ratingsDao.getAll();
         assertEquals("Number of Comment_ratings should be 1", 1, comment_ratings.size());
 
         assertTrue("Comment_rating should exist", comment_ratingsDao.exists(comment.getId_comment(), user.getId_user()));

@@ -6,36 +6,30 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Image_Rating")
-public class Image_Rating {
+@Table(name="Image_Tag")
+public class ImageTag {
 
     @Id
     @Column(name="id_image")
     private int id_image;
 
-    //@Id
-    @Column(name="id_user")
-    private int id_user;
+    @Column(name="name")
+    private String name;
 
-    @Column(name="rating")
-    private boolean rating;
-
-    public Image_Rating() {
+    public ImageTag() {
         ;
     }
 
-    public Image_Rating(int id_image, int id_user, boolean rating) {
+    public ImageTag(int id_image, String name) {
         this.id_image = id_image;
-        this.id_user = id_user;
-        this.rating = rating;
+        this.name = name;
     }
 
     @Override
     public String toString() {
-        return "Image_Rating{" +
+        return "Image_Tag{" +
                 "id_image = " + id_image + ", " +
-                "id_user = " + id_user + ", " +
-                "rating = " + rating +
+                "name = " + name +
                 '}';
     }
 
@@ -47,14 +41,11 @@ public class Image_Rating {
         if(getClass() != obj.getClass()){
             return false;
         }
-        Image_Rating temp = (Image_Rating)obj;
+        ImageTag temp = (ImageTag)obj;
         if (getId_image() != temp.getId_image()) {
             return false;
         }
-        if (getId_user() != temp.getId_user()) {
-            return false;
-        }
-        if (getRating() != temp.getRating()) {
+        if (!getName().equals(temp.getName())) {
             return false;
         }
         return true;
@@ -68,19 +59,11 @@ public class Image_Rating {
         this.id_image = id_image;
     }
 
-    public int getId_user() {
-        return id_user;
+    public String getName() {
+        return name;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
-    }
-
-    public boolean getRating() {
-        return rating;
-    }
-
-    public void setRating(boolean rating) {
-        this.rating = rating;
+    public void setName(String name) {
+        this.name = name;
     }
 }

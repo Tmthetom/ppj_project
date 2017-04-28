@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 @Transactional
-public class ImagesDao {
+public class ImageDao {
 
     @Autowired
     private SessionFactory sessionFactory;

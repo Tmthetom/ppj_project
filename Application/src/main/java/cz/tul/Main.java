@@ -21,38 +21,38 @@ import java.util.List;
 public class Main {
 
     @Bean
-    public CommentsDao commentsDao() {
-        return new CommentsDao();
+    public CommentDao commentsDao() {
+        return new CommentDao();
     }
 
     @Bean
-    public Comment_RatingsDao comment_RatingsDao(){
-        return new Comment_RatingsDao();
+    public CommentRatingDao comment_RatingsDao(){
+        return new CommentRatingDao();
     }
 
     @Bean
-    public ImagesDao imagesDao(){
-        return new ImagesDao();
+    public ImageDao imagesDao(){
+        return new ImageDao();
     }
 
     @Bean
-    public Image_RatingsDao image_RatingsDao(){
-        return new Image_RatingsDao();
+    public ImageRatingDao image_RatingsDao(){
+        return new ImageRatingDao();
     }
 
     @Bean
-    public Image_TagsDao image_TagsDao(){
-        return new Image_TagsDao();
+    public ImageTagDao image_TagsDao(){
+        return new ImageTagDao();
     }
 
     @Bean
-    public TagsDao tagsDao(){
-        return new TagsDao();
+    public TagDao tagsDao(){
+        return new TagDao();
     }
 
     @Bean
-    public UsersDao usersDao(){
-        return new UsersDao();
+    public UserDao usersDao(){
+        return new UserDao();
     }
 
     @Autowired
@@ -73,11 +73,20 @@ public class Main {
         SpringApplication app = new SpringApplication(Main.class);
         ApplicationContext ctx = app.run(args);
 
-        UsersDao usersDao = ctx.getBean(UsersDao.class);
-        usersDao.deleteAll();
-        usersDao.create(new User("Tmthetom"));
+        User user = new User("Tmthetom");
+        UserDao userDao = ctx.getBean(UserDao.class);
+        userDao.deleteAll();
+        userDao.create(user);
 
-        List<User> users = usersDao.getAll();
+        Image image = new Image(user.getId_user(), "New York","url");
+        ImageDao imageDao = ctx.getBean(ImageDao.class);
+        imageDao.deleteAll();
+        imageDao.create(image);
+
+        List<User> users = userDao.getAll();
         System.out.println(users);
+
+        List<Image> images = imageDao.getAll();
+        System.out.println(images);
     }
 }

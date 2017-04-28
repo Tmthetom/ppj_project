@@ -23,29 +23,29 @@ import static org.junit.Assert.assertTrue;
 public class ImagesDaoTests {
 
     @Autowired
-    private UsersDao usersDao;
+    private UserDao userDao;
 
     @Autowired
-    private ImagesDao imagesDao;
+    private ImageDao imageDao;
 
     @Test
     public void testImages(){
-        imagesDao.deleteAll();
-        usersDao.deleteAll();
+        imageDao.deleteAll();
+        userDao.deleteAll();
 
         User user = new User("Tmthetom");
-        usersDao.create(user);
-        user = usersDao.getAll().get(0);
+        userDao.create(user);
+        user = userDao.getAll().get(0);
 
         Image image = new Image(user.getId_user(), "New York","url");
         //assertTrue("Image should be created", imagesDao.create(image));
-        imagesDao.create(image);
-        image = imagesDao.getAll().get(0);
+        imageDao.create(image);
+        image = imageDao.getAll().get(0);
 
-        List<Image> images = imagesDao.getAll();
+        List<Image> images = imageDao.getAll();
         assertEquals("Number of images should be 1", 1, images.size());
 
-        assertTrue("Image should exist", imagesDao.exists(images.get(0).getId_image()));
+        assertTrue("Image should exist", imageDao.exists(images.get(0).getId_image()));
 
         assertEquals("Created comment image be identical to retrieved comment", image, images.get(0));
     }

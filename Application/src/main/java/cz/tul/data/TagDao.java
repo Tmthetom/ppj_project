@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Transactional
-public class TagsDao {
+public class TagDao {
 
     @Autowired
     private SessionFactory sessionFactory;
