@@ -24,10 +24,10 @@ public class Comment_RatingsDao {
         session().save(comment_rating);
     }
 
-    public boolean exists(int id_comment, int id_user) {
+    public boolean exists(Comment comment, User user) {
         Criteria criteria = session().createCriteria(Comment_Rating.class);
-        criteria.add(Restrictions.eq("id_comment", id_comment));
-        criteria.add(Restrictions.eq("id_user", id_user));
+        criteria.add(Restrictions.eq("comment", comment));
+        criteria.add(Restrictions.eq("user", user));
         Comment_Rating comment_rating = (Comment_Rating) criteria.uniqueResult();
         return comment_rating != null;
     }

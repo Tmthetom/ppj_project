@@ -1,17 +1,21 @@
 package cz.tul.data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="Comment_Rating")
-public class Comment_Rating {
+public class Comment_Rating implements Serializable{
 
     @Id
-    @Column(name="id_comment")
-    private int id_comment;
+    @ManyToOne
+    @JoinColumn(name="comment")
+    private Comment comment;
 
-    @Column(name="id_user")
-    private int id_user;
+    @Id
+    @ManyToOne
+    @JoinColumn(name="user")
+    private User user;
 
     @Column(name="rating")
     private boolean rating;
@@ -20,17 +24,17 @@ public class Comment_Rating {
         ;
     }
 
-    public Comment_Rating(int id_comment, int id_user, boolean rating) {
-        this.id_comment = id_comment;
-        this.id_user = id_user;
+    public Comment_Rating(Comment comment, User user, boolean rating) {
+        this.comment = comment;
+        this.user = user;
         this.rating = rating;
     }
 
     @Override
     public String toString() {
         return "Comment_Rating{" +
-                "id_comment = " + id_comment + ", " +
-                "id_user = " + id_user + ", " +
+                "comment = " + comment + ", " +
+                "user = " + user + ", " +
                 "rating = " + rating +
                 '}';
     }
@@ -44,10 +48,10 @@ public class Comment_Rating {
             return false;
         }
         Comment_Rating temp = (Comment_Rating)obj;
-        if (getId_comment() != temp.getId_comment()) {
+        if (!getComment().equals(temp.getComment())) {
             return false;
         }
-        if (getId_user() != temp.getId_user()) {
+        if (!getUser().equals(temp.getUser())) {
             return false;
         }
         if (getRating() != temp.getRating()) {
@@ -56,20 +60,20 @@ public class Comment_Rating {
         return true;
     }
 
-    public int getId_comment() {
-        return id_comment;
+    public Comment getComment() {
+        return comment;
     }
 
-    public void setId_comment(int id_comment) {
-        this.id_comment = id_comment;
+    public void setComment(Comment comment) {
+        this.comment = comment;
     }
 
-    public int getId_user() {
-        return id_user;
+    public User getUser() {
+        return user;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public boolean getRating() {

@@ -53,16 +53,14 @@ public class Commnet_RatingsDaoTests {
         commentsDao.create(comment);
         comment = commentsDao.getAll().get(0);
 
-        Comment_Rating comment_rating = new Comment_Rating(comment.getId_comment(), user.getId_user(), Boolean.TRUE);
-        //assertTrue("Comment_rating should be created", comment_ratingsDao.create(comment_rating));
+        Comment_Rating comment_rating = new Comment_Rating(comment, user, Boolean.TRUE);
         comment_ratingsDao.create(comment_rating);
-        comment_rating = comment_ratingsDao.getAll().get(0);
 
         List<Comment_Rating> comment_ratings = comment_ratingsDao.getAll();
         assertEquals("Number of Comment_ratings should be 1", 1, comment_ratings.size());
 
-        assertTrue("Comment_rating should exist", comment_ratingsDao.exists(comment.getId_comment(), user.getId_user()));
+        assertTrue("Comment_rating should exist", comment_ratingsDao.exists(comment, user));
 
-        assertEquals("Created Comment_rating should be identical to retrieved image_tag", comment_rating, comment_ratings.get(0));
+        assertEquals("Created Comment_rating should be identical to retrieved Comment_rating", comment_rating, comment_ratings.get(0));
     }
 }
