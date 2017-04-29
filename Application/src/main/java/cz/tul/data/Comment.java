@@ -61,26 +61,17 @@ public class Comment {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if(obj == null){
-            return false;
-        }
-        if(getClass() != obj.getClass()){
-            return false;
-        }
-        Comment temp = (Comment)obj;
-        if (getId_comment() != temp.getId_comment()) {
-            return false;
-        }
-        if (!getAuthor().equals(temp.getAuthor())) {
-            return false;
-        }
-        if (!getImage().equals(temp.getImage())) {
-            return false;
-        }
-        if (!getMessage().equals(temp.getMessage())) {
-            return false;
-        }
+    public boolean equals(Object object) {
+
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+
+        Comment comment = (Comment) object;
+
+        if (getId_comment() != comment.getId_comment()) return false;
+        if (!getAuthor().equals(comment.getAuthor())) return false;
+        if (!getImage().equals(comment.getImage())) return false;
+        if (!getMessage().equals(comment.getMessage())) return false;
         return true;
     }
 
