@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="Image_Tag")
+@IdClass(ImageTagId.class)
 public class Image_Tag implements Serializable {
 
     @Id

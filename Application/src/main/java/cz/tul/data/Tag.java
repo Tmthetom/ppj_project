@@ -4,7 +4,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="Tag")
-@IdClass(ImageTagId.class)
 public class Tag {
 
     @Id
