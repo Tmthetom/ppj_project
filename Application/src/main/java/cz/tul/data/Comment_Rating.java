@@ -38,7 +38,7 @@ public class Comment_Rating implements Serializable {
     public String toString() {
         return "Comment_Rating{" +
                 "comment = " + comment + ", " +
-                "user = " + user + ", " +
+                "id_user = " + user + ", " +
                 "rating = " + rating +
                 '}';
     }

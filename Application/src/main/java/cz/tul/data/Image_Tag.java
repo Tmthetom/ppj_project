@@ -33,7 +33,7 @@ public class Image_Tag implements Serializable {
     @Override
     public String toString() {
         return "Image_Tag{" +
-                "image = " + image + ", " +
+                "id_image = " + image + ", " +
                 "tag = " + tag +
                 '}';
     }

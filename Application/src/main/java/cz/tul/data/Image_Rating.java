@@ -9,12 +9,12 @@ import java.io.Serializable;
 public class Image_Rating implements Serializable {
 
     @Id
-    @JoinColumn(name="id_image")
-    private Image image;
+    @Column(name="id_image")
+    private int id_image;
 
     @Id
-    @JoinColumn(name="id_user")
-    private User user;
+    @Column(name="id_user")
+    private int id_user;
 
     @Column(name="rating")
     private boolean rating;
@@ -23,9 +23,9 @@ public class Image_Rating implements Serializable {
         ;
     }
 
-    public Image_Rating(Image image, User user, boolean rating) {
-        this.image = image;
-        this.user = user;
+    public Image_Rating(int id_image, int id_user, boolean rating) {
+        this.id_image = id_image;
+        this.id_user = id_user;
         this.rating = rating;
     }
 
@@ -37,8 +37,8 @@ public class Image_Rating implements Serializable {
     @Override
     public String toString() {
         return "Image_Rating{" +
-                "image = " + image + ", " +
-                "user = " + user + ", " +
+                "id_image = " + id_image + ", " +
+                "id_user = " + id_user + ", " +
                 "rating = " + rating +
                 '}';
     }
@@ -52,10 +52,10 @@ public class Image_Rating implements Serializable {
             return false;
         }
         Image_Rating temp = (Image_Rating)obj;
-        if (!getImage().equals(temp.getImage())) {
+        if (getId_image() != temp.getId_image()) {
             return false;
         }
-        if (!getUser().equals(temp.getUser())) {
+        if (getId_user() != temp.getId_user()) {
             return false;
         }
         if (getRating() != temp.getRating()) {
@@ -64,20 +64,20 @@ public class Image_Rating implements Serializable {
         return true;
     }
 
-    public Image getImage() {
-        return image;
+    public int getId_image() {
+        return id_image;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
+    public void setId_image(int id_image) {
+        this.id_image = id_image;
     }
 
-    public User getUser() {
-        return user;
+    public int getId_user() {
+        return id_user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 
     public boolean getRating() {

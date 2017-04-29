@@ -53,7 +53,7 @@ public class Comment {
     public String toString() {
         return "Comment{" +
                 "id_comment = " + id_comment + ", " +
-                "image = " + image + ", " +
+                "id_image = " + image + ", " +
                 "author = " + author + ", " +
                 "message = " + message + ", " +
                 "created = " + created + ", " +
