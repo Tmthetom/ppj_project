@@ -1,6 +1,7 @@
 package cz.tul.services;
 
 import cz.tul.data.Tag;
+import cz.tul.data.User;
 import cz.tul.repositories.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,10 @@ public class TagService {
 
     public List<Tag> getAll() {
         return StreamSupport.stream(tagRepository.findAll().spliterator(), false).collect(Collectors.toList());
+    }
+
+    public void delete(Tag tag){
+        tagRepository.delete(tag.getName());
     }
 
     public void deleteAll() {

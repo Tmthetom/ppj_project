@@ -27,6 +27,10 @@ public class UserService {
         return StreamSupport.stream(userRepository.findAll().spliterator(), false).collect(Collectors.toList());
     }
 
+    public void delete(User user){
+        userRepository.delete(user.getId_user());
+    }
+
     public void deleteAll() {
         userRepository.deleteAll();
     }
