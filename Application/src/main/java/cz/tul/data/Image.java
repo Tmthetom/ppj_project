@@ -65,36 +65,16 @@ public class Image {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if(obj == null){
-            return false;
-        }
-        if(getClass() != obj.getClass()){
-            return false;
-        }
-        Image temp = (Image)obj;
-        if (getId_image() != temp.getId_image()){
-            return false;
-        }
-        if (!getPath().equals(temp.getPath())){
-            return false;
-        }
-        if (getName() == null) {
-            if (temp.getName() != null) {
-                return false;
-            }
-        } else {
-            if (temp.getName() == null) {
-                return false;
-            } else {
-                if (!getName().equals(temp.getName())) {
-                    return false;
-                }
-            }
-        }
-        if (!getAuthor().equals(temp.getAuthor())) {
-            return false;
-        }
+    public boolean equals(Object object) {
+
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+
+        Image image = (Image) object;
+
+        if (id_image != image.getId_image()){ return false; }
+        if (!path.equals(image.getPath())){ return false; }
+        if (!author.equals(image.getAuthor())) { return false; }
         return true;
     }
 
