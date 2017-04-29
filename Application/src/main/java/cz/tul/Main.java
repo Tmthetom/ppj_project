@@ -1,6 +1,8 @@
 package cz.tul;
 
 import cz.tul.data.*;
+import cz.tul.services.ImageService;
+import cz.tul.services.UserService;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -37,6 +39,10 @@ public class Main {
         SpringApplication app = new SpringApplication(Main.class);
         ApplicationContext ctx = app.run(args);
 
+        UserService userService = ctx.getBean(UserService.class);
+        System.out.println(userService.getAll());
+
+        /*
         User user = new User("Tmthetom");
         UsersDao usersDao = ctx.getBean(UsersDao.class);
         usersDao.deleteAll();
@@ -46,7 +52,7 @@ public class Main {
         System.out.println(users);
 
         User user1 = usersDao.get(user);
-        System.out.println(user1);
+        System.out.println(user1);*/
 
     }
 }
