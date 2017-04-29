@@ -1,12 +1,10 @@
 package cz.tul.data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="Tag")
+@IdClass(ImageTagId.class)
 public class Tag {
 
     @Id
