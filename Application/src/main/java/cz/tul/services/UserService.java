@@ -23,11 +23,11 @@ public class UserService {
         return userRepository.exists(user.getId_user());
     }
 
-    public List<User> getAllUsers() {
+    public List<User> getAll() {
         return StreamSupport.stream(userRepository.findAll().spliterator(), false).collect(Collectors.toList());
     }
 
-    public void deleteUsers() {
+    public void deleteAll() {
         userRepository.deleteAll();
     }
 }
