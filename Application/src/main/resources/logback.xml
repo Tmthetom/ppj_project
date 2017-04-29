@@ -14,9 +14,16 @@
         <append>false</append>
     </appender>
 
-    <logger name="cz.tul" level="INFO"/>
+    <!--
+    ERROR (highest value)
+    WARN
+    INFO=
+    DEBUG
+    TRACE (lowest value)
+    -->
 
-    <root level="INFO">
+    <logger name="cz.tul" level="ERROR"/>
+    <root level="ERROR">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </root>
