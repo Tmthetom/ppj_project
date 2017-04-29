@@ -98,6 +98,23 @@ public class Image {
         return true;
     }
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @PrePersist
+    public void prePersist(){
+        Date date = new Date();
+        setCreated(date);
+        setUpdated(date);
+    }
+
+    @PreUpdate
+    public void preUpdate(){
+        setUpdated(new Date());
+    }
+
     public int getId_image() {
         return id_image;
     }

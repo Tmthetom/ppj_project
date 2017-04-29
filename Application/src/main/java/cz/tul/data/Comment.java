@@ -1,6 +1,7 @@
 package cz.tul.data;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -73,6 +74,18 @@ public class Comment {
         if (!getImage().equals(comment.getImage())) return false;
         if (!getMessage().equals(comment.getMessage())) return false;
         return true;
+    }
+
+    @PrePersist
+    public void prePersist(){
+        Date date = new Date();
+        setCreated(date);
+        setUpdated(date);
+    }
+
+    @PreUpdate
+    public void preUpdate(){
+        setUpdated(new Date());
     }
 
     public int getId_comment() {
