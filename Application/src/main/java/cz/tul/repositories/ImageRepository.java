@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface ImageRepository extends CrudRepository<Image, Integer> {
     @Query("SELECT row FROM Image AS row WHERE row.id_image = :id_image")
-    public Image getImage(@Param("id_image") long id_image);
+    public Image getImage(@Param("id_image") int id_image);
 
     @Query("SELECT row FROM Image AS row WHERE row.user = :user")
     public List<Image> findByAuthor(@Param("user") User user);
