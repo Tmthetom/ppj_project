@@ -9,12 +9,10 @@ import java.io.Serializable;
 public class Image_Rating implements Serializable {
 
     @Id
-    @ManyToOne
     @JoinColumn(name="id_image")
     private Image image;
 
     @Id
-    @ManyToOne
     @JoinColumn(name="id_user")
     private User user;
 

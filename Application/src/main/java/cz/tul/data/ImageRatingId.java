@@ -3,8 +3,8 @@ package cz.tul.data;
 import java.io.Serializable;
 
 public class ImageRatingId implements Serializable {
-    int id_image;
-    int id_user;
+    Image image;
+    User user;
 
     @Override
     public boolean equals(Object object) {
@@ -12,8 +12,8 @@ public class ImageRatingId implements Serializable {
         if (object == null || getClass() != object.getClass()) return false;
 
         ImageRatingId imageRatingId = (ImageRatingId) object;
-        if (id_image != imageRatingId.id_image) return false;
-        return id_user != imageRatingId.id_user;
+        if (image.getId_image() != imageRatingId.image.getId_image()) return false;
+        return user.getId_user() != imageRatingId.user.getId_user();
     }
 
     @Override

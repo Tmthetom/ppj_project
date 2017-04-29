@@ -22,8 +22,8 @@
     TRACE (lowest value)
     -->
 
-    <logger name="cz.tul" level="ERROR"/>
-    <root level="ERROR">
+    <logger name="cz.tul" level="INFO"/>
+    <root level="INFO">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </root>

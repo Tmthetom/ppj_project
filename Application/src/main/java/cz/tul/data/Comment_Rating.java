@@ -9,12 +9,10 @@ import java.io.Serializable;
 public class Comment_Rating implements Serializable {
 
     @Id
-    @ManyToOne
     @JoinColumn(name="id_comment")
     private Comment comment;
 
     @Id
-    @ManyToOne
     @JoinColumn(name="id_user")
     private User user;
 

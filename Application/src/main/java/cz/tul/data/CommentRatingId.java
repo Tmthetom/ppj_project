@@ -3,8 +3,8 @@ package cz.tul.data;
 import java.io.Serializable;
 
 public class CommentRatingId implements Serializable {
-    int id_comment;
-    int id_user;
+    Comment comment;
+    User user;
 
     @Override
     public boolean equals(Object object) {
@@ -12,8 +12,8 @@ public class CommentRatingId implements Serializable {
         if (object == null || getClass() != object.getClass()) return false;
 
         CommentRatingId commentRatingId = (CommentRatingId) object;
-        if (id_comment != commentRatingId.id_comment) return false;
-        return id_user != commentRatingId.id_user;
+        if (comment.getId_comment() != commentRatingId.comment.getId_comment()) return false;
+        return user.getId_user() != commentRatingId.user.getId_user();
     }
 
     @Override

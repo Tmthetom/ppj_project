@@ -8,12 +8,10 @@ import java.io.Serializable;
 public class Image_Tag implements Serializable {
 
     @Id
-    @ManyToOne
     @JoinColumn(name="id_image")
     private Image image;
 
     @Id
-    @ManyToOne
     @JoinColumn(name="name")
     private Tag tag;
 
