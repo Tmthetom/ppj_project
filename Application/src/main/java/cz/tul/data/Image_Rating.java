@@ -44,23 +44,15 @@ public class Image_Rating implements Serializable {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if(obj == null){
-            return false;
-        }
-        if(getClass() != obj.getClass()){
-            return false;
-        }
-        Image_Rating temp = (Image_Rating)obj;
-        if (getId_image() != temp.getId_image()) {
-            return false;
-        }
-        if (getId_user() != temp.getId_user()) {
-            return false;
-        }
-        if (getRating() != temp.getRating()) {
-            return false;
-        }
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+
+        Image_Rating image_rating = (Image_Rating) object;
+
+        if (id_image != image_rating.getId_image()) { return false; }
+        if (id_user != image_rating.getId_user()) { return false; }
+        if (rating != image_rating.getRating()) { return false; }
         return true;
     }
 
