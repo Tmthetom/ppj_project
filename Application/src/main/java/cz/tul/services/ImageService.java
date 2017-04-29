@@ -25,7 +25,7 @@ public class ImageService {
         return imageRepository.exists(imaget.getId_image());
     }
 
-    public Image getImageComments(Image image) {
+    public Image getImage(Image image) {
         return imageRepository.getImage(image.getId_image());
     }
 
