@@ -42,15 +42,12 @@ public class User {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if(obj == null){
-            return false;
-        }
-        if(getClass() != obj.getClass()){
-            return false;
-        }
-        User temp = (User)obj;
-        return getUsername().equals(temp.getUsername());
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+
+        User user = (User) object;
+        return id_user == user.getId_user();
     }
 
     public int getId_user() {
