@@ -50,9 +50,9 @@ public class Image_Rating implements Serializable {
 
         Image_Rating image_rating = (Image_Rating) object;
 
-        if (id_image != image_rating.getId_image()) { return false; }
-        if (id_user != image_rating.getId_user()) { return false; }
-        if (rating != image_rating.getRating()) { return false; }
+        if (id_image != image_rating.getId_image()) return false;
+        if (id_user != image_rating.getId_user()) return false;
+        if (rating != image_rating.getRating()) return false;
         return true;
     }
 

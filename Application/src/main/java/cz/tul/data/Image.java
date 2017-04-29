@@ -71,9 +71,9 @@ public class Image {
 
         Image image = (Image) object;
 
-        if (id_image != image.getId_image()){ return false; }
-        if (!path.equals(image.getPath())){ return false; }
-        if (!author.equals(image.getAuthor())) { return false; }
+        if (id_image != image.getId_image()) return false;
+        if (!path.equals(image.getPath()))return false;
+        if (!author.equals(image.getAuthor())) return false;
         return true;
     }
 

@@ -9,20 +9,20 @@ import java.io.Serializable;
 public class Image_Tag implements Serializable {
 
     @Id
-    @JoinColumn(name="id_image")
-    private Image image;
+    @Column(name="id_image")
+    private int id_image;
 
     @Id
-    @JoinColumn(name="name")
-    private Tag tag;
+    @Column(name="name")
+    private String name;
 
     public Image_Tag() {
         ;
     }
 
-    public Image_Tag(Image Image, Tag tag) {
-        this.image = Image;
-        this.tag = tag;
+    public Image_Tag(int id_image, String name) {
+        this.id_image = id_image;
+        this.name = name;
     }
 
     @Override
@@ -33,42 +33,36 @@ public class Image_Tag implements Serializable {
     @Override
     public String toString() {
         return "Image_Tag{" +
-                "id_image = " + image + ", " +
-                "tag = " + tag +
+                "id_image = " + id_image + ", " +
+                "name = " + name +
                 '}';
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if(obj == null){
-            return false;
-        }
-        if(getClass() != obj.getClass()){
-            return false;
-        }
-        Image_Tag temp = (Image_Tag)obj;
-        if (!getImage().equals(getImage())) {
-            return false;
-        }
-        if (!getTag().equals(temp.getTag())) {
-            return false;
-        }
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+
+        Image_Tag image_tag = (Image_Tag) object;
+
+        if (id_image != image_tag.getId_image()) return false;
+        if (!name.equals(image_tag.getName())) return false;
         return true;
     }
 
-    public Image getImage() {
-        return image;
+    public int getId_image() {
+        return id_image;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
+    public void setId_image(int id_image) {
+        this.id_image = id_image;
     }
 
-    public Tag getTag() {
-        return tag;
+    public String getName() {
+        return name;
     }
 
-    public void setTag(Tag tag) {
-        this.tag = tag;
+    public void setName(String name) {
+        this.name = name;
     }
 }
