@@ -17,4 +17,7 @@ public interface ImageRepository extends CrudRepository<Image, Integer> {
 
     @Query("SELECT row FROM Image AS row WHERE row.name = :name")
     public List<Image> findByName(@Param("name") String name);
+
+    @Query("SELECT row FROM Image AS row WHERE row.id_image IN (SELECT DISTINCT (tagRow.id_image) FROM Image_Tag AS tagRow WHERE tagRow.name = :tag)")
+    public List<Image> findByTags(@Param("tag") String tag);
 }
