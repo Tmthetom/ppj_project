@@ -40,8 +40,8 @@ public class TagServiceTest {
     public void testCreateRetrieve(){
         tagService.create(tag1);
         List<Tag> tags1 = tagService.getAll();
-        assertEquals("One tag should have been created and retrieved", 1, tags1.size());
-        assertEquals("Inserted tag should match retrieved", tag1, tags1.get(0));
+        assertEquals("One tag should have been created and retrieved.", 1, tags1.size());
+        assertEquals("Inserted tag should match retrieved.", tag1, tags1.get(0));
 
         tagService.create(tag2);
         tagService.create(tag3);
