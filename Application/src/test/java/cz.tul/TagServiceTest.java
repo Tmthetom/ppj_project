@@ -32,9 +32,9 @@ public class TagServiceTest {
         tagService.deleteAll();
     }
 
-    Tag tag1 = new Tag("City");
-    Tag tag2 = new Tag("Nature");
-    Tag tag3 = new Tag("Animals");
+    private Tag tag1 = new Tag("City");
+    private Tag tag2 = new Tag("Nature");
+    private Tag tag3 = new Tag("Animals");
 
     @Test
     public void testCreateRetrieve(){
