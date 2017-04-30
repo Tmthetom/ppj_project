@@ -1,8 +1,6 @@
 package cz.tul;
 
-import cz.tul.data.Image;
 import cz.tul.data.User;
-import cz.tul.services.ImageService;
 import cz.tul.services.UserService;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -31,33 +29,24 @@ public class UserServiceTest {
 
     private User user1 = new User("Tomas Moravec");
     private User user2 = new User("Pavel Malatny");
-
-    @Autowired
-    private ImageService imageService;
-
-    Image image1 = new Image(user1, "Path");
-    Image image2 = new Image(user1, "Path");
-    Image image3 = new Image(user2, "Path");
+    private User user3 = new User("Karel Kraus");
 
     @Before
     public void init() {
         userService.deleteAll();
-        imageService.deleteAll();
     }
 
     @Test
     public void testCreateRetrieve(){
         userService.create(user1);
-        userService.create(user2);
-        imageService.create(image1);
-        List<Image> images1 = imageService.getAll();
-        assertEquals("One image should have been created and retrieved.", 1, images1.size());
-        assertEquals("Inserted image should match retrieved.", image1, images1.get(0));
+        List<User> users1 = userService.getAll();
+        assertEquals("One user should have been created and retrieved.", 1, users1.size());
+        assertEquals("Inserted user should match retrieved.", user1, users1.get(0));
 
-        imageService.create(image2);
-        imageService.create(image3);
-        List<Image> images2 = imageService.getAll();
-        assertEquals("Should be four retrieved images.", 3, images2.size());
+        userService.create(user2);
+        userService.create(user3);
+        List<User> users2 = userService.getAll();
+        assertEquals("Should be four retrieved users.", 3, users2.size());
     }
 
     @Test
