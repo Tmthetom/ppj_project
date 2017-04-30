@@ -59,10 +59,6 @@ public class ImageTagServiceTest {
     private Tag tag2 = new Tag("Nature");
     private Tag tag3 = new Tag("Animals");
 
-    private Image_Tag image_tag1 = new Image_Tag(image3.getId_image(), tag1.getName());
-    private Image_Tag image_tag2 = new Image_Tag(image1.getId_image(), tag2.getName());
-    private Image_Tag image_tag3 = new Image_Tag(image2.getId_image(), tag3.getName());
-
     @Test
     public void testCreateRetrieve(){
         userService.create(user1);
@@ -73,6 +69,11 @@ public class ImageTagServiceTest {
         tagService.create(tag1);
         tagService.create(tag2);
         tagService.create(tag3);
+
+        Image_Tag image_tag1 = new Image_Tag(image3.getId_image(), tag1.getName());
+        Image_Tag image_tag2 = new Image_Tag(image1.getId_image(), tag2.getName());
+        Image_Tag image_tag3 = new Image_Tag(image2.getId_image(), tag3.getName());
+
         imageTagService.create(image_tag1);
 
         List<Image_Tag> image_tags1 = imageTagService.getAll();
@@ -95,6 +96,11 @@ public class ImageTagServiceTest {
         tagService.create(tag1);
         tagService.create(tag2);
         tagService.create(tag3);
+
+        Image_Tag image_tag1 = new Image_Tag(image3.getId_image(), tag1.getName());
+        Image_Tag image_tag2 = new Image_Tag(image1.getId_image(), tag2.getName());
+        Image_Tag image_tag3 = new Image_Tag(image2.getId_image(), tag3.getName());
+
         imageTagService.create(image_tag1);
         imageTagService.create(image_tag2);
         imageTagService.create(image_tag3);
@@ -114,6 +120,11 @@ public class ImageTagServiceTest {
         tagService.create(tag1);
         tagService.create(tag2);
         tagService.create(tag3);
+
+        Image_Tag image_tag1 = new Image_Tag(image3.getId_image(), tag1.getName());
+        Image_Tag image_tag2 = new Image_Tag(image1.getId_image(), tag2.getName());
+        Image_Tag image_tag3 = new Image_Tag(image2.getId_image(), tag3.getName());
+
         imageTagService.create(image_tag1);
         imageTagService.create(image_tag2);
         imageTagService.create(image_tag3);
@@ -139,6 +150,11 @@ public class ImageTagServiceTest {
         tagService.create(tag1);
         tagService.create(tag2);
         tagService.create(tag3);
+
+        Image_Tag image_tag1 = new Image_Tag(image3.getId_image(), tag1.getName());
+        Image_Tag image_tag2 = new Image_Tag(image1.getId_image(), tag2.getName());
+        Image_Tag image_tag3 = new Image_Tag(image2.getId_image(), tag3.getName());
+
         imageTagService.create(image_tag1);
         imageTagService.create(image_tag2);
         imageTagService.create(image_tag3);
