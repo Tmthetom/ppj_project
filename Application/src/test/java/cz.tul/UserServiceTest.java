@@ -14,9 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Main.class})
@@ -27,14 +25,14 @@ public class UserServiceTest {
     @Autowired
     private UserService userService;
 
-    private User user1 = new User("Tomas Moravec");
-    private User user2 = new User("Pavel Malatny");
-    private User user3 = new User("Karel Kraus");
-
     @Before
     public void init() {
         userService.deleteAll();
     }
+
+    private User user1 = new User("Tomas Moravec");
+    private User user2 = new User("Pavel Malatny");
+    private User user3 = new User("Karel Kraus");
 
     @Test
     public void testCreateRetrieve(){
@@ -58,5 +56,37 @@ public class UserServiceTest {
 
         User user4 = new User("Dominik Hasek");
         assertFalse("User should not exist.", userService.exists(user4));
+    }
+
+    @Test
+    public void testDelete() {
+        userService.create(user1);
+        userService.create(user2);
+        userService.create(user3);
+
+        List<User> users1 = userService.getAll();
+        assertEquals("All users should have been created and retrieved.", 3, users1.size());
+
+        userService.delete(user1);
+        userService.delete(user2);
+        userService.delete(user3);
+
+        List<User> users2 = userService.getAll();
+        assertEquals("All users should have been deleted.", 0, users2.size());
+    }
+
+    @Test
+    public void testDeleteAll() {
+        userService.create(user1);
+        userService.create(user2);
+        userService.create(user3);
+
+        List<User> users1 = userService.getAll();
+        assertEquals("All users should have been created and retrieved.", 3, users1.size());
+
+        userService.deleteAll();
+
+        List<User> users2 = userService.getAll();
+        assertEquals("All users should have been deleted.", 0, users2.size());
     }
 }

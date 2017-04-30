@@ -27,14 +27,14 @@ public class TagServiceTest {
     @Autowired
     private TagService tagService;
 
-    Tag tag1 = new Tag("City");
-    Tag tag2 = new Tag("Nature");
-    Tag tag3 = new Tag("Animals");
-
     @Before
     public void init() {
         tagService.deleteAll();
     }
+
+    Tag tag1 = new Tag("City");
+    Tag tag2 = new Tag("Nature");
+    Tag tag3 = new Tag("Animals");
 
     @Test
     public void testCreateRetrieve(){
@@ -58,5 +58,37 @@ public class TagServiceTest {
 
         Tag tag4 = new Tag("Games");
         assertFalse("Tag should not exist.", tagService.exists(tag4));
+    }
+
+    @Test
+    public void testDelete() {
+        tagService.create(tag1);
+        tagService.create(tag2);
+        tagService.create(tag3);
+
+        List<Tag> tags1 = tagService.getAll();
+        assertEquals("All tags should have been created and retrieved.", 3, tags1.size());
+
+        tagService.delete(tag1);
+        tagService.delete(tag2);
+        tagService.delete(tag3);
+
+        List<Tag> tags2 = tagService.getAll();
+        assertEquals("All tags should have been deleted.", 0, tags2.size());
+    }
+
+    @Test
+    public void testDeleteAll() {
+        userService.create(user1);
+        userService.create(user2);
+        userService.create(user3);
+
+        List<User> users1 = userService.getAll();
+        assertEquals("All users should have been created and retrieved.", 3, users1.size());
+
+        userService.deleteAll();
+
+        List<User> users2 = userService.getAll();
+        assertEquals("All users should have been deleted.", 0, users2.size());
     }
 }
