@@ -79,16 +79,16 @@ public class TagServiceTest {
 
     @Test
     public void testDeleteAll() {
-        userService.create(user1);
-        userService.create(user2);
-        userService.create(user3);
+        tagService.create(tag1);
+        tagService.create(tag2);
+        tagService.create(tag3);
 
-        List<User> users1 = userService.getAll();
-        assertEquals("All users should have been created and retrieved.", 3, users1.size());
+        List<Tag> tags1 = tagService.getAll();
+        assertEquals("All tags should have been created and retrieved.", 3, tags1.size());
 
-        userService.deleteAll();
+        tagService.deleteAll();
 
-        List<User> users2 = userService.getAll();
-        assertEquals("All users should have been deleted.", 0, users2.size());
+        List<Tag> tags2 = tagService.getAll();
+        assertEquals("All tags should have been deleted.", 0, tags2.size());
     }
 }
