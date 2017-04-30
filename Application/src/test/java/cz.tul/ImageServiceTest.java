@@ -18,8 +18,6 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -69,7 +67,7 @@ public class ImageServiceTest {
         imageService.create(image2);
         imageService.create(image3);
         List<Image> images2 = imageService.getAll();
-        assertEquals("Should be four retrieved images.", 3, images2.size());
+        assertEquals("Should be three retrieved images.", 3, images2.size());
     }
 
     @Test
@@ -93,7 +91,7 @@ public class ImageServiceTest {
         imageService.create(image2);
         imageService.create(image3);
 
-        Image retrieved = imageService.getImage(image2);
+        Image retrieved = imageService.get(image2);
         assertEquals("Image should match retrieved.", image2, retrieved);
     }
 
@@ -105,9 +103,9 @@ public class ImageServiceTest {
         imageService.create(image2);
         imageService.create(image3);
 
-        List<Image> images1 = imageService.getByName(image2.getName());
-        assertNotNull("Retrieved images should not be null.", images1);
-        assertEquals("Retrieved image should be 1 for this name.", 1, images1.size());
+        List<Image> images = imageService.getByName(image2.getName());
+        assertNotNull("Retrieved images should not be null.", images);
+        assertEquals("Retrieved image should be 1 for this name.", 1, images.size());
     }
 
     @Test
@@ -118,9 +116,9 @@ public class ImageServiceTest {
         imageService.create(image2);
         imageService.create(image3);
 
-        List<Image> images1 = imageService.getByAuthor(user1);
-        assertNotNull("Retrieved images should not be null.", images1);
-        assertEquals("Retrieved images should be 2 for this author.", 2, images1.size());
+        List<Image> images = imageService.getByAuthor(user1);
+        assertNotNull("Retrieved images should not be null.", images);
+        assertEquals("Retrieved images should be 2 for this author.", 2, images.size());
     }
 
     @Test
@@ -145,9 +143,9 @@ public class ImageServiceTest {
         imageTagService.create(image_tag2);
         imageTagService.create(image_tag3);
 
-        List<Image> images1 = imageService.getByTag(tag1);
-        assertNotNull("Retrieved images should not be null.", images1);
-        assertEquals("Retrieved images should be 2 for this tags.", 2, images1.size());
+        List<Image> images = imageService.getByTag(tag1);
+        assertNotNull("Retrieved images should not be null.", images);
+        assertEquals("Retrieved images should be 2 for this tags.", 2, images.size());
     }
 
     @Test
@@ -161,7 +159,7 @@ public class ImageServiceTest {
         image2.setPath("New Path");
         imageService.update(image2);
 
-        Image retrieved = imageService.getImage(image2);
+        Image retrieved = imageService.get(image2);
         assertEquals("Retrieved image should be updated.", image2, retrieved);
     }
 

@@ -46,7 +46,7 @@ public class TagServiceTest {
         tagService.create(tag2);
         tagService.create(tag3);
         List<Tag> tags2 = tagService.getAll();
-        assertEquals("Should be four retrieved tags.", 3, tags2.size());
+        assertEquals("Should be three retrieved tags.", 3, tags2.size());
     }
 
     @Test

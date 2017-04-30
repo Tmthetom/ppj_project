@@ -44,7 +44,7 @@ public class UserServiceTest {
         userService.create(user2);
         userService.create(user3);
         List<User> users2 = userService.getAll();
-        assertEquals("Should be four retrieved users.", 3, users2.size());
+        assertEquals("Should be three retrieved users.", 3, users2.size());
     }
 
     @Test

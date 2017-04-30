@@ -23,11 +23,11 @@ public class ImageService {
 
     public void update(Image image){ imageRepository.save(image); }
 
-    public boolean exists(Image imaget) {
-        return imageRepository.exists(imaget.getId_image());
+    public boolean exists(Image image) {
+        return imageRepository.exists(image.getId_image());
     }
 
-    public Image getImage(Image image) {
+    public Image get(Image image) {
         return imageRepository.getImage(image.getId_image());
     }
 
