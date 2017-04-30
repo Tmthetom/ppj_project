@@ -1,6 +1,6 @@
 package cz.tul;
 
-import cz.tul.data.*;
+import cz.tul.services.UserService;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.orm.hibernate4.HibernateTransactionManager;
-import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
@@ -18,42 +18,9 @@ import java.util.List;
 @SpringBootApplication
 @EnableTransactionManagement
 @EntityScan("cz.tul.data")
+@ComponentScan("cz.tul.services")
+@EnableJpaRepositories(basePackages = "cz.tul.repositories")
 public class Main {
-
-    @Bean
-    public CommentsDao commentsDao() {
-        return new CommentsDao();
-    }
-
-    @Bean
-    public Comment_RatingsDao comment_RatingsDao(){
-        return new Comment_RatingsDao();
-    }
-
-    @Bean
-    public ImagesDao imagesDao(){
-        return new ImagesDao();
-    }
-
-    @Bean
-    public Image_RatingsDao image_RatingsDao(){
-        return new Image_RatingsDao();
-    }
-
-    @Bean
-    public Image_TagsDao image_TagsDao(){
-        return new Image_TagsDao();
-    }
-
-    @Bean
-    public TagsDao tagsDao(){
-        return new TagsDao();
-    }
-
-    @Bean
-    public UsersDao usersDao(){
-        return new UsersDao();
-    }
 
     @Autowired
     EntityManagerFactory entityManagerFactory;
@@ -63,25 +30,12 @@ public class Main {
         return entityManagerFactory.unwrap(SessionFactory.class);
     }
 
-    @Bean
-    public PlatformTransactionManager txManager() {
-        return new HibernateTransactionManager(entityManagerFactory.unwrap(SessionFactory.class));
-    }
-
     public static void main(String[] args) throws Exception {
 
         SpringApplication app = new SpringApplication(Main.class);
         ApplicationContext ctx = app.run(args);
 
-        User user = new User("Tmthetom");
-        UsersDao usersDao = ctx.getBean(UsersDao.class);
-        usersDao.deleteAll();
-        usersDao.create(user);
-
-        List<User> users = usersDao.getAll();
-        System.out.println(users);
-
-        User user1 = usersDao.get(user);
-        System.out.println(user1);
+        UserService userService = ctx.getBean(UserService.class);
+        System.out.println(userService.getAll());
     }
 }

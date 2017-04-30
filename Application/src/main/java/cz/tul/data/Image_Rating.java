@@ -5,17 +5,16 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="Image_Rating")
+@IdClass(ImageRatingId.class)
 public class Image_Rating implements Serializable {
 
     @Id
-    @ManyToOne
-    @JoinColumn(name="id_image")
-    private Image image;
+    @Column(name="id_image")
+    private int id_image;
 
     @Id
-    @ManyToOne
-    @JoinColumn(name="id_user")
-    private User user;
+    @Column(name="id_user")
+    private int id_user;
 
     @Column(name="rating")
     private boolean rating;
@@ -24,9 +23,9 @@ public class Image_Rating implements Serializable {
         ;
     }
 
-    public Image_Rating(Image image, User user, boolean rating) {
-        this.image = image;
-        this.user = user;
+    public Image_Rating(int id_image, int id_user, boolean rating) {
+        this.id_image = id_image;
+        this.id_user = id_user;
         this.rating = rating;
     }
 
@@ -38,47 +37,39 @@ public class Image_Rating implements Serializable {
     @Override
     public String toString() {
         return "Image_Rating{" +
-                "image = " + image + ", " +
-                "user = " + user + ", " +
+                "id_image = " + id_image + ", " +
+                "id_user = " + id_user + ", " +
                 "rating = " + rating +
                 '}';
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if(obj == null){
-            return false;
-        }
-        if(getClass() != obj.getClass()){
-            return false;
-        }
-        Image_Rating temp = (Image_Rating)obj;
-        if (!getImage().equals(temp.getImage())) {
-            return false;
-        }
-        if (!getUser().equals(temp.getUser())) {
-            return false;
-        }
-        if (getRating() != temp.getRating()) {
-            return false;
-        }
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+
+        Image_Rating image_rating = (Image_Rating) object;
+
+        if (id_image != image_rating.getId_image()) return false;
+        if (id_user != image_rating.getId_user()) return false;
+        if (rating != image_rating.getRating()) return false;
         return true;
     }
 
-    public Image getImage() {
-        return image;
+    public int getId_image() {
+        return id_image;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
+    public void setId_image(int id_image) {
+        this.id_image = id_image;
     }
 
-    public User getUser() {
-        return user;
+    public int getId_user() {
+        return id_user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 
     public boolean getRating() {

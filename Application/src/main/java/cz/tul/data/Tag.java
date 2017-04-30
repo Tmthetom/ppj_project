@@ -1,9 +1,6 @@
 package cz.tul.data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="Tag")
@@ -29,18 +26,12 @@ public class Tag {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if(obj == null){
-            return false;
-        }
-        if(getClass() != obj.getClass()){
-            return false;
-        }
-        Tag temp = (Tag)obj;
-        if (!getName().equals(temp.getName())) {
-            return false;
-        }
-        return true;
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+
+        Tag tag = (Tag) object;
+        return name == tag.getName();
     }
 
     public String getName() {

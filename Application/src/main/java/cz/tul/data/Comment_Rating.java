@@ -5,17 +5,16 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="Comment_Rating")
+@IdClass(CommentRatingId.class)
 public class Comment_Rating implements Serializable {
 
     @Id
-    @ManyToOne
-    @JoinColumn(name="id_comment")
-    private Comment comment;
+    @Column(name="id_comment")
+    private int id_comment;
 
     @Id
-    @ManyToOne
-    @JoinColumn(name="id_user")
-    private User user;
+    @Column(name="id_user")
+    private int id_user;
 
     @Column(name="rating")
     private boolean rating;
@@ -24,9 +23,9 @@ public class Comment_Rating implements Serializable {
         ;
     }
 
-    public Comment_Rating(Comment comment, User user, boolean rating) {
-        this.comment = comment;
-        this.user = user;
+    public Comment_Rating(int id_comment, int id_user, boolean rating) {
+        this.id_comment = id_comment;
+        this.id_user = id_user;
         this.rating = rating;
     }
 
@@ -38,47 +37,39 @@ public class Comment_Rating implements Serializable {
     @Override
     public String toString() {
         return "Comment_Rating{" +
-                "comment = " + comment + ", " +
-                "user = " + user + ", " +
+                "id_comment = " + id_comment + ", " +
+                "id_user = " + id_user + ", " +
                 "rating = " + rating +
                 '}';
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if(obj == null){
-            return false;
-        }
-        if(getClass() != obj.getClass()){
-            return false;
-        }
-        Comment_Rating temp = (Comment_Rating)obj;
-        if (!getComment().equals(temp.getComment())) {
-            return false;
-        }
-        if (!getUser().equals(temp.getUser())) {
-            return false;
-        }
-        if (getRating() != temp.getRating()) {
-            return false;
-        }
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+
+        Comment_Rating image = (Comment_Rating) object;
+
+        if (id_comment != image.getId_comment()) return false;
+        if (id_user != image.getId_user()) return false;
+        if (rating != image.getRating()) return false;
         return true;
     }
 
-    public Comment getComment() {
-        return comment;
+    public int getId_comment() {
+        return id_comment;
     }
 
-    public void setComment(Comment comment) {
-        this.comment = comment;
+    public void setId_comment(int id_comment) {
+        this.id_comment = id_comment;
     }
 
-    public User getUser() {
-        return user;
+    public int getId_user() {
+        return id_user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 
     public boolean getRating() {

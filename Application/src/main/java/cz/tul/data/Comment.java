@@ -1,6 +1,10 @@
 package cz.tul.data;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -13,10 +17,12 @@ public class Comment {
     private int id_comment;
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name="id_image")
     private Image image;
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name="id_author")
     private User author;
 
@@ -52,7 +58,7 @@ public class Comment {
     public String toString() {
         return "Comment{" +
                 "id_comment = " + id_comment + ", " +
-                "image = " + image + ", " +
+                "id_image = " + image + ", " +
                 "author = " + author + ", " +
                 "message = " + message + ", " +
                 "created = " + created + ", " +
@@ -61,27 +67,29 @@ public class Comment {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if(obj == null){
-            return false;
-        }
-        if(getClass() != obj.getClass()){
-            return false;
-        }
-        Comment temp = (Comment)obj;
-        if (getId_comment() != temp.getId_comment()) {
-            return false;
-        }
-        if (!getAuthor().equals(temp.getAuthor())) {
-            return false;
-        }
-        if (!getImage().equals(temp.getImage())) {
-            return false;
-        }
-        if (!getMessage().equals(temp.getMessage())) {
-            return false;
-        }
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+
+        Comment comment = (Comment) object;
+
+        if (getId_comment() != comment.getId_comment()) return false;
+        if (!getAuthor().equals(comment.getAuthor())) return false;
+        if (!getImage().equals(comment.getImage())) return false;
+        if (!getMessage().equals(comment.getMessage())) return false;
         return true;
+    }
+
+    @PrePersist
+    public void prePersist(){
+        Date date = new Date();
+        setCreated(date);
+        setUpdated(date);
+    }
+
+    @PreUpdate
+    public void preUpdate(){
+        setUpdated(new Date());
     }
 
     public int getId_comment() {
