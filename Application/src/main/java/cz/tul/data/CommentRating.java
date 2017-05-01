@@ -6,7 +6,7 @@ import java.io.Serializable;
 @Entity
 @Table(name="Comment_Rating")
 @IdClass(CommentRatingId.class)
-public class Comment_Rating implements Serializable {
+public class CommentRating implements Serializable {
 
     @Id
     @Column(name="id_comment")
@@ -19,11 +19,11 @@ public class Comment_Rating implements Serializable {
     @Column(name="rating")
     private boolean rating;
 
-    public Comment_Rating() {
+    public CommentRating() {
         ;
     }
 
-    public Comment_Rating(int id_comment, int id_user, boolean rating) {
+    public CommentRating(int id_comment, int id_user, boolean rating) {
         this.id_comment = id_comment;
         this.id_user = id_user;
         this.rating = rating;
@@ -48,7 +48,7 @@ public class Comment_Rating implements Serializable {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
 
-        Comment_Rating image = (Comment_Rating) object;
+        CommentRating image = (CommentRating) object;
 
         if (id_comment != image.getId_comment()) return false;
         if (id_user != image.getId_user()) return false;

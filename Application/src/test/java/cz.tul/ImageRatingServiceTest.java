@@ -49,15 +49,15 @@ public class ImageRatingServiceTest {
         userService.create(user2);
         imageService.create(image1);
 
-        Image_Rating image_rating1 = new Image_Rating(image1.getId_image(), user1.getId_user(), Boolean.TRUE);
+        ImageRating image_rating1 = new ImageRating(image1.getId_image(), user1.getId_user(), Boolean.TRUE);
         imageRatingService.create(image_rating1);
-        List<Image_Rating> image_ratings1 = imageRatingService.getAll();
+        List<ImageRating> image_ratings1 = imageRatingService.getAll();
         assertEquals("One imagesRating should have been created and retrieved.", 1, image_ratings1.size());
         assertEquals("Inserted imagesRating should match retrieved.", image_rating1, image_ratings1.get(0));
 
-        Image_Rating image_rating2 = new Image_Rating(image1.getId_image(), user2.getId_user(), Boolean.FALSE);
+        ImageRating image_rating2 = new ImageRating(image1.getId_image(), user2.getId_user(), Boolean.FALSE);
         imageRatingService.create(image_rating2);
-        List<Image_Rating> image_ratings2 = imageRatingService.getAll();
+        List<ImageRating> image_ratings2 = imageRatingService.getAll();
         assertEquals("Should be two retrieved imagesRatings.", 2, image_ratings2.size());
     }
 
@@ -67,13 +67,13 @@ public class ImageRatingServiceTest {
         userService.create(user2);
         imageService.create(image1);
 
-        Image_Rating image_rating = new Image_Rating(image1.getId_image(), user1.getId_user(), Boolean.TRUE);
+        ImageRating image_rating = new ImageRating(image1.getId_image(), user1.getId_user(), Boolean.TRUE);
         imageRatingService.create(image_rating);
 
         image_rating.setRating(Boolean.FALSE);
         imageRatingService.update(image_rating);
 
-        Image_Rating retrieved = imageRatingService.getImageRatings(image1).get(0);
+        ImageRating retrieved = imageRatingService.getImageRatings(image1).get(0);
         assertEquals("Retrieved imagesRating should be updated.", image_rating, retrieved);
     }
 
@@ -83,15 +83,15 @@ public class ImageRatingServiceTest {
         userService.create(user2);
         imageService.create(image1);
 
-        Image_Rating image_rating = new Image_Rating(image1.getId_image(), user1.getId_user(), Boolean.TRUE);
+        ImageRating image_rating = new ImageRating(image1.getId_image(), user1.getId_user(), Boolean.TRUE);
         imageRatingService.create(image_rating);
 
-        List<Image_Rating> image_ratings1 = imageRatingService.getAll();
+        List<ImageRating> image_ratings1 = imageRatingService.getAll();
         assertEquals("All imagesRating should have been created and retrieved.", 1, image_ratings1.size());
 
         imageRatingService.delete(image_rating);
 
-        List<Image_Rating> image_ratings2 = imageRatingService.getAll();
+        List<ImageRating> image_ratings2 = imageRatingService.getAll();
         assertEquals("All imagesRating should have been deleted.", 0, image_ratings2.size());
     }
 
@@ -101,15 +101,15 @@ public class ImageRatingServiceTest {
         userService.create(user2);
         imageService.create(image1);
 
-        Image_Rating image_rating = new Image_Rating(image1.getId_image(), user1.getId_user(), Boolean.TRUE);
+        ImageRating image_rating = new ImageRating(image1.getId_image(), user1.getId_user(), Boolean.TRUE);
         imageRatingService.create(image_rating);
 
-        List<Image_Rating> image_ratings1 = imageRatingService.getAll();
+        List<ImageRating> image_ratings1 = imageRatingService.getAll();
         assertEquals("All imagesRating should have been created and retrieved.", 1, image_ratings1.size());
 
         imageRatingService.deleteAll();
 
-        List<Image_Rating> image_ratings2 = imageRatingService.getAll();
+        List<ImageRating> image_ratings2 = imageRatingService.getAll();
         assertEquals("All imagesRating should have been deleted.", 0, image_ratings2.size());
     }
 }

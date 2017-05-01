@@ -56,17 +56,17 @@ public class CommentRatingServiceTest {
         imageService.create(image1);
         commentService.create(comment);
 
-        Comment_Rating comment_rating1 = new Comment_Rating(comment.getId_comment(), user2.getId_user(), Boolean.TRUE);
+        CommentRating comment_rating1 = new CommentRating(comment.getId_comment(), user2.getId_user(), Boolean.TRUE);
         commentRatingService.create(comment_rating1);
 
-        List<Comment_Rating> comment_ratings1 = commentRatingService.getAll();
+        List<CommentRating> comment_ratings1 = commentRatingService.getAll();
         assertEquals("One commentRating should have been created and retrieved.", 1, comment_ratings1.size());
         assertEquals("Inserted commentRatings should match retrieved.", comment_rating1, comment_ratings1.get(0));
 
-        Comment_Rating comment_rating2 = new Comment_Rating(comment.getId_comment(), user1.getId_user(), Boolean.TRUE);
+        CommentRating comment_rating2 = new CommentRating(comment.getId_comment(), user1.getId_user(), Boolean.TRUE);
         commentRatingService.create(comment_rating2);
 
-        List<Comment_Rating> comment_ratings2 = commentRatingService.getAll();
+        List<CommentRating> comment_ratings2 = commentRatingService.getAll();
         assertEquals("Should be two retrieved commentRatings.", 2, comment_ratings2.size());
     }
 
@@ -77,13 +77,13 @@ public class CommentRatingServiceTest {
         imageService.create(image1);
         commentService.create(comment);
 
-        Comment_Rating comment_rating = new Comment_Rating(comment.getId_comment(), user2.getId_user(), Boolean.TRUE);
+        CommentRating comment_rating = new CommentRating(comment.getId_comment(), user2.getId_user(), Boolean.TRUE);
         commentRatingService.create(comment_rating);
 
         comment_rating.setRating(Boolean.FALSE);
         commentRatingService.update(comment_rating);
 
-        Comment_Rating retrieved = commentRatingService.getCommentRatings(comment).get(0);
+        CommentRating retrieved = commentRatingService.getCommentRatings(comment).get(0);
         assertEquals("Retrieved commentRating should be updated.", comment_rating, retrieved);
     }
 
@@ -94,15 +94,15 @@ public class CommentRatingServiceTest {
         imageService.create(image1);
         commentService.create(comment);
 
-        Comment_Rating comment_rating = new Comment_Rating(comment.getId_comment(), user2.getId_user(), Boolean.TRUE);
+        CommentRating comment_rating = new CommentRating(comment.getId_comment(), user2.getId_user(), Boolean.TRUE);
         commentRatingService.create(comment_rating);
 
-        List<Comment_Rating> comment_ratings1 = commentRatingService.getAll();
+        List<CommentRating> comment_ratings1 = commentRatingService.getAll();
         assertEquals("All commentRatings should have been created and retrieved.", 1, comment_ratings1.size());
 
         commentRatingService.delete(comment_rating);
 
-        List<Comment_Rating> comment_ratings2 = commentRatingService.getAll();
+        List<CommentRating> comment_ratings2 = commentRatingService.getAll();
         assertEquals("All commentRatings should have been deleted.", 0, comment_ratings2.size());
     }
 
@@ -113,15 +113,15 @@ public class CommentRatingServiceTest {
         imageService.create(image1);
         commentService.create(comment);
 
-        Comment_Rating comment_rating = new Comment_Rating(comment.getId_comment(), user2.getId_user(), Boolean.TRUE);
+        CommentRating comment_rating = new CommentRating(comment.getId_comment(), user2.getId_user(), Boolean.TRUE);
         commentRatingService.create(comment_rating);
 
-        List<Comment_Rating> comment_ratings1 = commentRatingService.getAll();
+        List<CommentRating> comment_ratings1 = commentRatingService.getAll();
         assertEquals("All commentRatings should have been created and retrieved.", 1, comment_ratings1.size());
 
         commentRatingService.deleteAll();
 
-        List<Comment_Rating> comment_ratings2 = commentRatingService.getAll();
+        List<CommentRating> comment_ratings2 = commentRatingService.getAll();
         assertEquals("All commentRatings should have been deleted.", 0, comment_ratings2.size());
     }
 }

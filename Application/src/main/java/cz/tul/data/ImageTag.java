@@ -6,7 +6,7 @@ import java.io.Serializable;
 @Entity
 @Table(name="Image_Tag")
 @IdClass(ImageTagId.class)
-public class Image_Tag implements Serializable {
+public class ImageTag implements Serializable {
 
     @Id
     @Column(name="id_image")
@@ -16,11 +16,11 @@ public class Image_Tag implements Serializable {
     @Column(name="name")
     private String name;
 
-    public Image_Tag() {
+    public ImageTag() {
         ;
     }
 
-    public Image_Tag(int id_image, String name) {
+    public ImageTag(int id_image, String name) {
         this.id_image = id_image;
         this.name = name;
     }
@@ -43,7 +43,7 @@ public class Image_Tag implements Serializable {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
 
-        Image_Tag image_tag = (Image_Tag) object;
+        ImageTag image_tag = (ImageTag) object;
 
         if (id_image != image_tag.getId_image()) return false;
         if (!name.equals(image_tag.getName())) return false;

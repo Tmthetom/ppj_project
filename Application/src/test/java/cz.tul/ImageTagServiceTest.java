@@ -1,7 +1,7 @@
 package cz.tul;
 
 import cz.tul.data.Image;
-import cz.tul.data.Image_Tag;
+import cz.tul.data.ImageTag;
 import cz.tul.data.Tag;
 import cz.tul.data.User;
 import cz.tul.services.ImageService;
@@ -70,19 +70,19 @@ public class ImageTagServiceTest {
         tagService.create(tag2);
         tagService.create(tag3);
 
-        Image_Tag image_tag1 = new Image_Tag(image3.getId_image(), tag1.getName());
-        Image_Tag image_tag2 = new Image_Tag(image1.getId_image(), tag2.getName());
-        Image_Tag image_tag3 = new Image_Tag(image2.getId_image(), tag3.getName());
+        ImageTag image_tag1 = new ImageTag(image3.getId_image(), tag1.getName());
+        ImageTag image_tag2 = new ImageTag(image1.getId_image(), tag2.getName());
+        ImageTag image_tag3 = new ImageTag(image2.getId_image(), tag3.getName());
 
         imageTagService.create(image_tag1);
 
-        List<Image_Tag> image_tags1 = imageTagService.getAll();
+        List<ImageTag> image_tags1 = imageTagService.getAll();
         assertEquals("One imageTag should have been created and retrieved.", 1, image_tags1.size());
         assertEquals("Inserted imageTags should match retrieved.", image_tag1, image_tags1.get(0));
 
         imageTagService.create(image_tag2);
         imageTagService.create(image_tag3);
-        List<Image_Tag> image_tags2 = imageTagService.getAll();
+        List<ImageTag> image_tags2 = imageTagService.getAll();
         assertEquals("Should be three retrieved imageTags.", 3, image_tags2.size());
     }
 
@@ -97,15 +97,15 @@ public class ImageTagServiceTest {
         tagService.create(tag2);
         tagService.create(tag3);
 
-        Image_Tag image_tag1 = new Image_Tag(image3.getId_image(), tag1.getName());
-        Image_Tag image_tag2 = new Image_Tag(image1.getId_image(), tag2.getName());
-        Image_Tag image_tag3 = new Image_Tag(image2.getId_image(), tag3.getName());
+        ImageTag image_tag1 = new ImageTag(image3.getId_image(), tag1.getName());
+        ImageTag image_tag2 = new ImageTag(image1.getId_image(), tag2.getName());
+        ImageTag image_tag3 = new ImageTag(image2.getId_image(), tag3.getName());
 
         imageTagService.create(image_tag1);
         imageTagService.create(image_tag2);
         imageTagService.create(image_tag3);
 
-        List<Image_Tag> image_tags = imageTagService.getImageTags(image1);
+        List<ImageTag> image_tags = imageTagService.getImageTags(image1);
         assertNotNull("Retrieved imageTags should not be null.", image_tags);
         assertEquals("Retrieved imageTags should be 1 for this name.", 1, image_tags.size());
     }
@@ -121,22 +121,22 @@ public class ImageTagServiceTest {
         tagService.create(tag2);
         tagService.create(tag3);
 
-        Image_Tag image_tag1 = new Image_Tag(image3.getId_image(), tag1.getName());
-        Image_Tag image_tag2 = new Image_Tag(image1.getId_image(), tag2.getName());
-        Image_Tag image_tag3 = new Image_Tag(image2.getId_image(), tag3.getName());
+        ImageTag image_tag1 = new ImageTag(image3.getId_image(), tag1.getName());
+        ImageTag image_tag2 = new ImageTag(image1.getId_image(), tag2.getName());
+        ImageTag image_tag3 = new ImageTag(image2.getId_image(), tag3.getName());
 
         imageTagService.create(image_tag1);
         imageTagService.create(image_tag2);
         imageTagService.create(image_tag3);
 
-        List<Image_Tag> image_tags1 = imageTagService.getAll();
+        List<ImageTag> image_tags1 = imageTagService.getAll();
         assertEquals("All imageTags should have been created and retrieved.", 3, image_tags1.size());
 
         imageTagService.delete(image_tag1);
         imageTagService.delete(image_tag2);
         imageTagService.delete(image_tag3);
 
-        List<Image_Tag> image_tags2 = imageTagService.getAll();
+        List<ImageTag> image_tags2 = imageTagService.getAll();
         assertEquals("All imageTags should have been deleted.", 0, image_tags2.size());
     }
 
@@ -151,20 +151,20 @@ public class ImageTagServiceTest {
         tagService.create(tag2);
         tagService.create(tag3);
 
-        Image_Tag image_tag1 = new Image_Tag(image3.getId_image(), tag1.getName());
-        Image_Tag image_tag2 = new Image_Tag(image1.getId_image(), tag2.getName());
-        Image_Tag image_tag3 = new Image_Tag(image2.getId_image(), tag3.getName());
+        ImageTag image_tag1 = new ImageTag(image3.getId_image(), tag1.getName());
+        ImageTag image_tag2 = new ImageTag(image1.getId_image(), tag2.getName());
+        ImageTag image_tag3 = new ImageTag(image2.getId_image(), tag3.getName());
 
         imageTagService.create(image_tag1);
         imageTagService.create(image_tag2);
         imageTagService.create(image_tag3);
 
-        List<Image_Tag> image_tags1 = imageTagService.getAll();
+        List<ImageTag> image_tags1 = imageTagService.getAll();
         assertEquals("All imageTags should have been created and retrieved.", 3, image_tags1.size());
 
         imageTagService.deleteAll();
 
-        List<Image_Tag> image_tags2 = imageTagService.getAll();
+        List<ImageTag> image_tags2 = imageTagService.getAll();
         assertEquals("All imageTags should have been deleted.", 0, image_tags2.size());
     }
 }

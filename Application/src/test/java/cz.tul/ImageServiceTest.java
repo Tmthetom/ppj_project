@@ -1,7 +1,7 @@
 package cz.tul;
 
 import cz.tul.data.Image;
-import cz.tul.data.Image_Tag;
+import cz.tul.data.ImageTag;
 import cz.tul.data.Tag;
 import cz.tul.data.User;
 import cz.tul.services.ImageService;
@@ -136,9 +136,9 @@ public class ImageServiceTest {
         tagService.create(tag2);
         tagService.create(tag3);
 
-        Image_Tag image_tag1 = new Image_Tag(image3.getId_image(), tag1.getName());
-        Image_Tag image_tag2 = new Image_Tag(image1.getId_image(), tag2.getName());
-        Image_Tag image_tag3 = new Image_Tag(image2.getId_image(), tag1.getName());
+        ImageTag image_tag1 = new ImageTag(image3.getId_image(), tag1.getName());
+        ImageTag image_tag2 = new ImageTag(image1.getId_image(), tag2.getName());
+        ImageTag image_tag3 = new ImageTag(image2.getId_image(), tag1.getName());
         imageTagService.create(image_tag1);
         imageTagService.create(image_tag2);
         imageTagService.create(image_tag3);
