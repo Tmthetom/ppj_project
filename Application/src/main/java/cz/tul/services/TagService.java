@@ -24,6 +24,10 @@ public class TagService {
         return tagRepository.exists(tag.getName());
     }
 
+    public Tag get(Tag tag){
+        return tagRepository.findOne(tag.getName());
+    }
+
     public List<Tag> getAll() {
         return StreamSupport.stream(tagRepository.findAll().spliterator(), false).collect(Collectors.toList());
     }
