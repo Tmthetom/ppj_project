@@ -28,7 +28,7 @@ public class ImageRatingService {
     }
 
     public List<ImageRating> getImageRatings(Image image) {
-        return imageRatingRepository.getImageRatings(image.getId_image());
+        return imageRatingRepository.findByIdImage(image.getId_image());
     }
 
     public List<ImageRating> getAll() {

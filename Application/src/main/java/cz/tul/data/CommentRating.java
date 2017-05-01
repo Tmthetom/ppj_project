@@ -10,7 +10,7 @@ public class CommentRating implements Serializable {
 
     @Id
     @Column(name="id_comment")
-    private int id_comment;
+    private int idComment;
 
     @Id
     @Column(name="id_user")
@@ -23,8 +23,8 @@ public class CommentRating implements Serializable {
         ;
     }
 
-    public CommentRating(int id_comment, int id_user, boolean rating) {
-        this.id_comment = id_comment;
+    public CommentRating(int idComment, int id_user, boolean rating) {
+        this.idComment = idComment;
         this.id_user = id_user;
         this.rating = rating;
     }
@@ -37,7 +37,7 @@ public class CommentRating implements Serializable {
     @Override
     public String toString() {
         return "Comment_Rating{" +
-                "id_comment = " + id_comment + ", " +
+                "idComment = " + idComment + ", " +
                 "id_user = " + id_user + ", " +
                 "rating = " + rating +
                 '}';
@@ -50,18 +50,18 @@ public class CommentRating implements Serializable {
 
         CommentRating image = (CommentRating) object;
 
-        if (id_comment != image.getId_comment()) return false;
+        if (idComment != image.getIdComment()) return false;
         if (id_user != image.getId_user()) return false;
         if (rating != image.getRating()) return false;
         return true;
     }
 
-    public int getId_comment() {
-        return id_comment;
+    public int getIdComment() {
+        return idComment;
     }
 
-    public void setId_comment(int id_comment) {
-        this.id_comment = id_comment;
+    public void setIdComment(int idComment) {
+        this.idComment = idComment;
     }
 
     public int getId_user() {

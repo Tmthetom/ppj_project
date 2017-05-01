@@ -57,8 +57,8 @@ public class Comment {
     @Override
     public String toString() {
         return "Comment{" +
-                "id_comment = " + id_comment + ", " +
-                "id_image = " + image + ", " +
+                "idComment = " + id_comment + ", " +
+                "idImage = " + image + ", " +
                 "author = " + author + ", " +
                 "message = " + message + ", " +
                 "created = " + created + ", " +

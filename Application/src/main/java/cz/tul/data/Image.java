@@ -59,7 +59,7 @@ public class Image {
     @Override
     public String toString() {
         return "Image{" +
-                "id_image = " + id_image + ", " +
+                "idImage = " + id_image + ", " +
                 "author = " + author + ", " +
                 "name = " + name + ", " +
                 "path = " + path + ", " +

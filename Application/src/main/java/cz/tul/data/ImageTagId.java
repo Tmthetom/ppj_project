@@ -3,7 +3,7 @@ package cz.tul.data;
 import java.io.Serializable;
 
 public class ImageTagId implements Serializable {
-    int id_image;
+    int idImage;
     String name;
 
     @Override
@@ -13,7 +13,7 @@ public class ImageTagId implements Serializable {
 
         ImageTagId imageTagId = (ImageTagId) object;
 
-        if (id_image != imageTagId.id_image) return false;
+        if (idImage != imageTagId.idImage) return false;
         if (!name.equals(imageTagId.name)) return false;
         return true;
     }

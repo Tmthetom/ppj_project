@@ -28,7 +28,7 @@ public class ImageTagService {
     }
 
     public List<ImageTag> getImageTags(Image image) {
-        return StreamSupport.stream(imageTagRepository.getImageTags(image.getId_image()).spliterator(), false).collect(Collectors.toList());
+        return imageTagRepository.findByIdImage(image.getId_image());
     }
 
     public List<ImageTag> getAll() {
