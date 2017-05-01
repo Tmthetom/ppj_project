@@ -35,7 +35,7 @@ public class CommentRatingService {
     }
 
     public List<CommentRating> getCommentRatings(Comment comment) {
-        return commentRatingRepository.getCommentRatings(comment.getId_comment());
+        return commentRatingRepository.findByIdComment(comment.getId_comment());
     }
 
     public List<CommentRating> getAll() {

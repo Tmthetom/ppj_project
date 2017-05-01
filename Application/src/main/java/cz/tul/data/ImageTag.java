@@ -10,7 +10,7 @@ public class ImageTag implements Serializable {
 
     @Id
     @Column(name="id_image")
-    private int id_image;
+    private int idImage;
 
     @Id
     @Column(name="name")
@@ -20,8 +20,8 @@ public class ImageTag implements Serializable {
         ;
     }
 
-    public ImageTag(int id_image, String name) {
-        this.id_image = id_image;
+    public ImageTag(int idImage, String name) {
+        this.idImage = idImage;
         this.name = name;
     }
 
@@ -33,7 +33,7 @@ public class ImageTag implements Serializable {
     @Override
     public String toString() {
         return "Image_Tag{" +
-                "id_image = " + id_image + ", " +
+                "idImage = " + idImage + ", " +
                 "name = " + name +
                 '}';
     }
@@ -45,17 +45,17 @@ public class ImageTag implements Serializable {
 
         ImageTag image_tag = (ImageTag) object;
 
-        if (id_image != image_tag.getId_image()) return false;
+        if (idImage != image_tag.getIdImage()) return false;
         if (!name.equals(image_tag.getName())) return false;
         return true;
     }
 
-    public int getId_image() {
-        return id_image;
+    public int getIdImage() {
+        return idImage;
     }
 
-    public void setId_image(int id_image) {
-        this.id_image = id_image;
+    public void setIdImage(int idImage) {
+        this.idImage = idImage;
     }
 
     public String getName() {

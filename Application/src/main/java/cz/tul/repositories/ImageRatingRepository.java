@@ -11,6 +11,5 @@ import java.util.List;
 
 @Repository
 public interface ImageRatingRepository extends CrudRepository<ImageRating, ImageRatingId> {
-    @Query("SELECT row FROM ImageRating AS row WHERE row.id_image = :id_image")
-    public List<ImageRating> getImageRatings(@Param("id_image") int id_image);
+    public List<ImageRating> findByIdImage(int idImage);
 }

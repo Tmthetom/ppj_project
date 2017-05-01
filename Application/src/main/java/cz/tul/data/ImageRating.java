@@ -10,7 +10,7 @@ public class ImageRating implements Serializable {
 
     @Id
     @Column(name="id_image")
-    private int id_image;
+    private int idImage;
 
     @Id
     @Column(name="id_user")
@@ -23,8 +23,8 @@ public class ImageRating implements Serializable {
         ;
     }
 
-    public ImageRating(int id_image, int id_user, boolean rating) {
-        this.id_image = id_image;
+    public ImageRating(int idImage, int id_user, boolean rating) {
+        this.idImage = idImage;
         this.id_user = id_user;
         this.rating = rating;
     }
@@ -37,7 +37,7 @@ public class ImageRating implements Serializable {
     @Override
     public String toString() {
         return "Image_Rating{" +
-                "id_image = " + id_image + ", " +
+                "idImage = " + idImage + ", " +
                 "id_user = " + id_user + ", " +
                 "rating = " + rating +
                 '}';
@@ -50,18 +50,18 @@ public class ImageRating implements Serializable {
 
         ImageRating image_rating = (ImageRating) object;
 
-        if (id_image != image_rating.getId_image()) return false;
+        if (idImage != image_rating.getIdImage()) return false;
         if (id_user != image_rating.getId_user()) return false;
         if (rating != image_rating.getRating()) return false;
         return true;
     }
 
-    public int getId_image() {
-        return id_image;
+    public int getIdImage() {
+        return idImage;
     }
 
-    public void setId_image(int id_image) {
-        this.id_image = id_image;
+    public void setIdImage(int idImage) {
+        this.idImage = idImage;
     }
 
     public int getId_user() {

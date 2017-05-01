@@ -11,6 +11,5 @@ import java.util.List;
 
 @Repository
 public interface CommentRatingRepository extends CrudRepository<CommentRating, CommentRatingId> {
-    @Query("SELECT row FROM CommentRating AS row WHERE row.id_comment = :id_comment")
-    public List<CommentRating> getCommentRatings(@Param("id_comment") int id_comment);
+    public List<CommentRating> findByIdComment(int idComment);
 }

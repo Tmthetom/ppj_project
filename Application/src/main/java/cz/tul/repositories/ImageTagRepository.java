@@ -10,6 +10,5 @@ import java.util.List;
 
 @Repository
 public interface ImageTagRepository extends CrudRepository<ImageTag, ImageTagId> {
-    @Query("SELECT row FROM ImageTag AS row WHERE row.id_image = :id_image")
-    public List<ImageTag> getImageTags(@Param("id_image") int id_image);
+    public List<ImageTag> findByIdImage(int idImage);
 }
