@@ -28,7 +28,7 @@ public class ImageService {
     }
 
     public Image get(Image image) {
-        return imageRepository.getImage(image.getId_image());
+        return imageRepository.findOne(image.getId_image());
     }
 
     public List<Image> getAll() {

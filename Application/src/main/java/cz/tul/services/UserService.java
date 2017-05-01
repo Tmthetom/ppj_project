@@ -23,6 +23,10 @@ public class UserService {
         return userRepository.exists(user.getId_user());
     }
 
+    public User get(User user){
+        return userRepository.findOne(user.getId_user());
+    }
+
     public List<User> getAll() {
         return StreamSupport.stream(userRepository.findAll().spliterator(), false).collect(Collectors.toList());
     }

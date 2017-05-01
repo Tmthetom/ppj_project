@@ -28,7 +28,7 @@ public class CommentService {
     }
 
     public Comment get(Comment comment) {
-        return commentRepository.getComment(comment.getId_comment());
+        return commentRepository.findOne(comment.getId_comment());
     }
 
     public List<Comment> getAll() {

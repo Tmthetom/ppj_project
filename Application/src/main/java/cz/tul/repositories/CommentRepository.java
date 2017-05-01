@@ -10,9 +10,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface CommentRepository extends CrudRepository<Comment, Integer> {
-    @Query("SELECT row FROM Comment AS row WHERE row.id_comment = :id_comment")
-    public Comment getComment(@Param("id_comment") int id_comment);
-
     @Query("SELECT row FROM Comment AS row WHERE row.image = :image")
     public List<Comment> findByImage(@Param("image") Image image);
 
