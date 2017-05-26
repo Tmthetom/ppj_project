@@ -1,12 +1,15 @@
 package cz.tul.controllers;
 
+import cz.tul.services.ImageService;
+import org.apache.log4j.Logger;
 import cz.tul.client.FileManager;
 import cz.tul.client.ImageStatus;
 import cz.tul.client.ServerApi;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
+import cz.tul.data.Image;
+import cz.tul.data.User;
+import cz.tul.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,27 +22,54 @@ import java.net.URLConnection;
 @RestController
 public class ImageController {
 
-    private FileManager imageDataMgr;
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private ImageService imageService;
+
+    private FileManager fileManager;
 
     @RequestMapping(value = ServerApi.UPLOAD_PATH, method = RequestMethod.POST)
-    public
-    @ResponseBody
-    ImageStatus uploadImage(@PathVariable("name") String name,
-                            @RequestParam("data") MultipartFile imageData,
-                            HttpServletResponse response) {
-
-        ImageStatus state = new ImageStatus(ImageStatus.ImageState.READY);
-
-        setFileManager();
+    public ResponseEntity<ImageStatus> uploadImage(
+            @RequestParam("author") String authorId,
+            @RequestParam("name") String fileName,
+            @RequestParam("file") MultipartFile imageFile
+    ) {
+        User author = null;
+        Image image = null;
 
         try {
-            imageDataMgr.saveImageData(name, imageData.getInputStream());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            author = userService.get(Integer.parseInt(authorId));
+            if (!userService.exists(author)){
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        }
+        catch (Exception e)
+        {
+            Logger logger = Logger.getLogger(ImageController.class);
+            logger.error("Unable to parse author id = " + authorId + ":", e);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        return state;
+        ImageStatus state = new ImageStatus(ImageStatus.ImageState.READY);
+        try{
+            image = new Image(author, fileName, "");
+            imageService.create(image);
+
+            if (image.getPath().equals("")){
+                setFileManager();
+                int id = image.getId_image();
+                fileManager.saveImageData(id + "", imageFile.getInputStream());
+            }
+        }
+        catch (Exception e){
+            Logger logger = Logger.getLogger(ImageController.class);
+            logger.error("Unable to parse image path = " + authorId + ":", e);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<>(state, HttpStatus.OK);
     }
 
 //    @RequestMapping(value = "/files/{file_name}", method = RequestMethod.GET)
@@ -57,11 +87,11 @@ public class ImageController {
         HttpHeaders headers = new HttpHeaders();
 
         setFileManager();
-        if (imageDataMgr.imageExists(name)) {
+        if (fileManager.imageExists(name)) {
             try {
 
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                imageDataMgr.copyImageData(name, bos);
+                fileManager.copyImageData(name, bos);
                 image = bos.toByteArray();
                 headers.setContentLength(image.length);
                 String mime = URLConnection.guessContentTypeFromStream(new ByteArrayInputStream(image));
@@ -78,7 +108,7 @@ public class ImageController {
 
     public void setFileManager() {
         try {
-            imageDataMgr = FileManager.get();
+            fileManager = FileManager.get();
         } catch (IOException e) {
             e.printStackTrace();
         }

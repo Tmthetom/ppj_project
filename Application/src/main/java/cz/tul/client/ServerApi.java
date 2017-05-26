@@ -6,8 +6,8 @@ import retrofit.mime.TypedFile;
 
 public interface ServerApi {
 
-    public static final String DOWNLOAD_PATH = "/download/{name}";
-    public static final String UPLOAD_PATH = "/upload/{name}";
+    public static final String DOWNLOAD_PATH = "/Download/{name}";
+    public static final String UPLOAD_PATH = "/Image/{name}";
 
     @Multipart
     @POST(UPLOAD_PATH)
