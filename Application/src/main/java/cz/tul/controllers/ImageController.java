@@ -59,8 +59,9 @@ public class ImageController {
 
             if (image.getPath().equals("")){
                 setFileManager();
-                int id = image.getId_image();
-                fileManager.saveImageData(id + "", imageFile.getInputStream());
+                fileManager.saveImageData(fileName, imageFile.getInputStream());
+                image.setPath(ServerApi.UPLOAD_PATH + "/" + fileName);
+                imageService.update(image);
             }
         }
         catch (Exception e){
@@ -71,12 +72,6 @@ public class ImageController {
 
         return new ResponseEntity<>(state, HttpStatus.OK);
     }
-
-//    @RequestMapping(value = "/files/{file_name}", method = RequestMethod.GET)
-//    @ResponseBody
-//    public FileSystemResource getFile(@PathVariable("file_name") String fileName) {
-//        return new FileSystemResource(myService.getFileFor(fileName));
-//    }
 
     @RequestMapping(value = ServerApi.DOWNLOAD_PATH, method = RequestMethod.GET)
     public

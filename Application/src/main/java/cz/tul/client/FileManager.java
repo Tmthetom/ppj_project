@@ -15,7 +15,7 @@ public class FileManager {
         return new FileManager();
     }
 
-    private Path targetDir_ = Paths.get("images");
+    private Path targetDir_ = Paths.get("Image");
 
     private FileManager() throws IOException {
         if (!Files.exists(targetDir_)) {
