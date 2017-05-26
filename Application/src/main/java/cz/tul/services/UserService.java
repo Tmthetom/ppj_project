@@ -27,6 +27,10 @@ public class UserService {
         return userRepository.findOne(user.getId_user());
     }
 
+    public User get(int userId){
+        return userRepository.findOne(userId);
+    }
+
     public List<User> getAll() {
         return StreamSupport.stream(userRepository.findAll().spliterator(), false).collect(Collectors.toList());
     }

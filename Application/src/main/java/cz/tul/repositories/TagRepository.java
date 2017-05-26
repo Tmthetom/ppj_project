@@ -2,8 +2,8 @@ package cz.tul.repositories;
 
 import cz.tul.data.Tag;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-@Repository
+@RepositoryRestResource(collectionResourceRel = "Tag", path = "Tag")
 public interface TagRepository extends CrudRepository<Tag, String> {
 }
