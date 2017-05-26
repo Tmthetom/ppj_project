@@ -6,9 +6,11 @@ import cz.tul.data.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
+@RepositoryRestResource(collectionResourceRel = "Comment", path = "Comment")
 public interface CommentRepository extends CrudRepository<Comment, Integer> {
     @Query("SELECT row FROM Comment AS row WHERE row.image = :image")
     public List<Comment> findByImage(@Param("image") Image image);
