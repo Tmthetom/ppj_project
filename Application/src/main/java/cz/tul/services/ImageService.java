@@ -44,7 +44,7 @@ public class ImageService {
     }
 
     public List<Image> getByTag(Tag tag) {
-        return imageRepository.findByTags(tag.getName());
+        return imageRepository.findByTag(tag.getName());
     }
 
     public void delete(Image image){
