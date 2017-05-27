@@ -27,8 +27,16 @@ public class ImageService {
         return imageRepository.exists(image.getId_image());
     }
 
+    public boolean exists(int imageId) {
+        return imageRepository.exists(imageId);
+    }
+
     public Image get(Image image) {
         return imageRepository.findOne(image.getId_image());
+    }
+
+    public Image get(int imageId) {
+        return imageRepository.findOne(imageId);
     }
 
     public List<Image> getAll() {

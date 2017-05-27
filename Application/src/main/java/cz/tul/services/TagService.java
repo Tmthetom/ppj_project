@@ -24,8 +24,16 @@ public class TagService {
         return tagRepository.exists(tag.getName());
     }
 
+    public boolean exists(String tagName) {
+        return tagRepository.exists(tagName);
+    }
+
     public Tag get(Tag tag){
         return tagRepository.findOne(tag.getName());
+    }
+
+    public Tag get(String tagName){
+        return tagRepository.findOne(tagName);
     }
 
     public List<Tag> getAll() {
