@@ -15,7 +15,7 @@ public class FileManager {
         return new FileManager();
     }
 
-    private Path targetDir_ = Paths.get("Image");
+    private Path targetDir_ = Paths.get("images");
 
     private FileManager() throws IOException {
         if (!Files.exists(targetDir_)) {
@@ -34,7 +34,7 @@ public class FileManager {
         return Files.exists(source);
     }
 
-    public void copyImageData(String filename, OutputStream out) throws IOException {
+    public void retrieveImage(String filename, OutputStream out) throws IOException {
         Path source = getImagePath(filename);
         if (!Files.exists(source)) {
             throw new FileNotFoundException("Unable to find the referenced file:" + filename);
