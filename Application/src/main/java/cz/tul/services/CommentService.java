@@ -27,8 +27,16 @@ public class CommentService {
         return commentRepository.exists(comment.getId_comment());
     }
 
+    public boolean exists(int commentId) {
+        return commentRepository.exists(commentId);
+    }
+
     public Comment get(Comment comment) {
         return commentRepository.findOne(comment.getId_comment());
+    }
+
+    public Comment get(int commentId) {
+        return commentRepository.findOne(commentId);
     }
 
     public List<Comment> getAll() {

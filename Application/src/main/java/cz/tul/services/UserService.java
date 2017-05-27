@@ -23,6 +23,10 @@ public class UserService {
         return userRepository.exists(user.getId_user());
     }
 
+    public boolean exists(int userId) {
+        return userRepository.exists(userId);
+    }
+
     public User get(User user){
         return userRepository.findOne(user.getId_user());
     }

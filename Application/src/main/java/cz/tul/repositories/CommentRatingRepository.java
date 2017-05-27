@@ -7,7 +7,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-@RepositoryRestResource(collectionResourceRel = "Comment_Rating", path = "Comment_Rating")
+@RepositoryRestResource(collectionResourceRel = "Comment_Rating", path = "commentRatings")
 public interface CommentRatingRepository extends CrudRepository<CommentRating, CommentRatingId> {
     public List<CommentRating> findByIdComment(int idComment);
 }
