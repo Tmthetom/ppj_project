@@ -7,7 +7,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-@RepositoryRestResource(collectionResourceRel = "Image_Rating", path = "Image_Rating")
+@RepositoryRestResource(collectionResourceRel = "Image_Rating", path = "imageRatings")
 public interface ImageRatingRepository extends CrudRepository<ImageRating, ImageRatingId> {
     public List<ImageRating> findByIdImage(int idImage);
 }

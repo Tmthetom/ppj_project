@@ -6,7 +6,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-@RepositoryRestResource(collectionResourceRel = "Image_Tag", path = "Image_Tag")
+@RepositoryRestResource(collectionResourceRel = "Image_Tag", path = "imageTags")
 public interface ImageTagRepository extends CrudRepository<ImageTag, ImageTagId> {
     public List<ImageTag> findByIdImage(int idImage);
 }

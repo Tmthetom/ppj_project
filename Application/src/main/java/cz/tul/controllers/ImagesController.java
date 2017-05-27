@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.net.URLConnection;
 
 @RestController
-public class ImageController {
+public class ImagesController {
 
     @Autowired
     private UserService userService;
@@ -30,7 +30,7 @@ public class ImageController {
 
     private FileManager fileManager;
 
-    @RequestMapping(value = ServerApi.UPLOAD_PATH, method = RequestMethod.POST)
+    @RequestMapping(value = ServerApi.IMAGES_PATH, method = RequestMethod.POST)
     public ResponseEntity<ImageStatus> uploadImage(
             @RequestParam("author") String authorId,
             @RequestParam("name") String fileName,
@@ -47,7 +47,7 @@ public class ImageController {
         }
         catch (Exception e)
         {
-            Logger logger = Logger.getLogger(ImageController.class);
+            Logger logger = Logger.getLogger(ImagesController.class);
             logger.error("Unable to parse author id = " + authorId + ":", e);
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -60,12 +60,12 @@ public class ImageController {
             if (image.getPath().equals("")){
                 setFileManager();
                 fileManager.saveImageData(fileName, imageFile.getInputStream());
-                image.setPath(ServerApi.UPLOAD_PATH + "/" + fileName);
+                image.setPath(ServerApi.IMAGES_PATH + "/" + fileName);
                 imageService.update(image);
             }
         }
         catch (Exception e){
-            Logger logger = Logger.getLogger(ImageController.class);
+            Logger logger = Logger.getLogger(ImagesController.class);
             logger.error("Unable to parse image path = " + authorId + ":", e);
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -73,7 +73,7 @@ public class ImageController {
         return new ResponseEntity<>(state, HttpStatus.OK);
     }
 
-    @RequestMapping(value = ServerApi.DOWNLOAD_PATH, method = RequestMethod.GET)
+    @RequestMapping(value = ServerApi.IMAGE_PATH, method = RequestMethod.GET)
     public
     @ResponseBody
     HttpEntity<byte[]> downloadImage(@PathVariable("name") String name, HttpServletResponse response) {
@@ -105,7 +105,8 @@ public class ImageController {
         try {
             fileManager = FileManager.get();
         } catch (IOException e) {
-            e.printStackTrace();
+            Logger logger = Logger.getLogger(ImagesController.class);
+            logger.error("Unable to set file manager:", e);
         }
     }
 }

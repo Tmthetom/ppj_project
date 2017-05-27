@@ -10,7 +10,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-@RepositoryRestResource(collectionResourceRel = "Comment", path = "Comment")
+@RepositoryRestResource(collectionResourceRel = "Comment", path = "comments")
 public interface CommentRepository extends CrudRepository<Comment, Integer> {
     @Query("SELECT row FROM Comment AS row WHERE row.image = :image")
     public List<Comment> findByImage(@Param("image") Image image);
